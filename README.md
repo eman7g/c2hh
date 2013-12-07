@@ -1,4 +1,4 @@
-snyder_wp
+C2HH WP
 =========
 
-Snyder WordPress Theme — snyder-builds.com
+C2HH WordPress Theme — c2hh.com
