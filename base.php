@@ -13,60 +13,6 @@
     }
   ?>
 
-<?php if (is_page('home')) : ?>
-  <div class="grid-container">
-    <div class="home-grid">
-      <div class="home-grid-inner clearfix">
-        <div class="block-column">
-          <div class="block small green"></div>
-          <div class="block small image">
-            <?php 
-              $attachment_ids = get_field('grid_small_images');
-              echo wp_get_attachment_image( $attachment_ids[0]['image'], 'grid_small' );
-            ?>          
-          </div>
-        </div>
-        <div class="block-column-large block-column">
-          <div class="block large image">
-            <?php 
-              $attachment_id = get_field('grid_large_image');
-              echo wp_get_attachment_image( $attachment_id, 'grid_large' );
-            ?>
-          </div>
-        </div>
-        <div class="block-column">
-          <div class="block small image">
-            <?php 
-              echo wp_get_attachment_image( $attachment_ids[1]['image'], 'grid_small' );
-            ?>   
-          </div>
-          <a class="block small green" href="#">
-            <h4>Compare Shelters</h4>
-          </a>
-        </div>
-        <div class="block-column">
-          <a class="block small blue" href="#">
-              <h4>Our Story</h4>
-          </a>
-          <div class="block small image">
-            <?php 
-              echo wp_get_attachment_image( $attachment_ids[2]['image'], 'grid_small' );
-            ?>   
-          </div>
-        </div>
-        <div class="block-column">
-          <div class="block small image">
-            <?php 
-              echo wp_get_attachment_image( $attachment_ids[3]['image'], 'grid_small' );
-            ?>   
-          </div>
-          <div class="block small blue"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-<?php endif ?>
-
   <div class="wrap container" role="document">
     <div class="content row">
       <?php if (roots_display_sidebar()) : ?>

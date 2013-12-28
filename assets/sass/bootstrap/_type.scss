@@ -9,6 +9,7 @@
 p {
   margin: 0 0 ($line-height-computed * 1.1);
   font-size:$font-size-paragraph;
+  font-weight:300;
 }
 .lead {
   margin-bottom: $line-height-computed;

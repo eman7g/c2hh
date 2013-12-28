@@ -67,6 +67,9 @@
 /* ==========================================================================
    Base
    ========================================================================== */
+html, html a{
+   -webkit-font-smoothing: antialiased !important;
+}
 
 body { 
    color:$text-color;
@@ -147,7 +150,7 @@ hr{
 
 
 .banner { 
-   height:125px;
+   height:146px;
    background:#fff;
    margin:0;
    border-bottom:1px solid $gray-light;
@@ -216,16 +219,17 @@ hr{
 
    .navbar-header{
       display:block;
-      margin-top:30px;
+      margin-top:40px;
 
       .navbar-brand{
          @include hide-text();
          background: url("../img/logo.png") no-repeat;
+         @include background-size(174px 62px);
          display:block;
-         width:160px;
-         height:55px;
+         width:174px;
+         height:62px;
          padding:0;
-         max-height:55px;
+         max-height:62px;
          margin:0;
       }
    }
@@ -282,91 +286,92 @@ hr{
       border:0;
    }
 
-   .grid-container{
-      width:100%;
-      background-color:$brand-primary;
-      margin-bottom:42px;
 
-      .home-grid{
-         max-width:1440px;
-         margin:0 auto;
-         max-height: 322px;
+   .home-grid{
+      max-height: 322px;
+      display:block;
+      margin-bottom:40px;
+      overflow:hidden;
+
+      hr{
+         margin:0;
+         padding:0;
+         width:100%;
+      }
+
+      .block-column{
+         float:left;
+         width:25%
+      }
+
+      .block-column-large{
+         float:left;
+         width:50%;
+      }
+
+      .block{
+         float:left;
          display:block;
-         overflow:hidden;
+         width:100%;
+         position:relative;
 
-         .block-column{
-            float:left;
-            width:16.6667%
-         }
-
-         .block-column-large{
-            float:left;
-            width:33.3332%;
-         }
-
-         .block{
-            float:left;
-            display:block;
+         img{
             width:100%;
-            position:relative;
-
-            img{
-               width:100%;
-               height:auto;
-            }
-
-            &.small{
-               width:100%;
-               height:50%;
-            }
-
-            &.large{
-               width:100%;
-               height:100%;
-            }
-
-            &.green{
-               background-color:$brand-secondary;
-            }
-
-            &.blue{
-               background-color:$brand-primary;
-            }
-
-            h4{
-               color:#fff;
-               font-size:24px;
-               text-transform:uppercase;
-               font-weight:300;
-               padding:8% 5%;
-            }
+            height:auto;
+            margin:0;
          }
 
-         a.block{
+         &.small{
+            width:100%;
+            height:50%;
+         }
 
-            &:hover{
-               text-decoration:none;
+         &.large{
+            width:100%;
+            height:100%;
+         }
 
-               &:after{
-                  @include opacity(1);
-               }
-            }
+         &.green{
+            background-color:$brand-secondary;
+         }
+
+         &.blue{
+            background-color:$brand-primary;
+         }
+
+         h4{
+            color:#fff;
+            font-size:24px;
+            text-transform:uppercase;
+            font-weight:300;
+            padding:8% 5%;
+         }
+      }
+
+      a.block{
+
+         &:hover{
+            text-decoration:none;
+
             &:after{
-               content:"";
-               width:34px;
-               height:34px;
-               position:absolute;
-               bottom:0;
-               right:0;
-               background: rgba(0,102,102,.7) url('../img/triangle_right.png') no-repeat center center;
-               @include opacity(0);
-               @include transition(opacity .3s ease-in-out);
+               @include opacity(1);
             }
+         }
+         &:after{
+            content:"";
+            width:34px;
+            height:34px;
+            position:absolute;
+            bottom:0;
+            right:0;
+            background: rgba(0,102,102,.7) url('../img/triangle_right.png') no-repeat center center;
+            @include opacity(0);
+            @include transition(opacity .3s ease-in-out);
+         }
 
-            &.green{
-               &:after{
-                  background: rgba(107,144,37,.7) url('../img/triangle_right.png') no-repeat center center;
-               }
+         &.green{
+            &:after{
+               background: rgba(107,144,37,.7) url('../img/triangle_right.png') no-repeat center center;
             }
          }
       }
@@ -374,20 +379,25 @@ hr{
 
    .featured-text{
       p{
-         font-size:34px;
-         line-height:43.5px;
-         color:#000;
+         font-size:36px;
+         line-height:44px;
+         color:$gray-darker;
          margin:0 0 37px 0;
          text-align:center;
-         font-weight:300;
+         font-weight:100;
       }
    }
 
    article.home-feature{
       margin-bottom:26px;
 
-      h2{
+      h3{
          text-transform:uppercase;
+         text-align:left;
+         font-size:20px;
+         color:$gray-darker;
+         font-weight:300;
+         padding-bottom:20px;
       }
 
       .entry-content{
@@ -549,7 +559,7 @@ hr{
       margin-bottom:5px;
 
       h3{
-         font-weight:900;
+         font-weight:700;
          text-transform:uppercase;
          font-size:12px;
          line-height:18px;
