@@ -22,13 +22,13 @@
 	            ?>   
 	          </a>
 	          <a class="block small green" href="#">
-	            <h4>Compare Shelters</h4>
+	            <h4>Our Story</h4>
 	          </a>
 	        </div>
 
 	        <div class="block-column">
 	          <a class="block small blue" href="#">
-	              <h4>Our Story</h4>
+	              <h4>Compare Shelters</h4>
 	          </a>
 	          <a class="block small image" href="#">
 	            <?php 
