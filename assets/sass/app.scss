@@ -140,6 +140,14 @@ hr{
    float:left;
    width:100%;
    padding-bottom:22px;
+
+   &.title-divider{
+      @include border(top, 10px, solid, #000);
+      width:100px;
+      float:none;
+      margin:0 auto 40px auto;
+      padding:0;
+   }
 }
 
 
@@ -158,7 +166,7 @@ hr{
    .navbar-collapse{
       float:right;
       clear:right;
-      margin-top:50px;
+      margin-top:60px;
       border:0;
       padding:0;
 
@@ -236,7 +244,7 @@ hr{
 
    .search-form{
       margin-left:-20px;
-      margin-top:42px;
+      margin-top:52px;
       position:relative;
 
       .form-control{
@@ -412,6 +420,7 @@ hr{
    The Team
    ========================================================================== */
 .team-members{
+
    .team-nav{
       border:0;
       width:100%;
@@ -419,6 +428,7 @@ hr{
       li{
          margin:0 11.75% 0 0;
          width:25.5%;
+         min-height:375px;
 
          &:last-child{
             margin:0;
@@ -430,7 +440,9 @@ hr{
             outline:0;
             border:0;
             @include border-radius(0);
-            @include transition(border-width .2s ease-in-out);
+            @include transition(all .2s ease-in-out);
+            float:left;
+            display:block;
 
             &:hover{
                border:0;
@@ -441,6 +453,8 @@ hr{
             img{
                margin:0;
                max-width:100%;
+               display:block;
+               float:left;
             }
          }
 
@@ -450,42 +464,130 @@ hr{
       }
 
    }
-   .team-content{
-      .team-pane{
-         margin-top:30px;
+}
 
-         h3{
+.team-content{
+   .team-pane{
+      margin-top:30px;
+
+      h3{
+         display:block;
+         margin:0 0 10px 0;
+         padding:0;
+         list-style:none;
+         color:$brand-primary;
+         font-size:32px;
+         font-weight:300;
+         float:none;
+         text-align:left;
+         text-transform:uppercase;
+
+         &:after{
+            display:none;
+         }
+      }
+
+      h4{
+         display:block;
+         font-size:14px;
+         color:#000;
+         font-style:italic;
+         padding-bottom:30px;
+         font-weight:300;
+         line-height:20px;
+      }
+
+      h5{
+         font-size:20px;
+         font-weight:300;
+         font-style:normal;
+         float:left;
+         color:$gray-darker;
+         padding:0;
+         line-height:20px;
+         text-transform:uppercase;
+         letter-spacing:-1px;
+      }
+
+      p{
+         margin-bottom:22px;
+      }
+
+      .connect{
+         float:right;
+         display:block;
+         margin:0;
+         padding:0;
+
+         li{
             display:block;
-            margin:0 0 10px 0;
-            padding:0;
-            list-style:none;
-            color:$brand-primary;
-            font-size:32px;
-            font-weight:300;
-            float:none;
-            text-align:left;
-            text-transform:uppercase;
-
-            &:after{
-               display:none;
+            float:left;
+            width:20px;
+            height:15px;
+            background-image: url('../img/social_connect.png');
+            background-repeat:no-repeat;
+            text-indent:-99999px;
+            margin-right:10px;
+            
+            a{
+               display:block;
+               width:20px;
+               height:15px;
             }
-         }
 
-         h4{
-            display:block;
-            font-size:14px;
-            color:#000;
-            font-style:italic;
-            padding-bottom:30px;
-            font-weight:300;
-         }
+            &.twitter {
+               background-position: left top;
+            }
 
-         p{
-            margin-bottom:22px;
+            &.email {
+               background-position:right top;
+            }
          }
       }
    }
 }
+
+.advisory-board{
+
+   .advisory-nav{
+      border:0;
+
+      > li{
+         display:block;
+         float:none;
+         margin:5px 0;
+         border:0;
+         float:left;
+         width:100%;
+
+         a{
+            display:block;
+            margin:0;
+            padding:0 0 0 25px;
+            font-size:20px;
+            color:#000;
+            text-transform:uppercase;
+            height:42px;
+            line-height:42px;
+            font-weight:700;
+            border:0;
+            @include border-radius(0);
+         }
+
+         &.active{
+            a, a:hover{
+               background-color:$gray-darker;
+               color:#fff;
+               margin:0;
+               padding:0 0 0 25px;
+               border:0;
+            }
+         }
+      }
+
+   }
+}
+
 /* ==========================================================================
    Content
    ========================================================================== */
@@ -516,6 +618,12 @@ hr{
       padding-bottom:34px;
       width:102%;
       margin:0 -10px;
+
+      &.title-divider{
+         margin:15px auto 40px auto;
+         width:100px;
+         padding:0;
+      }
    }
 }
 

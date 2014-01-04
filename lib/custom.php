@@ -25,7 +25,7 @@ function theme_setup() {
 	// Custom image sizes
 	add_image_size( 'grid_small', 240, 161, TRUE );
 	add_image_size( 'grid_large', 480, 324, TRUE );
-	//add_image_size( 'thumbnail_instructor', 145, 145, TRUE );
+	add_image_size( 'team_thumb', 240, 350, TRUE );
 
 	// Support post-thumbnails
 	add_theme_support( 'post-thumbnails' );

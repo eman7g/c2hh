@@ -8,44 +8,121 @@
 
   	<div class="team-members">
   		<!-- Nav tabs -->
-		<ul class="nav team-nav team-tabs nav-tabs">
-		  <li class="active"><a href="#member1" data-toggle="tab"><img src="<?php bloginfo('template_url'); ?>/assets/img/team_member1.jpg" /></a></li>
-		  <li><a href="#member2" data-toggle="tab"><img src="<?php bloginfo('template_url'); ?>/assets/img/team_member2.jpg" /></a></li>
-		  <li><a href="#member3" data-toggle="tab"><img src="<?php bloginfo('template_url'); ?>/assets/img/team_member3.jpg" /></a></li>
-		</ul>
+		<?php if(get_field('team_members')): ?>
+
+			<?php $i = 1;?>
+		 
+			<ul class="nav team-nav team-tabs nav-tabs">
+		 
+			<?php while(has_sub_field('team_members')): ?>
+		 
+				<li <?php if ($i == 1){echo "class='active'";} ?>>
+					<a href="#member<?php echo $i;?>" data-toggle="tab">
+						<?php echo wp_get_attachment_image( get_sub_field('image'), 'team_thumb' ); ?>
+					</a>
+				</li>
+
+				<?php $i++;?>
+		 
+			<?php endwhile; ?>
+		 
+			</ul>
+		 
+		<?php endif; ?>		
 
 		<!-- Tab panes -->
-		<div class="tab-content team-content">
-			<div class="tab-pane team-pane fade in active" id="member1">
-				<h3 class="name">Rachel Stamm</h3>
-				<h4 class="position">Founder & CEO, MBA</h4>
-				
-				<p>Rachel has an MBA in Sustainable Systems & a Certificate in the Sustainable Built Environment, both from Bainbridge Graduate Institute, & 13 years experience in housing people as a Seattle Real Estate Broker. </p>
+		<?php if (get_field('team_members')) : ?>
 
-				<p>An advocate for the necessary shift toward a sustainable built environment, Rachel understands the impact that the space in which we spend our time has upon our health, mindset and spirit.  Rachel is invested in making the business case for sustainable, healthy housing that supports, in multiple ways, the people in need of emergency housing.  She believes this work is a social justice issue.</p>
+			<?php $j = 1;?>
+
+			<div class="tab-content team-content">
+
+			<?php while(has_sub_field('team_members')): ?>
+
+				<div class="tab-pane team-pane fade in <?php if ($j == 1){echo "active";} ?>" id="member<?php echo $j;?>">
+					<h3 class="name"><?php the_sub_field('name');?></h3>
+					<h4 class="position"><?php the_sub_field('position');?></h4>
+					
+					<div class="row">
+						<div class="col-md-10">
+							<?php the_sub_field('description');?>
+						</div>
+						<div class="col-md-4 col-md-offset-2">
+							<h5>Connect</h5>
+							<ul class="connect">
+								<?php if (get_sub_field('twitter')) : ?>
+									<li class="twitter"><a href="http://<?php the_sub_field('twitter');?>">Twitter</a></li>
+								<?php endif ?>
+								<?php if (get_sub_field('email')) : ?>
+									<li class="email"><a href="http://<?php the_sub_field('email');?>">Email</a></li>
+								<?php endif ?>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+			<?php $j++; endwhile ?>
 
 			</div>
-			<div class="tab-pane team-pane fade in" id="member2">
-				<h3 class="name">Rachel Stamm</h3>
-				<h4 class="position">Founder & CEO, MBA</h4>
-				<p>Rachel has an MBA in Sustainable Systems & a Certificate in the Sustainable Built Environment, both from Bainbridge Graduate Institute, & 13 years experience in housing people as a Seattle Real Estate Broker. </p>
-
-				<p>An advocate for the necessary shift toward a sustainable built environment, Rachel understands the impact that the space in which we spend our time has upon our health, mindset and spirit.  Rachel is invested in making the business case for sustainable, healthy housing that supports, in multiple ways, the people in need of emergency housing.  She believes this work is a social justice issue.</p>		  
-			</div>
-			<div class="tab-pane team-pane fade in" id="member3">
-				<h3 class="name">Rachel Stamm</h3>
-				<h4 class="position">Founder & CEO, MBA</h4>
-				<p>Rachel has an MBA in Sustainable Systems & a Certificate in the Sustainable Built Environment, both from Bainbridge Graduate Institute, & 13 years experience in housing people as a Seattle Real Estate Broker. </p>
-
-				<p>An advocate for the necessary shift toward a sustainable built environment, Rachel understands the impact that the space in which we spend our time has upon our health, mindset and spirit.  Rachel is invested in making the business case for sustainable, healthy housing that supports, in multiple ways, the people in need of emergency housing.  She believes this work is a social justice issue.</p>		  
-			</div>
-		</div>
+		<?php endif; ?>
 	</div>
 
 	<hr>
 
 	<div class="advisory-board">
 		<h1 class="section-title">Advisory Board</h1>
+		<hr class="title-divider">
+
+		<div class="row">
+
+			<div class="col-md-10">
+				<!-- Tab panes -->
+				<?php if (get_field('advisory_board')) : ?>
+
+					<?php $j = 1;?>
+
+					<div class="tab-content team-content">
+
+					<?php while(has_sub_field('advisory_board')): ?>
+
+						<div class="tab-pane team-pane fade in <?php if ($j == 1){echo "active";} ?>" id="advisor<?php echo $j;?>">
+							<h3 class="name"><?php the_sub_field('name');?></h3>
+							<h4 class="position"><?php the_sub_field('position');?></h4>
+							
+							<?php the_sub_field('description');?>
+						</div>
+
+					<?php $j++; endwhile ?>
+
+					</div>
+				<?php endif; ?>
+			</div>
+
+			<div class="col-md-4 col-md-offset-2">
+	  		<!-- Nav tabs -->
+			<?php if(get_field('advisory_board')): ?>
+
+				<?php $i = 1;?>
+			 
+				<ul class="nav advisory-nav advisory-tabs nav-tabs">
+			 
+				<?php while(has_sub_field('advisory_board')): ?>
+			 
+					<li <?php if ($i == 1){echo "class='active'";} ?>>
+						<a href="#advisor<?php echo $i;?>" data-toggle="tab">
+							<?php the_sub_field('name');?>
+						</a>
+					</li>
+
+					<?php $i++;?>
+			 
+				<?php endwhile; ?>
+			 
+				</ul>
+			 
+			<?php endif; ?>					
+			</div>
+		</div>
 	</div>
 
   	<?php wp_link_pages(array('before' => '<nav class="pagination">', 'after' => '</nav>')); ?>
