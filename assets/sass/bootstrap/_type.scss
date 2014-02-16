@@ -87,17 +87,6 @@ h2{
   text-align:center;
   @include make-md-column(10);
   @include make-md-column-offset(3);
-
-  &:after{
-    content:"";
-    height:12px;
-    display:block;
-    background-color:$gray-darker;
-    @include make-md-column(3);
-    @include make-md-column-offset(6);
-    width:100px;
-    margin:22px auto 0;
-  }
 }
 h3,
 h4,

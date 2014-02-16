@@ -4,6 +4,8 @@
 		the_post_thumbnail( 'featured_image' );
 		echo "</div>";
 	}?>
-  	<?php the_content(); ?>
+	<div class="entry">
+  		<?php the_content(); ?>
+  	</div>
   	<?php wp_link_pages(array('before' => '<nav class="pagination">', 'after' => '</nav>')); ?>
 <?php endwhile; ?>

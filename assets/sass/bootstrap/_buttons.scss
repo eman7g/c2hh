@@ -9,10 +9,10 @@
 // Core styles
 .btn {
   display: inline-block;
-  padding: $padding-base-vertical $padding-base-horizontal;
+  padding: 5px 0;
   margin-bottom: 0; // For input.btn
-  font-size: $font-size-base;
-  font-weight: $btn-font-weight;
+  font-size: 14px;
+  font-weight: 700;
   line-height: $line-height-base;
   text-align: center;
   vertical-align: middle;
@@ -22,6 +22,10 @@
   border-radius: 0;
   white-space: nowrap;
   @include user-select(none);
+  text-transform:uppercase;
+  background:#333;
+  color:#fff;
+  width:160px;
 
   &:focus {
     @include tab-focus;
@@ -29,7 +33,7 @@
 
   &:hover,
   &:focus {
-    color: $btn-default-color;
+    color: $almost-white;
     text-decoration: none;
   }
 

@@ -26,6 +26,9 @@ function theme_setup() {
 	add_image_size( 'grid_small', 240, 161, TRUE );
 	add_image_size( 'grid_large', 480, 324, TRUE );
 	add_image_size( 'team_thumb', 240, 350, TRUE );
+	add_image_size( 'product_feature', 460, 0, TRUE );
+	add_image_size( 'product_thumb', 225, 150, TRUE );
+	add_image_size( 'product_gallery_thumb', 75, 75, TRUE );
 
 	// Support post-thumbnails
 	add_theme_support( 'post-thumbnails' );

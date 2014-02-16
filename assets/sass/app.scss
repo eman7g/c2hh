@@ -49,7 +49,7 @@
 ////@import "bootstrap/progress-bars";
 ////@import "bootstrap/media";
 ////@import "bootstrap/list-group";
-////@import "bootstrap/panels";
+@import "bootstrap/panels";
 ////@import "bootstrap/wells";
 ////@import "bootstrap/close";
 
@@ -76,32 +76,6 @@ body {
    line-height:$line-height-computed;
 }
 
-.btn{
-   @include border(all, 2px, solid, $gray-lightest);
-   @include box-sizing(border-box);
-   padding:4px 14px;
-   font-size:13px;
-   line-height:18px;
-   background-color:#fff;
-   text-transform: uppercase;
-   font-weight: 800;
-   @include transition(border .2s ease-in-out);
-
-   &:after{
-      content:"»";
-      display:inline-block;
-      float:right;
-      color:$brand-primary;
-      font-weight:500;
-      line-height:14px;
-      margin-left:5px;
-   }
-
-   &:hover{
-      @include border(all, 2px, solid, $brand-primary);
-   }
-}
-
 .more{
    font-size:12px;
    line-height:18px;
@@ -116,7 +90,7 @@ body {
 
    &:after{
       content:"";
-      background: url('../img/link_arrow.png') no-repeat left top;
+      background: url('../img/icons/link_arrow.png') no-repeat left top;
       width:6px;
       height:10px;
       float:right;
@@ -137,7 +111,6 @@ hr{
    @include border(top, 1px, solid, $gray-light);
    margin:5px 0;
    clear:both;
-   float:left;
    width:100%;
    padding-bottom:22px;
 
@@ -231,7 +204,7 @@ hr{
 
       .navbar-brand{
          @include hide-text();
-         background: url("../img/logo.png") no-repeat;
+         background: url("../img/icons/logo.png") no-repeat;
          @include background-size(174px 62px);
          display:block;
          width:174px;
@@ -269,7 +242,7 @@ hr{
          height:14px;
 
          .btn{
-            background: url('../img/magnifying_glass.png') no-repeat left top;
+            background: url('../img/icons/magnifying_glass.png') no-repeat left top;
             width:15px;
             height:14px;
             border:0;
@@ -372,14 +345,14 @@ hr{
             position:absolute;
             bottom:0;
             right:0;
-            background: rgba(0,102,102,.7) url('../img/triangle_right.png') no-repeat center center;
+            background: rgba(0,102,102,.7) url('../img/icons/triangle_right.png') no-repeat center center;
             @include opacity(0);
             @include transition(opacity .3s ease-in-out);
          }
 
          &.green{
             &:after{
-               background: rgba(107,144,37,.7) url('../img/triangle_right.png') no-repeat center center;
+               background: rgba(107,144,37,.7) url('../img/icons/triangle_right.png') no-repeat center center;
             }
          }
       }
@@ -524,7 +497,7 @@ hr{
             float:left;
             width:20px;
             height:15px;
-            background-image: url('../img/social_connect.png');
+            background-image: url('../img/icons/social_connect.png');
             background-repeat:no-repeat;
             text-indent:-99999px;
             margin-right:10px;
@@ -591,8 +564,34 @@ hr{
 /* ==========================================================================
    Content
    ========================================================================== */
+.page{
 
-.content { 
+
+   .content { 
+
+      .entry{
+
+         img{
+            margin:0 0 28px 0;
+            max-width:100%;
+            height:auto;
+         }
+
+         h2{
+           &:after{
+             content:"";
+             height:12px;
+             display:block;
+             background-color:$gray-darker;
+             @include make-md-column(3);
+             @include make-md-column-offset(6);
+             width:100px;
+             margin:22px auto 0;
+           }
+         }
+      }
+
+   }
 
 }
 
@@ -606,18 +605,12 @@ hr{
    margin-top:0;
    margin-bottom:50px;
 
-   img{
-      margin:0 -10px 28px -10px;
-   }
-
    .one_half{
       @include make-md-column(8);
    }
 
    hr{
       padding-bottom:34px;
-      width:102%;
-      margin:0 -10px;
 
       &.title-divider{
          margin:15px auto 40px auto;
@@ -633,6 +626,325 @@ hr{
 
 /* Gallery Shortcode */
 .gallery-row { padding: 15px 0; }
+
+/* ==========================================================================
+   Products
+   ========================================================================== */
+.products{
+
+   .page-header{
+      h1.page-title{
+         display:inline-block;
+         text-align:left;
+      }
+
+      a{
+         float:right;
+         font-size:14px;
+         color:$gray-darker;
+         margin:25px 35px 0 0;
+         padding-right:15px;
+         background: url('../img/icons/link_arrow.png') no-repeat right center;
+      }
+   }
+
+
+   .product-filters{
+      background:$gray-lightest;
+      padding:0 25px;
+
+      fieldset{
+         @include border(bottom, 1px, solid, $gray-light);
+         padding-bottom:40px;
+
+         &:last-child{
+            border:0;
+         }
+
+         .form-group{
+            line-height:normal;
+         }
+
+         .radio-inline{
+            min-width:160px;
+            font-size:12px;
+            color:$gray-darker;
+            text-transform:uppercase;
+            line-height:16px;
+
+            +.radio-inline{
+               margin:0 0 0 20px;
+            }
+
+            input[type="radio"]{
+               margin-top:0;
+            }
+         }
+
+         .form-control{
+            width:160px;
+            height:25px;
+            color:$gray-darker;
+            font-size:12px;
+
+            +.form-control{
+               margin-left:20px;
+            }
+         }
+
+         .btn{
+            margin-left:20px;
+         }
+      }
+   }
+
+   .product-grid{
+      .product-row{
+
+         @include make-row;
+
+         .product{
+            @extend .col-md-4;
+            margin-top:40px;
+
+            .product-link{
+               text-decoration:none;
+
+               &:hover{
+
+                  .product-title {
+                     background:#97c33c;
+
+                     h3{
+                        color:#fff;
+                     }
+                  }
+                  .attributes{
+                     background:$gray-lightest;
+                  }
+               }
+            }
+
+            .product-title{
+               @include border(bottom, 1px, solid, $gray-light);
+               h3{
+                  font-size:12px;
+                  font-weight:700;
+                  color:$gray-darker;
+                  text-transform:uppercase;
+                  margin:0 0 0 28px;
+                  padding:13px 0;
+               }
+            }
+
+            .attributes{
+               list-style:none;
+               padding:20px 0 25px 0;
+               margin:0;
+
+               li{
+                  line-height:18px;
+                  @extend .clearfix;
+
+                  span{
+                     font-size:12px;
+                     line-height:18px;
+                     color:$gray-darker;
+                     display:block;
+                     float:left;
+                     width:45%;
+                     margin-left:6%;
+
+                     &.title{
+                        font-size:10px;
+                        color:$gray;
+                        text-transform:uppercase;
+                        width:37%;
+                        text-align:left;
+                        margin:0 0 0 12%;
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+}
+
+
+/* ==========================================================================
+   Product - Single
+   ========================================================================== */
+.single-product{
+
+   .a2a_tabs:last-child{
+      display:none !important;
+   }
+
+   .product-main{
+      margin-left:30px;
+      @include border(bottom, 1px, solid, $gray-light);
+      padding-bottom:20px;
+
+      header{
+         padding:34px 0 40px 0;
+
+         h1.entry-title{
+            text-align:left;
+            font-weight:500;
+            font-size:34px;
+            padding:0 0 8px 0;
+         }
+      }
+   }
+
+   h2{
+      font-size:28px;
+      font-weight:100;
+      display:block;
+      width:auto;
+      margin:0;
+      text-align:left;
+      float:none;
+      padding:0;
+      text-transform:uppercase;
+   }
+
+   h4{
+      font-size:14px;
+      line-height:18px;
+      color:$gray-darker;
+      font-weight:900;
+      text-transform:uppercase;
+
+      &.product-type{
+         padding-bottom:10px;
+      }
+   }
+
+   p{
+      color:$gray-darker;
+   }
+
+   .social-links{
+      display:block;
+      margin:10px 0 0 0;
+
+      li{
+         display:block;
+         margin-bottom:30px;
+
+         &:last-child{
+            margin:0;
+         }
+
+         a{
+            display:block;
+            height:20px;
+            line-height:20px;
+            font-size:14px;
+            color:$gray-darker;
+            padding-right:30px;
+            text-align:right;
+            text-decoration:none;
+
+            &.contact{
+               background: url('../img/icons/email_icon.png') no-repeat right center;
+            }
+            &.share{
+               background: url('../img/icons/share.png') no-repeat right center;
+            }
+
+            &.a2a_dd{
+               background: url('../img/icons/share.png') no-repeat right center;
+               float:none;
+
+               span{
+                  display:none;
+               }
+            }
+
+         }
+      }
+   }
+
+   .product-description{
+      padding-bottom:50px;
+   }
+
+   .product-slider-wrap{
+      @include border(bottom, 1px, solid, $gray-light);
+      margin-bottom:28px;
+   }
+
+   .bx-wrapper{
+      margin:40px 0 0 0;
+
+      .product-slider{
+         margin:0;
+         padding:0;
+         list-style:none;
+      }
+   }
+
+   #product-pager{
+      margin:25px 0 20px 0;
+      @extend .clearfix;
+      height:85px;
+
+      a{
+         background-color:$brand-primary;
+         float:left;
+         display:block;
+         margin-right:10px;
+         height:75px;
+         @include transition(height .3s ease-in-out);
+
+         &.active{
+            height:85px;
+         }
+      }
+   }
+
+   .product-attributes{
+      ul{
+         margin:0;
+         padding:0;
+         list-style:none;
+
+         li{
+            display:block;
+            height:20px;
+            margin-bottom:10px;
+            line-height:20px;
+            padding-left:30px;
+            text-transform:uppercase;
+
+            &.plumbing{
+               background: url('../img/icons/plumbing_icon.png') no-repeat left center;
+            }
+            &.electrical{
+               background: url('../img/icons/electrical_icon.png') no-repeat left center;
+            }         
+            &.sustainable-design{
+               background: url('../img/icons/sustainable_icon.png') no-repeat left center;
+            }
+         }
+      }
+   }
+
+   .product-details{
+      margin-top:35px;
+
+      h2{
+         margin-left:30px;
+         padding-bottom:20px;
+      }
+   }
+
+}
+
+
 
 /* ==========================================================================
    Sidebar
@@ -700,10 +1012,10 @@ hr{
                margin-bottom:12px;
 
                &.twitter{
-                  background:url('../img/social.png') no-repeat left 5px;
+                  background:url('../img/icons/social.png') no-repeat left 5px;
                }
                &.facebook{
-                  background:url('../img/social.png') no-repeat left -28px;
+                  background:url('../img/icons/social.png') no-repeat left -28px;
                }               
             }
          }         
@@ -733,9 +1045,27 @@ hr{
 figure.alignnone { margin-left: 0; margin-right: 0; }
 
 
+/* ==========================================================================
+   Plugins
+   ========================================================================== */
+
+/** BX Slider RESET AND LAYOUT **/
+.bx-wrapper {
+   position: relative;
+   margin: 0 auto;
+   padding: 0;
+   *zoom: 1;
+}
+
+.bx-wrapper img {
+   max-width: 100%;
+   display: block;
+}
+
 
 /* ==========================================================================
    Media Queries
    ========================================================================== */
+
 
 

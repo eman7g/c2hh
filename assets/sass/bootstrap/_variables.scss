@@ -165,7 +165,7 @@ $input-height-base:              ($line-height-computed + ($padding-base-vertica
 $input-height-large:             (floor($font-size-large * $line-height-large) + ($padding-large-vertical * 2) + 2) !default;
 $input-height-small:             (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) + 2) !default;
 
-$legend-color:                   $gray-dark !default;
+$legend-color:                   $gray !default;
 $legend-border-color:            #e5e5e5 !default;
 
 $input-group-addon-bg:           $gray-lighter !default;
@@ -506,12 +506,12 @@ $list-group-link-heading-color:  #333 !default;
 // -------------------------
 $panel-bg:                    #fff !default;
 $panel-inner-border:          #ddd !default;
-$panel-border-radius:         $border-radius-base !default;
+$panel-border-radius:         0 !default;
 $panel-footer-bg:             #f5f5f5 !default;
 
-$panel-default-text:          $gray-dark !default;
-$panel-default-border:        #ddd !default;
-$panel-default-heading-bg:    #f5f5f5 !default;
+$panel-default-text:          $gray-darker !default;
+$panel-default-border:        #fff !default;
+$panel-default-heading-bg:    #fff !default;
 
 $panel-primary-text:          #fff !default;
 $panel-primary-border:        $brand-primary !default;

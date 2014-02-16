@@ -6,26 +6,13 @@ var Snyder = {
   common: {
     init: function() {
       
-      //Full Width Slider
-      $('.carousel').carouFredSel({
-        responsive: true,
-        items: {
-          visible: 1,
-          width: 1200,
-          height: 726
-        },
-        scroll: {
-          duration: 500,
-          timeoutDuration: 5000,
-          fx: 'crossfade'
-        },
-        pagination: '.carousel-pager'
-      });
-
-      //Bootstrap Popover
-      $('a[data-toggle=popover]').popover({
-        trigger: 'click',
-        html: 'true'
+      //Product Slider
+      $('.product-slider').bxSlider({
+        pagerCustom: '#product-pager',
+        mode: 'fade',
+        infiniteLoop: false,
+        adaptiveHeight: true,
+        controls: false
       });
 
       //Hover Feature Links
@@ -37,6 +24,16 @@ var Snyder = {
               $(this).parent().parent().find('.images span').removeClass('hover');
           }
       });
+
+      $('.panel-title a').on('click', function (e) {
+        $(this).addClass('active');
+           //$(e.target).prev('.panel-heading').find('.panel-title a').addClass('active');
+      });
+
+      $('.panel-title a').on('hide', function (e) {
+          $(this).find('.panel-title a').not($(e.target)).removeClass('active');
+      });
+
     },
     finalize: function() { }
   },
