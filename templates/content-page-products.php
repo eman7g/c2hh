@@ -40,19 +40,19 @@ $post_slug=$post->post_name;
 				<legend>Product Type</legend>
 				<div class="form-group">
 					<label class="radio-inline">
-					  <input type="radio" id="allproducts" name="producttype" value="all" checked="checked"> All Product Types
+					  <input type="radio" class="radio" id="allproducts" name="producttype" value="all" checked="checked"> All Product Types
 					</label>
 					<label class="radio-inline">
-					  <input type="radio" id="emergency" name="producttype" value="emergency"> Emergency Shelters
+					  <input type="radio" class="radio" id="emergency" name="producttype" value="emergency"> Emergency Shelters
 					</label>
 					<label class="radio-inline">
-					  <input type="radio" id="dwelling" name="producttype" value="dwelling"> Dwelling Units
+					  <input type="radio" class="radio" id="dwelling" name="producttype" value="dwelling"> Dwelling Units
 					</label>						
 					<label class="radio-inline">
-					  <input type="radio" id="commercial" name="producttype" value="commercial"> Commercial Units
+					  <input type="radio" class="radio" id="commercial" name="producttype" value="commercial"> Commercial Units
 					</label>
 					<label class="radio-inline">
-					  <input type="radio" id="other" name="producttype" value="other"> Other Products
+					  <input type="radio" class="radio" id="other" name="producttype" value="other"> Other Products
 					</label>						
 				</div>
 			</fieldset>
@@ -76,6 +76,7 @@ $post_slug=$post->post_name;
 					</select>
 
 					<select name="construction" class="form-control">
+					  <option>All Construction</option>
 					  <option>Shipping Container</option>
 					  <option>Modular/Prefab</option>
 					  <option>Dome</option>

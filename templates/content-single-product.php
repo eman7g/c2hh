@@ -7,12 +7,15 @@
       <?php if( $images ): ?>
         <div class="product-slider-wrap clearfix">
           <ul class="bxslider product-slider">
+              <li><?php the_post_thumbnail('product_feature'); ?></li>
             <?php foreach( $images as $image ): ?>
               <li><img src="<?php echo $image['sizes']['product_feature']; ?>" alt="<?php echo $image['alt']; ?>" /></li>
             <?php endforeach ?>
           </ul>
 
           <div id="product-pager">
+            <a data-slide-index="<?php echo $i;?>" href=""><?php the_post_thumbnail('product_gallery_thumb'); ?></a>
+            <?php $i++;?>
             <?php foreach( $images as $image ): ?>
               <a data-slide-index="<?php echo $i;?>" href=""> <img src="<?php echo $image['sizes']['product_gallery_thumb']; ?>" alt="<?php echo $image['alt']; ?>" /></a>
             <?php $i++; endforeach ?>

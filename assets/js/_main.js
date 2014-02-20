@@ -12,7 +12,8 @@ var Snyder = {
         mode: 'fade',
         infiniteLoop: false,
         adaptiveHeight: true,
-        controls: false
+        controls: false,
+        preloadImages:'visible'
       });
 
       //Hover Feature Links
@@ -34,6 +35,15 @@ var Snyder = {
           $(this).find('.panel-title a').not($(e.target)).removeClass('active');
       });
 
+
+      $('input.radio').iCheck({
+        checkboxClass: 'icheckbox_minimal',
+        radioClass: 'iradio_minimal',
+        increaseArea: '20%' // optional
+      });
+
+      $('select.form-control').dropkick();
+      
     },
     finalize: function() { }
   },
