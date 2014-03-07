@@ -158,3 +158,126 @@ function get_ID_by_slug($page_slug) {
         return null;
     }
 }
+
+add_action( 'wp_ajax_product_filter', 'myajax_product_filter' );
+add_action( 'wp_ajax_nopriv_product_filter', 'myajax_product_filter' );
+
+
+/*
+****************************************************************
+* Ajax functions
+****************************************************************/
+
+function myajax_product_filter() {
+	// check nonce
+	$nonce = $_REQUEST['nextNonce']; 
+	$filter_query = $_REQUEST['filterQuery']; 
+
+	if ( ! wp_verify_nonce( $nonce, 'myajax-next-nonce' ) )
+		die ( 'Busted!');
+ 
+	// response output
+	parse_str($filter_query, $filter_array);
+
+	// Init a variable to store the values of the original WP Query
+	$temp_query = $wp_query;
+
+	// query args
+	$args = array (
+		'post_type'             => 'product',
+		'post_status'           => 'publish',
+		'posts_per_page'        => '-1',
+		'order'                 => 'ASC',
+		'orderby'               => 'name',
+		/*'meta_query'            => array(
+			'relation' => 'AND',
+			array(
+				'key'       	=> 'sleeps',
+				'value'			=> $filter_array['sleeps'],
+				'compare' 		=> '='
+			),
+			array(
+				'key'       	=> 'assembly',
+				'value'			=> $filter_array['assembly'],
+				'compare' 		=> '='
+			)
+		)*/
+	);	
+
+	if ($filter_array['producttype'] !== 'all') {
+    	$args['product-type'] = $filter_array['producttype'];
+	}
+	if ($filter_array['construction'] !== 'all') {
+    	$args['construction-type'] = $filter_array['construction'];
+	}
+	if ($filter_array['sleeps'] !== 'all' && $filter_array['assembly'] !== 'all'){
+    	$args['meta_query']['relation'] = 'AND';
+    }
+	if ($filter_array['sleeps'] !== 'all'){
+    	$args['meta_query'][] = array(
+				'key'       	=> 'sleeps',
+				'value'			=> $filter_array['sleeps'],
+				'compare' 		=> '='
+			);
+    }
+	if ($filter_array['assembly'] !== 'all'){
+    	$args['meta_query'][] = array(
+				'key'       	=> 'assembly',
+				'value'			=> $filter_array['assembly'],
+				'compare' 		=> '='
+			);
+    }
+
+	// The Query
+	$wp_query = new WP_Query( $args );
+	$total_products = $wp_query->found_posts;
+    
+	// The Loop
+	if ( $wp_query->have_posts() ) {
+	        $i = 0;
+		while ( $wp_query->have_posts() ) {
+			$wp_query->the_post();?>
+			
+			<?php if ($i == 0 || $i % 4 == 0) {echo "<div class='product-row'>";} ?>
+
+			<div class="product">
+				<a class="product-link" href="<?php the_permalink();?>">
+					<article>
+						<div class="product-thumb"><?php the_post_thumbnail('product_thumb'); ?></div>
+						<div class="product-title"><h3><?php the_title();?></h3></div>  
+						<ul class="attributes">
+							<li class="size">
+								<span class="title">Size:</span>
+								<span><?php the_field('size');?></span>
+							</li>
+							<li class="sleeps">
+								<span class="title">Sleeps:</span>
+								<span><?php the_field('sleeps');?></span>
+							</li>
+							<li class="assembly">
+								<span class="title">Assembly:</span>
+								<span><?php the_field('assembly');?></span>
+							</li>																
+						</ul>
+					</article>
+				</a>
+			</div>
+
+			<?php
+			$i++;
+			if ($i % 4 == 0){echo "</div>";}
+			if ($i == $total_products){echo "</div>";
+			}
+		}
+	} else {
+		echo "no products found";
+
+		// Restore the $wp_query back to its original state
+		$wp_query = $temp_query;		
+	}
+
+ 
+	// IMPORTANT: don't forget to "exit"
+	exit;
+	
+}

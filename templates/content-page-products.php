@@ -30,30 +30,29 @@ $post_slug=$post->post_name;
 ?>
 <div class="row">
 	<div class="page-header">
-		<h1 class="page-title">Shop Product</h1>
+		<h1 class="page-title">Shop Products</h1>
 		<a class="product-types-links" href="#">Product Types Defined</a>
 	</div>
 
 	<div class="product-filters">
-		<form role="form" class="form-inline">
+		<form role="form" class="form-inline" type="post" action="" id="productFilterForm">
 			<fieldset>
 				<legend>Product Type</legend>
 				<div class="form-group">
 					<label class="radio-inline">
 					  <input type="radio" class="radio" id="allproducts" name="producttype" value="all" checked="checked"> All Product Types
 					</label>
-					<label class="radio-inline">
-					  <input type="radio" class="radio" id="emergency" name="producttype" value="emergency"> Emergency Shelters
-					</label>
-					<label class="radio-inline">
-					  <input type="radio" class="radio" id="dwelling" name="producttype" value="dwelling"> Dwelling Units
-					</label>						
-					<label class="radio-inline">
-					  <input type="radio" class="radio" id="commercial" name="producttype" value="commercial"> Commercial Units
-					</label>
-					<label class="radio-inline">
-					  <input type="radio" class="radio" id="other" name="producttype" value="other"> Other Products
-					</label>						
+					<?php
+						$terms = get_terms("product-type");
+						$count = count($terms);
+						if ( $count > 0 ){
+						 foreach ( $terms as $term ) : ?>
+							<label class="radio-inline">
+						   		<input type="radio" class="radio" name="producttype" id="<?php echo $term->slug; ?>" value="<?php echo $term->slug; ?>"><?php echo $term->name;?>
+							</label>
+						 <?php endforeach;
+						}
+					?>					
 				</div>
 			</fieldset>
 			<fieldset>
@@ -61,40 +60,44 @@ $post_slug=$post->post_name;
 
 				<div class="form-group">
 					<select name="sleeps" class="form-control">
-					  <option>Sleeps All</option>
-					  <option>Sleeps 1-2</option>
-					  <option>Sleeps up to 4</option>
-					  <option>Sleeps up to 6</option>
-					  <option>Sleeps 6+</option>
+					  <option value="all">Sleeps All</option>
+					  <option value="1-2">Sleeps 1-2</option>
+					  <option value="1-4">Sleeps up to 4</option>
+					  <option value="1-6">Sleeps up to 6</option>
+					  <option value="6+">Sleeps 6+</option>
 					</select>
 
 					<select name="assembly" class="form-control">
-					  <option>All Assembly</option>
-					  <option>Easy Assembly</option>
-					  <option>Moderate Assembly</option>
-					  <option>Expert Assembly</option>
+					  <option value="all">All Assembly</option>
+					  <option value="easy">Easy Assembly</option>
+					  <option value="moderate">Moderate Assembly</option>
+					  <option value="expert">Expert Assembly</option>
 					</select>
 
+					
 					<select name="construction" class="form-control">
-					  <option>All Construction</option>
-					  <option>Shipping Container</option>
-					  <option>Modular/Prefab</option>
-					  <option>Dome</option>
-					  <option>Tent</option>
-					  <option>Inflatable</option>
-					  <option>On Wheels</option>
-					  <option>Fold out</option>
+						<option value="all">All Construction</option>
+						<?php
+							$terms = get_terms("construction-type");
+							$count = count($terms);
+							if ( $count > 0 ){
+							 foreach ( $terms as $term ) : ?>
+							   <option value="<?php echo $term->slug; ?>"><?php echo $term->name;?></option>
+							  
+							 <?php endforeach;
+							}
+						?>
 					</select>
 
 					<select name="prices" class="form-control">
-					  <option>All Prices</option>
-					  <option>Less than 10k</option>
-					  <option>Less than 30k</option>
-					  <option>30k and up</option>
+					  <option value="all">All Prices</option>
+					  <option value="10k-below">Less than 10k</option>
+					  <option value="50k-below">Less than 50k</option>
+					  <option value="50k-above">50k and up</option>
 					</select>
 				</div>
-
-				<button type="submit" class="btn">Sort Product</button>
+				<?php $nonce = wp_create_nonce("my_user_vote_nonce");?>
+				<input type="submit" class="btn" value="Sort Product">
 		  	</fieldset>
 		</form>
 	</div>

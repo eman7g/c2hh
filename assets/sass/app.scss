@@ -228,6 +228,7 @@ hr{
          color:$gray;
          font-style:italic;
          padding:6px 35px 6px 12px;
+         border:1px solid #ccc;
 
          &:focus{
             border:1px solid #ccc;
@@ -769,6 +770,10 @@ hr{
          }
       }
    }
+}
+
+#temp_load{
+   padding:40px 0 0 0;
 }
 
 
