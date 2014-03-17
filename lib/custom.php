@@ -18,7 +18,7 @@ function theme_setup() {
 	update_option( 'medium_size_h', 9999 );
 	update_option( 'medium_crop', 0 );
 	
-	update_option( 'large_size_w', 960 );
+	update_option( 'large_size_w', 940 );
 	update_option( 'large_size_h', 999 );
 	update_option( 'large_crop', 0 );
 	

@@ -570,6 +570,14 @@ hr{
 
    .content { 
 
+      .featured-image{
+         margin:0 0 28px 0;
+         img{
+            max-width:100%;
+            height:auto;
+         }
+      }
+
       .entry{
 
          img{
@@ -579,7 +587,10 @@ hr{
          }
 
          h2{
+            float:none;
+
            &:after{
+             float:none !important;
              content:"";
              height:12px;
              display:block;
@@ -590,6 +601,19 @@ hr{
              margin:22px auto 0;
            }
          }
+
+         .entry-column-left{
+            padding-left:0;
+         }
+
+         .entry-column-right{
+            padding-right:0;
+         }
+
+         hr:last-child{
+            display:none;
+         }
+
       }
 
    }
