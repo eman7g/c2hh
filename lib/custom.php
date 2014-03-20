@@ -281,3 +281,14 @@ function myajax_product_filter() {
 	exit;
 	
 }
+
+/*
+****************************************************************
+* CPT Menus
+****************************************************************/
+
+function remove_taxonomies_metaboxes() {
+    remove_meta_box( 'tagsdiv-construction-type', 'product', 'side' );
+    remove_meta_box( 'tagsdiv-product-type', 'product', 'side' );
+}
+add_action( 'add_meta_boxes_product' , 'remove_taxonomies_metaboxes' );
