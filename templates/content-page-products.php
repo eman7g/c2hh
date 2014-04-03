@@ -31,7 +31,7 @@ $post_slug=$post->post_name;
 <div class="row">
 	<div class="page-header">
 		<h1 class="page-title">Shop Products</h1>
-		<a class="product-types-links" href="#">Product Types Defined</a>
+		<a class="product-types-links" href="/product-types">Product Types Defined</a>
 	</div>
 
 	<div class="product-filters">
