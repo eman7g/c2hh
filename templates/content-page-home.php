@@ -2,7 +2,7 @@
 
 	<div class="row">
 		<div class="home-grid home-grid-mobile visible-xs">
-			<img src="<?php echo get_template_directory_uri();?>/assets/img/c2HH_SS_hero.jpg" />
+			<img src="<?php bloginfo('template_directory');?>/assets/img/c2HH_SS_hero.jpg" />
 		</div>
 	    <div class="home-grid hidden-xs">
 	      <hr>
