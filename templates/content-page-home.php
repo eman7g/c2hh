@@ -1,7 +1,10 @@
 <?php while (have_posts()) : the_post(); ?>
 
 	<div class="row">
-	    <div class="home-grid">
+		<div class="home-grid home-grid-mobile visible-xs">
+			<img src="<?php echo get_template_directory_uri();?>/assets/img/c2HH_SS_hero.jpg" />
+		</div>
+	    <div class="home-grid hidden-xs">
 	      <hr>
 	      <div class="home-grid-inner clearfix">
 	 
@@ -43,9 +46,11 @@
 	</div>
 
 	<div class="row">
-		<div class="featured-text col-md-offset-3 col-md-10"><?php the_content(); ?></div>
+		<div class="featured-text col-md-offset-3 col-md-10 col-xs-16"><?php the_content(); ?></div>
 	</div>
-	<hr>
+	<div class="row">
+		<hr>
+	</div>
 	<?php $pageid =  get_the_ID(); $i = 1; ?>
     <?php if(get_field('features')): ?>
     	<div class="row">

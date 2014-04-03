@@ -16,6 +16,18 @@ var C2HH = {
         preloadImages:'visible'
       });
 
+
+      //Featured Slider
+      $('.featured-slider').bxSlider({
+        //pagerCustom: '#product-pager',
+        mode: 'fade',
+        infiniteLoop: false,
+        adaptiveHeight: true,
+        controls: false,
+        preloadImages:'visible'
+      });
+
+
       //Hover Feature Links
       $(".learn-more").on({
           mouseenter: function () {

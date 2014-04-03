@@ -43,7 +43,7 @@ $post_slug=$post->post_name;
 					  <input type="radio" class="radio" id="allproducts" name="producttype" value="all" checked="checked"> All Product Types
 					</label>
 					<?php
-						$terms = get_terms("product-type");
+						$terms = get_terms("product-type", "hide_empty=0");
 						$count = count($terms);
 						if ( $count > 0 ){
 						 foreach ( $terms as $term ) : ?>
@@ -78,7 +78,7 @@ $post_slug=$post->post_name;
 					<select name="construction" class="form-control">
 						<option value="all">All Construction</option>
 						<?php
-							$terms = get_terms("construction-type");
+							$terms = get_terms("construction-type", "hide_empty=0");
 							$count = count($terms);
 							if ( $count > 0 ){
 							 foreach ( $terms as $term ) : ?>

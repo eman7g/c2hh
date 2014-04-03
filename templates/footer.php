@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			
-			<div class="col-md-2 col-footer">
+			<div class="col-sm-2 col-footer">
 				<h3>About Us</h3>
 				<ul>
 					<?php $about_id = get_ID_by_slug('home');?>
@@ -16,7 +16,7 @@
 				</ul>
 			</div>
 
-			<div class="col-md-4 col-md-offset-2 col-footer">
+			<div class="col-sm-4 col-sm-offset-2 col-footer">
 				<h3>Shelters</h3>
 				<ul>
 					<?php $shelters_id = get_ID_by_slug('shelters');?>
@@ -25,7 +25,7 @@
 				</ul>	
 			</div>
 
-			<div class="col-md-4 col-footer">
+			<div class="col-sm-4 col-footer">
 				<h3>Services</h3>
 				<ul>
 					<?php $services_id = get_ID_by_slug('services');?>
@@ -40,7 +40,7 @@
 				</ul>					
 			</div>
 
-			<div class="col-md-4 col-footer">
+			<div class="col-sm-4 col-footer">
 				<h3>Contact</h3>
 				<ul>
 					<li>Close to Home</li>
@@ -54,7 +54,9 @@
 			</div>
 
 		</div>
-		<hr>
+		<div class="row">
+			<hr>
+		</div>
 		<p class="copy">&copy; Close to Home Housing, 2013</p>
 	</div>
 </footer>
