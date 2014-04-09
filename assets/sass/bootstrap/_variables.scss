@@ -216,7 +216,7 @@ $zindex-modal:             1050 !default;
 
 // Extra small screen / phone
 // Note: Deprecated $screen-xs and $screen-phone as of v3.0.0
-$screen-xs:                  480px !default;
+$screen-xs:                  320px !default;
 $screen-xs-min:              $screen-xs !default;
 $screen-phone:               $screen-xs-min !default;
 
