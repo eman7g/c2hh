@@ -78,6 +78,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
             <?php 
               woocommerce_get_template( 'loop/add-to-cart.php' );
             ?>
+            <?php
+              /**
+               * woocommerce_single_product_summary hook
+               *
+               * @hooked woocommerce_template_single_add_to_cart - 30
+               * @hooked woocommerce_template_single_sharing - 50
+               */
+              do_action( 'woocommerce_single_product_summary' );
+            ?>
           </div>
             
           <div class="col-md-10">

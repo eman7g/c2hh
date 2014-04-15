@@ -1134,6 +1134,7 @@ hr{
    Woocommerce
    ========================================================================== */
 .woocommerce{
+
    a.button{
      display: inline-block;
      padding: 5px 0;
@@ -1181,6 +1182,14 @@ hr{
       &:hover{
          text-decoration:none;
       }
+   }
+
+   .quantity{
+      display:none;
+   }
+
+   form.cart{
+      margin-top:20px;
    }
 }
 /* ==========================================================================
