@@ -119,7 +119,8 @@ $post_slug=$post->post_name;
 				<div class="product">
 					<a class="product-link" href="<?php the_permalink();?>">
 						<article>
-							<div class="product-thumb"><?php the_post_thumbnail('product_thumb'); ?></div>
+							<div class="product-thumb visible-md visible-lg"><?php the_post_thumbnail('product_thumb'); ?></div>
+							<div class="product-thumb hidden-md hidden-lg"><?php the_post_thumbnail('product_thumb_large'); ?></div>
 							<div class="product-title"><h3><?php the_title();?></h3></div>  
 							<ul class="attributes">
 								<li class="size">

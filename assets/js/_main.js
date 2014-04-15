@@ -54,7 +54,9 @@ var C2HH = {
         increaseArea: '20%' // optional
       });
 
-      $('select.form-control').dropkick();
+      $('select.form-control').dropkick({
+        autoWidth:true
+      });
       
     },
     finalize: function() { }

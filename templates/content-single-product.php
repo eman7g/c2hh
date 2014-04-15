@@ -1,3 +1,21 @@
+<?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+?>
+
+<?php
+  /**
+   * woocommerce_before_single_product hook
+   *
+   * @hooked wc_print_notices - 10
+   */
+   do_action( 'woocommerce_before_single_product' );
+
+   if ( post_password_required() ) {
+    echo get_the_password_form();
+    return;
+   }
+?>
+
 <?php while (have_posts()) : the_post(); ?>
 <article <?php post_class(); ?>>
   <div class="row">
@@ -42,7 +60,11 @@
       <div class="product-main">
         <header>
           <h1 class="entry-title"><?php the_title(); ?></h1>
-          <h2 class="price">$<?php the_field('price');?></h2>
+          <h2 class="price">
+            <?php 
+              woocommerce_get_template( 'loop/price.php' );
+            ?>
+          </h2>
         </header>    
 
         <h4 class="product-type">Dwelling Unit</h4>
@@ -53,8 +75,11 @@
 
         <div class="row">
           <div class="col-md-6">
-            <a class="btn" href="#">Add to Cart</a>
+            <?php 
+              woocommerce_get_template( 'loop/add-to-cart.php' );
+            ?>
           </div>
+            
           <div class="col-md-10">
             <ul class="social-links">
               <li><a class="links contact" href="#">Contact A Representative</a></li>
@@ -159,5 +184,8 @@
     </div>
   </div>
 
-</article>
+</article><!-- #product-<?php the_ID(); ?> -->
 <?php endwhile; ?>
+
+<?php do_action( 'woocommerce_after_single_product' ); ?>
+

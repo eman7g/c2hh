@@ -49,7 +49,33 @@
 
 		<div class="row">
 
-			<div class="col-md-10">
+			<div class="col-xs-12 visible-xs">
+	  		<!-- Nav tabs -->
+			<?php if(get_field('tabs')): ?>
+
+				<?php $i = 1;?>
+			 
+				<ul class="nav accordion-nav accordion-tabs nav-tabs">
+			 
+				<?php while(has_sub_field('tabs')): ?>
+			 
+					<li <?php if ($i == 1){echo "class='active'";} ?>>
+						<a href="#tab<?php echo $i;?>" data-toggle="tab">
+							<?php the_sub_field('title');?>
+						</a>
+					</li>
+
+					<?php $i++;?>
+			 
+				<?php endwhile; ?>
+			 
+				</ul>
+			 
+			<?php endif; ?>					
+			</div>
+
+
+			<div class="col-sm-10">
 				<!-- Tab panes -->
 				<?php if (get_field('tabs')) : ?>
 
@@ -70,7 +96,7 @@
 				<?php endif; ?>
 			</div>
 
-			<div class="col-md-4 col-md-offset-2">
+			<div class="col-md-4 col-md-offset-2 col-sm-5 col-sm-offset-1 hidden-xs">
 	  		<!-- Nav tabs -->
 			<?php if(get_field('tabs')): ?>
 

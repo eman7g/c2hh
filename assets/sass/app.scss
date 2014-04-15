@@ -76,6 +76,10 @@ body {
    line-height:$line-height-computed;
 }
 
+.wrap{
+   overflow:hidden;
+}
+
 .more{
    font-size:12px;
    line-height:18px;
@@ -122,7 +126,6 @@ hr{
       padding:0;
    }
 }
-
 
 
 /* ==========================================================================
@@ -172,6 +175,14 @@ hr{
             &.active > a{
                color:$gray-darker;
                background:none;
+            }
+
+            &.open > a{
+               background:none;
+            }
+
+            &.mobile{
+               display:none;
             }
 
             .dropdown-menu{
@@ -522,6 +533,7 @@ hr{
 }
 
 .advisory-board{
+   @include border(top, 1px, solid, $gray-light);
 
    .advisory-nav{
       border:0;
@@ -789,18 +801,22 @@ hr{
 .products{
 
    .page-header{
+      @include clearfix;
+
       h1.page-title{
          display:inline-block;
          text-align:left;
+         float:left;
       }
 
       a{
          float:right;
          font-size:14px;
          color:$gray-darker;
-         margin:22px 35px 0 0;
+         margin:0 35px 0 0;
          padding-right:15px;
          background: url('../img/icons/link_arrow.png') no-repeat right center;
+         line-height:50px;
       }
    }
 
@@ -812,6 +828,7 @@ hr{
       fieldset{
          @include border(bottom, 1px, solid, $gray-light);
          padding-bottom:40px;
+         width:100%;
 
          &:last-child{
             border:0;
@@ -1058,7 +1075,7 @@ hr{
 
    #product-pager{
       margin:25px 0 20px 0;
-      @extend .clearfix;
+      @include clearfix;
       height:85px;
 
       a{
@@ -1113,8 +1130,59 @@ hr{
 
 }
 
+/* ==========================================================================
+   Woocommerce
+   ========================================================================== */
+.woocommerce{
+   a.button{
+     display: inline-block;
+     padding: 5px 0;
+     margin-bottom: 0; // For input.btn
+     font-size: 14px;
+     font-weight: 700;
+     line-height: $line-height-base;
+     text-align: center;
+     vertical-align: middle;
+     cursor: pointer;
+     background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+     border: 1px solid transparent;
+     border-radius: 0;
+     white-space: nowrap;
+     @include user-select(none);
+     text-transform:uppercase;
+     background:#333;
+     color:#fff;
+     width:160px;  
+     @include box-shadow(0 0 0);
+     text-shadow:none;
 
+      &:hover,
+      &:focus {
+       color: $almost-white;
+       text-decoration: none;
+       background:#333;
+      }
 
+      &:active,
+      &.active {
+       outline: 0;
+       background-image: none;
+       @include box-shadow(0 0 0 );
+       border:0;
+      } 
+
+      &:before{
+         color:#000;
+      }
+   }
+   a.added_to_cart{
+      color:#333;
+
+      &:hover{
+         text-decoration:none;
+      }
+   }
+}
 /* ==========================================================================
    Sidebar
    ========================================================================== */
@@ -1474,9 +1542,141 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 /* ==========================================================================
    Media Queries
    ========================================================================== */
+//Mobile 320 - 480
+@media (min-width: $screen-xs) and (max-width: 479px) {
+   .products{
+      .product-filters {
+         fieldset {
+            text-align:center;
+
+            legend{
+               padding-top:10px;
+               margin-bottom:10px;
+            }
+
+            .form-group{
+               @include clearfix;
+               padding:0;
+               margin-bottom:0;
+            }
+
+            .radio-inline{
+               width:auto;
+               float:none;
+               display:block;
+               padding:0;
+               margin:0 0 20px 0;
+
+               +.radio-inline{
+                  margin:0 0 20px 0;
+               }
+
+               &:last-child{
+                  margin:0;
+               }
+            }
+
+            .form-control{
+               width:100%;
+               margin-bottom:20px;
+               float:none;
+
+               +.form-control{
+                  margin-left:0;
+               }
+
+               &:nth-of-type(2n){
+                  margin-left:0%;
+               }
+
+               .dk_toggle{
+                  width:100% !important;
+               }
+
+            }
+
+            .btn{
+               margin-left:0;
+               margin-top:10px;
+            }
+         }
+      }
+   }
+}
+
+//Mobile Size 480 - 767
+@media (min-width: 480px) and (max-width: $screen-xs-max) {
+   .products{
+      .product-filters {
+         fieldset {
+
+            .form-group{
+               @include clearfix;
+               padding:0;
+            }
+
+            .radio-inline{
+               width:50%;
+               float:left;
+               display:block;
+               padding:0;
+               margin:0 0 20px 0;
+
+               +.radio-inline{
+                  margin:0 0 20px 0;
+               }
+            }
+
+            .form-control{
+               width:47%;
+               margin-bottom:20px;
+
+               +.form-control{
+                  margin-left:0;
+               }
+
+               &:nth-of-type(2n){
+                  margin-left:6%;
+               }
+
+               .dk_toggle{
+                  width:100% !important;
+               }
+            }
+
+            .btn{
+               margin-left:0;
+            }
+         }
+      }
+   }
+}
+
+//Slider Mobile
+@media (min-width: $screen-xs) and (max-width: 639px) {
+   .page .content{
+      .featured-slider-wrapper {
+         ul {
+            li {
+               .slide-left, .slide-right{
+                  float:none;
+                  width:100%;
+
+                  img{
+                     width:100%;
+                     height:auto;
+                  }
+               }
+            }
+         }
+      }
+   }
+}
+
 //Mobile Size
 @media (min-width: $screen-xs) and (max-width: $screen-xs-max) {
 
+   /* Header */
    .banner{
       height:auto;
 
@@ -1531,6 +1731,8 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
       }
    }
 
+
+   /* Homepage */
    .home-grid-mobile img{
       display:inline-block;
       max-width:100%;
@@ -1551,67 +1753,36 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
       padding:0 20px;
    }
 
+
+   /* Product Page */
    .products{
       .page-header{
          @include clearfix;
          padding:30px 15px;
+         text-align:center;
 
          h1.page-title{
             display:block;
             text-align:center;
+            float:none;
          }
 
          a.product-types-links{
             float:none;
-            text-align:right;
-            display:block;
+            display:inline-block;
             margin-right:0;
-         }
-      }
-
-      .product-filters {
-         fieldset {
-
-            .form-group{
-               @include clearfix;
-               padding:0;
-            }
-
-            .radio-inline{
-               width:50%;
-               float:left;
-               display:block;
-               padding:0;
-               margin:0 0 20px 0;
-
-               +.radio-inline{
-                  margin:0 0 20px 0;
-               }
-            }
-
-            .form-control{
-               width:47%;
-               margin-bottom:20px;
-
-               +.form-control{
-                  margin-left:0;
-               }
-
-               &:nth-of-type(2n){
-                  margin-left:6%;
-               }
-
-            }
-
-            .btn{
-               margin-left:0;
-            }
+            margin-top:10px;
+            line-height:inherit;
          }
       }
 
       .product-grid {
          .product-row {
+            margin:0;
             .product{
+               @extend .col-sm-12;
+               padding:0;
+
                margin-top:20px;
 
                .product-title {
@@ -1635,11 +1806,51 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
          }
       }
    }
+
+   .main hr.title-divider {
+      margin:15px auto;
+   }
+
+
+   .page {
+      .content{
+
+         .accordion-nav, .advisory-nav{
+            padding:0 15px;
+
+            >li {
+               margin:0;
+
+               a{
+                  text-align:center;
+                  padding-left:0;
+
+                  &:hover{
+                     padding-left:0;
+                  }
+               }
+
+               &.active a, &.active a:hover{
+                  padding-left:0;
+               }
+            }
+         } 
+
+         .tab-content, .team-content{
+            padding:0 15px;
+
+            .tab-pane{
+               margin-top:30px;
+            }
+         }  
+      }
+   }
 }
 
 //Tablet Size
 @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
    
+   /* Header */
    .banner {
       height:auto;
 
@@ -1653,5 +1864,96 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
          }
       }
    }
+   
+   /* The Team */
+   .advisory-board .advisory-nav{
+      >li {
+         margin:0;
+
+         a{
+            text-align:center;
+            padding-left:0;
+
+            &:hover{
+               padding-left:0;
+            }
+         }
+
+         &.active a, &.active a:hover{
+            padding-left:0;
+         }
+      }
+   }
+
+   .team-members {
+      .team-nav {
+         li{
+            min-height:293px;
+
+            a img{
+               height:auto;
+            }
+         }
+      }
+   }
+
+   /* Products page */
+   .products {
+      .product-filters {
+         fieldset {
+            .radio-inline{
+               &:last-child{
+                  margin:20px 0 0 0;
+                  padding:0;
+               }
+            }
+            .form-control{
+               width:157px;
+            }
+            .btn{
+               margin-left:0;
+               margin-top:20px;
+            }
+         }
+      }
+
+      .product-grid{
+         .product-row{
+            margin:0;
+
+            .product{
+               float:left;
+               width:50%;
+               margin-top:20px;
+               padding:0;
+
+               .product-thumb img{
+                  width:100%;
+                  height:auto;
+               }
+            }
+         }
+      }
+   } 
+
+   .page {
+      .content {
+         .accordion-nav{
+            >li {
+               a{
+                  font-size:15px;
+                  padding:0 0 0 20px;
+               }
+
+               &.active a, &.active a:hover{
+                  padding:0 0 0 20px;
+               }
+            }
+         }
+      }
+
+   }
+
 }
+
 

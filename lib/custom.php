@@ -28,6 +28,7 @@ function theme_setup() {
 	add_image_size( 'team_thumb', 240, 350, TRUE );
 	add_image_size( 'product_feature', 460, 0, TRUE );
 	add_image_size( 'product_thumb', 225, 150, TRUE );
+	add_image_size( 'product_thumb_large', 600, 400, TRUE );
 	add_image_size( 'product_gallery_thumb', 75, 75, TRUE );
 
 	// Support post-thumbnails
@@ -292,3 +293,14 @@ function remove_taxonomies_metaboxes() {
     remove_meta_box( 'tagsdiv-product-type', 'product', 'side' );
 }
 add_action( 'add_meta_boxes_product' , 'remove_taxonomies_metaboxes' );
+
+
+/** woocommerce: change position of add-to-cart on single product **/
+remove_action( 'woocommerce_single_product_summary', 
+           'woocommerce_template_single_title', 5 );
+//remove_action( 'woocommerce_single_product_summary', 
+//           'woocommerce_template_single_price', 10 );
+remove_action( 'woocommerce_single_product_summary', 
+           'woocommerce_template_single_excerpt', 20 );
+remove_action( 'woocommerce_single_product_summary', 
+           'woocommerce_template_single_meta', 40 );

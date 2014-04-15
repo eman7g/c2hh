@@ -44,10 +44,10 @@
 					<h4 class="position"><?php the_sub_field('position');?></h4>
 					
 					<div class="row">
-						<div class="col-md-10">
+						<div class="col-md-10 col-sm-11">
 							<?php the_sub_field('description');?>
 						</div>
-						<div class="col-md-4 col-md-offset-2">
+						<div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-1">
 							<h5>Connect</h5>
 							<ul class="connect">
 								<?php if (get_sub_field('twitter')) : ?>
@@ -67,13 +67,38 @@
 		<?php endif; ?>
 	</div>
 
-	<hr>
-
 	<div class="advisory-board">
-		<h1 class="section-title">Advisory Board</h1>
-		<hr class="title-divider">
+		<div class="page-header">
+			<h1 class="section-title">Advisory Board</h1>
+			<hr class="title-divider">
+		</div>
 
 		<div class="row">
+
+			<div class="col-sm-12 visible-sm visible-xs">
+	  		<!-- Nav tabs -->
+			<?php if(get_field('advisory_board')): ?>
+
+				<?php $i = 1;?>
+			 
+				<ul class="nav advisory-nav advisory-tabs nav-tabs">
+			 
+				<?php while(has_sub_field('advisory_board')): ?>
+			 
+					<li <?php if ($i == 1){echo "class='active'";} ?>>
+						<a href="#advisor<?php echo $i;?>" data-toggle="tab">
+							<?php the_sub_field('name');?>
+						</a>
+					</li>
+
+					<?php $i++;?>
+			 
+				<?php endwhile; ?>
+			 
+				</ul>
+			 
+			<?php endif; ?>					
+			</div>
 
 			<div class="col-md-10">
 				<!-- Tab panes -->
@@ -98,7 +123,7 @@
 				<?php endif; ?>
 			</div>
 
-			<div class="col-md-4 col-md-offset-2">
+			<div class="col-md-4 col-md-offset-2 visible-lg visible-md">
 	  		<!-- Nav tabs -->
 			<?php if(get_field('advisory_board')): ?>
 
