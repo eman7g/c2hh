@@ -1198,6 +1198,7 @@ hr{
 
 .sidebar { 
    margin-top:150px;
+   padding-left:4%;
 
    .widget{
       margin-bottom:40px;
@@ -1229,7 +1230,76 @@ hr{
 /* ==========================================================================
    Posts
    ========================================================================== */
+.blog, .archive{
 
+   .sidebar{
+      margin-top:5px;
+   }
+
+   .page-header{
+      .title-divider{
+         margin:20px auto;
+      }
+   }
+
+   .hentry{
+      padding-bottom:15px;
+      margin-bottom:40px;
+      border-bottom:1px solid $gray-light;
+
+      header{
+         margin-bottom:20px;
+
+         h2.entry-title{
+            font-size:30px;
+            line-height:38px;
+            color:$gray-darker;
+            font-weight:300;
+            margin:0 0 0 0;
+            padding:0 0 20px 0;
+            text-transform:none;
+            text-align:left;
+            float:none;
+            width:auto;
+
+            a{
+               color:$gray-darker;
+               text-decoration:none;
+            }
+         }
+      }
+
+      time{
+         display:inline-block;
+         font-size:14px;
+      }
+
+      .byline{
+         display:inline-block;
+         margin:0 0 0 10px;
+         font-size:14px;
+         font-style:italic;
+         color:$gray-dark;
+
+         a{
+            font-size:14px;
+            color:$gray-dark;
+         }
+      }
+      .entry-content{
+         p{
+            margin-bottom:20px;
+
+            &.tags strong{
+               text-transform:uppercase;
+               font-weight:bold;
+               display:inline-block;
+               margin-right:5px;
+            }
+         }
+      }
+   }
+}
 
 .single{
    .hentry{
@@ -1567,6 +1637,8 @@ hr{
       @include border-radius(2px);
       background-color:#fafafa;
       font-weight:300;
+      -webkit-appearance: caret;
+      -moz-appearance: caret; /* mobile firefox too! */
    }
 
    .gform_footer{
