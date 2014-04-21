@@ -2,10 +2,11 @@
   if (post_password_required()) {
     return;
   }
-
- if (have_comments()) : ?>
-  <section id="comments">
+?>
+<section id="comments">
+<?php if (have_comments()) : ?>
     <h3><?php printf(_n('Comments (1)', ' Comments (%1$s)', get_comments_number(), 'roots'), number_format_i18n(get_comments_number()), get_the_title()); ?></h3>
+<?php endif ?>
 
   <?php if (comments_open()) : ?>
     <section id="respond">
@@ -44,6 +45,7 @@
     </section><!-- /#respond -->
   <?php endif; ?>
 
+<?php if (have_comments()) : ?>
 
     <ol class="media-list">
       <?php wp_list_comments(array('walker' => new Roots_Walker_Comment)); ?>
