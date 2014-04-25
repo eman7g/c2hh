@@ -88,6 +88,8 @@
 						<div class="tab-pane accordion-pane fade in <?php if ($j == 1){echo "active";} ?>" id="tab<?php echo $j;?>">
 							<h3 class="name"><?php the_sub_field('title');?></h3>							
 							<?php the_sub_field('content');?>
+
+							<a href="#" class="btn view-more">View all <?php the_sub_field('title');?></a>
 						</div>
 
 					<?php $j++; endwhile ?>

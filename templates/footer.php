@@ -5,9 +5,10 @@
 			<div class="col-sm-2 col-footer">
 				<h3>About Us</h3>
 				<ul>
-					<?php $about_id = get_ID_by_slug('home');?>
-					<?php $children = wp_list_pages('title_li=&child_of='.$about_id.'&echo=0'); ?>
-					<?php echo $children;?>
+					<?php $story_id = get_ID_by_slug('our-story');?>
+					<?php $team_id = get_ID_by_slug('the-team');?>
+					<li><a href="<?php echo get_page_link($story_id); ?>">Our Story</a></li>
+					<li><a href="<?php echo get_page_link($team_id); ?>">The Team</a></li>
 				</ul>
 				<h3>Follow Us</h3>
 				<ul class="social">
@@ -19,9 +20,26 @@
 			<div class="col-sm-4 col-sm-offset-2 col-footer">
 				<h3>Shelters</h3>
 				<ul>
-					<?php $shelters_id = get_ID_by_slug('shelters');?>
-					<?php $children = wp_list_pages('title_li=&child_of='.$shelters_id.'&echo=0'); ?>
-					<?php echo $children;?>		
+					<?php 
+
+						$args = array( 'post_type' => 'product', 'posts_per_page' => -1 );
+
+					    $loop = new WP_Query( $args );
+
+
+					    while ( $loop->have_posts() ) : $loop->the_post(); 
+					    	global $product; ?>
+
+					 		<li>
+					 			<a href="<?php the_permalink();?>"><?php the_title();?></a>
+					 		</li>
+					    <?php
+					    endwhile; 
+
+
+					    wp_reset_query(); 
+
+					?>
 				</ul>	
 			</div>
 
@@ -32,12 +50,7 @@
 					<?php $children = wp_list_pages('title_li=&child_of='.$services_id.'&echo=0'); ?>
 					<?php echo $children;?>		
 				</ul>					
-				<h3>Resources</h3>
-				<ul>
-					<?php $resources_id = get_ID_by_slug('resources');?>
-					<?php $children = wp_list_pages('title_li=&child_of='.$resources_id.'&echo=0'); ?>
-					<?php echo $children;?>		
-				</ul>					
+								
 			</div>
 
 			<div class="col-sm-4 col-footer">

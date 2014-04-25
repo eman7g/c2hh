@@ -7,7 +7,7 @@
 // --------------------------------------------------
 
 // Core styles
-.btn, .add_to_cart_button {
+.btn, .woocommerce button.button.alt {
   display: inline-block;
   padding: 5px 0;
   margin-bottom: 0; // For input.btn
@@ -26,6 +26,8 @@
   background:#333;
   color:#fff;
   width:160px;
+  @include box-shadow(0 0 0);
+  text-shadow:none;
 
   &:focus {
     @include tab-focus;
@@ -35,6 +37,8 @@
   &:focus {
     color: $almost-white;
     text-decoration: none;
+    background:#333;
+    text-shadow:none;
   }
 
   &:active,

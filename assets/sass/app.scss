@@ -127,6 +127,8 @@ hr{
    }
 }
 
+textarea, input { outline: none; }
+
 
 /* ==========================================================================
    Header
@@ -647,7 +649,7 @@ hr{
                }
 
                img{
-                  max-width:100%;
+                  width:100%;
                   height:auto;
                }
             }
@@ -708,6 +710,14 @@ hr{
 
             p{
                margin-bottom:22px;
+            }
+
+            a.btn.view-more{
+               float:left;
+               clear:both;
+               width:auto;
+               padding:5px 20px;
+               margin:10px 0 0 0;
             }
          }
       }
@@ -959,6 +969,8 @@ hr{
    ========================================================================== */
 .single-product{
 
+
+
    ul{
       list-style:none;
    }
@@ -1012,9 +1024,14 @@ hr{
       color:$gray-darker;
    }
 
+   .stock{
+      display:none;
+   }
+
    .social-links{
       display:block;
       margin:10px 0 0 0;
+      padding:0;
 
       li{
          display:block;
@@ -1135,6 +1152,95 @@ hr{
    ========================================================================== */
 .woocommerce{
 
+   input.button{
+     display: inline-block;
+     padding: 5px 10px;
+     margin-bottom: 0; // For input.btn
+     font-size: 14px;
+     font-weight: 700;
+     line-height: $line-height-base;
+     text-align: center;
+     vertical-align: middle;
+     cursor: pointer;
+     background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+     border: 2px solid $gray-lighter;
+     border-radius: 0;
+     white-space: nowrap;
+     @include user-select(none);
+     text-transform:uppercase;
+     background:#fafafa;
+     color:$gray-dark;
+     width:auto;
+     @include box-shadow(0 0 0);
+     text-shadow:none;
+     height:auto;
+
+
+     &.alt{
+      background:#333;
+      text-shadow:none;
+      color:#fff;
+      border:2px solid #000;
+
+      &:hover{
+         background:#333;
+         text-shadow:none;
+         color:#fff;         
+      }
+     }
+
+     &:focus {
+       @include tab-focus;
+     }
+
+     &:hover,
+     &:focus {
+       color:$gray-dark;
+       text-decoration: none;
+       background:#fafafa;
+       text-shadow:none;
+     }
+
+     &:active,
+     &.active {
+       outline: 0;
+       background-image: none;
+       @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+     }
+
+     &.disabled,
+     &[disabled],
+     fieldset[disabled] & {
+       cursor: not-allowed;
+       pointer-events: none; // Future-proof disabling of clicks
+       @include opacity(.65);
+       @include box-shadow(none);
+     }
+
+   }
+
+
+   .woocommerce-message{
+      border-top:3px solid #1aa9a6;
+      margin-top:0 !important;
+
+      &:before{
+         background-color:#1aa9a6;
+         padding-top:0em;
+         line-height:2em;
+         height:auto;
+      }
+   } 
+
+   .woocommerce-error{
+      &:before{
+         background-color:#b81c23;
+         padding-top:0em;
+         line-height:2em;
+         height:auto;
+      }   
+   }  
+
    a.button{
      display: inline-block;
      padding: 5px 0;
@@ -1191,7 +1297,204 @@ hr{
    form.cart{
       margin-top:20px;
    }
+
+   /* Shopping cart */
+   table.shop_table{
+      margin-top:10px;
+      @include border-radius(0);
+      border:0;
+      border-bottom:1px solid $gray-light;
+      border-top:1px solid $gray-light;
+
+      th{
+      }
+
+      td{
+         border-top:1px solid $gray-light;  
+         padding:10px 12px;
+      }
+
+      .cart_item{
+         td{
+            border:0;
+            border-top:1px solid $gray-light;  
+            color:$gray-darker;
+            font-size:14px;
+            padding:10px 12px;
+
+
+            a{
+               color:$gray-darker;
+               font-size:14px;
+            } 
+
+            &.product-thumbnail{
+               img{
+                  width:75px;
+                  margin:0;
+                  padding:0;
+               }
+            } 
+
+            &.product-quantity{
+               .quantity{
+                  display:block;
+                  margin:0;
+
+                  input[type=button]{
+                     display:none;
+                  }
+
+                  input.qty{
+                     width:45px;
+                     height:auto;
+                     border:1px solid $gray-light;
+                     padding:5px;
+                     text-align:left;
+                     @include box-shadow(0 0 0);
+                     font-weight:normal;
+                     display:inline-block;
+                     @include border-radius(0);
+                     color:$gray-darker;
+                  }
+               }
+            }     
+         }
+         a.remove{
+            width:20px;
+            height:20px;
+            line-height:18px;
+         }
+      }
+
+      .actions{
+         padding:20px;
+         input{
+            line-height: $line-height-base;
+
+            &.checkout-button{
+               margin-left:18px;
+            }
+         }
+
+         .coupon{
+            input.input-text{
+               width:140px;
+               margin:0 20px 0 0;
+               padding:13px 10px;
+               border:1px solid $gray-lighter;
+               @include box-shadow(0 0 0);
+               color:$gray-darker;
+               @include border-radius(2px);
+            }
+         }
+      }
+   }
+
+   .cart-collaterals{
+      margin-top:10px;
+
+      .cart_totals{
+         width:50%;
+
+         h2{
+            padding-bottom:32px;
+
+            a{
+               color:$gray
+            }
+
+            &:after{
+               margin:11px auto 0;
+            }
+         }
+
+         table{
+            margin:0 0 25px 0;
+            width:100%;
+
+            th{
+               padding:10px 12px 10px 14px;
+               width:50%;
+
+            }
+
+            td{
+               width:50%;
+               padding:10px 0;
+               font-size:14px;
+               color:$gray-darker;
+
+            }
+         }
+      }
+
+      .shipping_calculator{
+         width:50%;
+         
+         h2{
+            padding-bottom:32px;
+
+            a.shipping-calculator-button{
+               color:$gray-darker;
+               display:block;
+
+               &:hover{
+                  text-decoration:none;
+               }
+
+               &:after{
+                  width: 0px;
+                  height: 0px;
+                  border-style: solid;
+                  border-width: 5px 5px 0 5px;
+                  border-color: #000000 transparent transparent transparent;
+                  content:"";
+                  margin:0 0 0 10px;
+                  padding:0;
+                  display:inline-block;
+                  vertical-align:middle;
+               }
+            }
+
+            &:after{
+               margin:11px auto 0;
+            }
+         }
+
+         .button{
+            background:$gray-darker;
+            @include border-radius(0);
+            color:#fff;
+            text-shadow:none;
+            line-height: $line-height-base;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform:uppercase;
+            border:0;
+         }
+
+         .form-row-wide{
+            padding:0;
+            margin:0 0 20px 0;
+            
+            input.input-text{
+               width:100%;
+               margin:0 0 0 0;
+               padding:11px 10px;
+               border:1px solid $gray-lighter;
+               @include box-shadow(0 0 0);
+               color:$gray-darker;
+               @include border-radius(2px);
+            }
+
+         }
+
+      }
+   }
+
 }
+
 /* ==========================================================================
    Sidebar
    ========================================================================== */
@@ -2366,6 +2669,78 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
       margin-top:0;
       padding-left:15px;
    }
+
+   .single-product{
+      .product-main{
+         margin-left:0;
+
+         header{
+            padding:0 0 30px 0;
+         }
+      }
+
+      .product-description{
+         padding-bottom:20px;
+      }
+
+      form.cart{
+         margin:0;
+         text-align:left;
+         padding:10px 0 10px 0;
+
+         button.button.alt{
+            display:inline-block;
+
+         }
+      }
+
+      .social-links{
+         margin:20px 0 40px 0;
+         li{
+            display:block;
+            clear:both;
+            margin-bottom:10px;
+
+            a{
+               display:inline-block;
+               text-align:left;
+            }
+         }
+      }
+
+      .bx-wrapper {
+         img{
+            width:100%;
+            height:auto;
+         }
+      }
+
+      #product-pager{
+         text-align:center;
+         height:8px;
+         margin:25px 0;
+
+         a{
+            display:inline-block;
+            float:none;
+            width:8px;
+            height:8px;
+            text-indent:-99999px;
+            background:#ccc;
+
+            &.active{
+               background:#000;
+               height:8px;
+            }
+
+            img{
+            }
+         }
+      }
+   }
+
+
+
 }
 
 //Tablet Size
@@ -2473,6 +2848,61 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
          }
       }
 
+   }
+
+   .single-product{
+      .product-main{
+         margin-left:0;
+
+         header{
+            padding:0 0 30px 0;
+         }
+      }
+
+      .product-description{
+         padding-bottom:20px;
+      }
+
+      form.cart{
+         margin:0;
+         text-align:right;
+         padding:5px 0 10px 0;
+
+         button.button.alt{
+            display:inline-block;
+
+         }
+      }
+
+      .social-links{
+         margin:20px 0;
+         li{
+            display:block;
+            clear:both;
+            margin-bottom:10px;
+
+            a{
+               display:block;
+               text-align:right;
+            }
+         }
+      }
+
+      .bx-wrapper {
+         img{
+            width:100%;
+            height:auto;
+         }
+      }
+
+      #product-pager{
+         text-align:center;
+
+         a{
+            display:inline-block;
+            float:none;
+         }
+      }
    }
 
 }

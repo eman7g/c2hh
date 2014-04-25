@@ -285,14 +285,30 @@ function myajax_product_filter() {
 
 /*
 ****************************************************************
-* CPT Menus
+* Product CPT Menus
 ****************************************************************/
+
+add_action('admin_head', 'my_custom_styles');
+
+function my_custom_styles() {
+  echo '<style>
+    .acf-gallery .thumbnail img{
+	  max-width:99px;
+	  height:auto;
+	}
+  </style>';
+}
 
 function remove_taxonomies_metaboxes() {
     remove_meta_box( 'tagsdiv-construction-type', 'product', 'side' );
     remove_meta_box( 'tagsdiv-product-type', 'product', 'side' );
+    remove_meta_box( 'product_catdiv', 'product', 'side' );
+    remove_meta_box( 'tagsdiv-product_tag', 'product', 'side' );
+    remove_meta_box('woocommerce-product-images','product', 'side');
+    remove_meta_box( 'commentsdiv', 'product', 'normal' );
+    remove_meta_box('postexcerpt','product','normal');
 }
-add_action( 'add_meta_boxes_product' , 'remove_taxonomies_metaboxes' );
+add_action( 'add_meta_boxes_product' , 'remove_taxonomies_metaboxes', 11 );
 
 
 /** woocommerce: change position of add-to-cart on single product **/
@@ -303,4 +319,6 @@ remove_action( 'woocommerce_single_product_summary',
 remove_action( 'woocommerce_single_product_summary', 
            'woocommerce_template_single_excerpt', 20 );
 remove_action( 'woocommerce_single_product_summary', 
-           'woocommerce_template_single_meta', 40 );
+           'woocommerce_template_single_meta', 40 ); 
+
+
