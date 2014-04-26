@@ -6,19 +6,37 @@ $temp_query = $wp_query;
 global $post;
 $post_slug=$post->post_name;
 
+if (isset($wp_query->query_vars['product_type'])) $product_type = esc_attr($wp_query->query_vars['product_type']);
+
 ?>
 <? $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; ?>
 <? // WP_Query arguments
 	
-	$args = array (
-		'post_type'             => 'product',
-		'post_status'           => 'publish',
-		'pagination'            => false,
-		'posts_per_page'        => -1,
-		'order'                 => 'ASC',
-		'orderby'               => 'name'
-		//'paged'             	=> $paged,	
-	);	
+	if (isset($wp_query->query_vars['product_type'])){
+
+		$args = array (
+			'post_type'             => 'product',
+			'post_status'           => 'publish',
+			'pagination'            => false,
+			'posts_per_page'        => -1,
+			'order'                 => 'ASC',
+			'orderby'               => 'name',
+			'product-type' 			=> $product_type
+			//'paged'             	=> $paged,	
+		);	
+
+	}else{
+
+		$args = array (
+			'post_type'             => 'product',
+			'post_status'           => 'publish',
+			'pagination'            => false,
+			'posts_per_page'        => -1,
+			'order'                 => 'ASC',
+			'orderby'               => 'name'
+			//'paged'             	=> $paged,	
+		);			
+	}
 
 	// The Query
 	$wp_query = new WP_Query( $args );
@@ -31,7 +49,7 @@ $post_slug=$post->post_name;
 <div class="row">
 	<div class="page-header">
 		<h1 class="page-title">Shop Products</h1>
-		<a class="product-types-links" href="/product-types">Product Types Defined</a>
+		<a class="product-types-links" href="<?php echo esc_url( get_permalink( get_page_by_title( 'Product Types' ) ) ); ?>">Product Types Defined</a>
 	</div>
 
 	<div class="product-filters">
@@ -48,7 +66,7 @@ $post_slug=$post->post_name;
 						if ( $count > 0 ){
 						 foreach ( $terms as $term ) : ?>
 							<label class="radio-inline">
-						   		<input type="radio" class="radio" name="producttype" id="<?php echo $term->slug; ?>" value="<?php echo $term->slug; ?>"><?php echo $term->name;?>
+						   		<input type="radio" class="radio" name="producttype" id="<?php echo $term->slug; ?>" value="<?php echo $term->slug; ?>" <?php if ($term->slug == $product_type){echo 'checked="checked"';}?>><?php echo $term->name;?>
 							</label>
 						 <?php endforeach;
 						}

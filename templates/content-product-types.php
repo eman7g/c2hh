@@ -11,13 +11,14 @@
 				<?php while(has_sub_field('slides')): ?>
 
 					<?php $images = get_sub_field('images'); $i = 0; ?>
+					<?php $product_type = get_sub_field('product_type_link');?>
 
 	  				<?php if( $images ): ?>
 
 	  					<li>
 	  					
 							<div class="slide-left">
-								<img src="<?php echo $images[0]['url']; ?>" alt="<?php echo $images[0]['alt']; ?>" />             		
+								<a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Products' ) ) ); ?>?product_type=<?php echo $product_type->slug;?>"><img src="<?php echo $images[0]['url']; ?>" alt="<?php echo $images[0]['alt']; ?>" /></a>             		
           					</div>
 
 							<div class="slide-right">

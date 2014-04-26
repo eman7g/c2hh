@@ -296,6 +296,9 @@ function my_custom_styles() {
 	  max-width:99px;
 	  height:auto;
 	}
+	.acf-gallery .thumbnails {
+		min-height:150px;
+	}
   </style>';
 }
 
@@ -322,3 +325,8 @@ remove_action( 'woocommerce_single_product_summary',
            'woocommerce_template_single_meta', 40 ); 
 
 
+function add_query_vars_filter( $vars ){
+  $vars[] = "product_type";
+  return $vars;
+}
+add_filter( 'query_vars', 'add_query_vars_filter' );
