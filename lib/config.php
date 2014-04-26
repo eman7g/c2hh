@@ -59,7 +59,7 @@ function roots_display_sidebar() {
       'is_front_page',
       'is_page',
       array('is_singular','product'),
-      array('is_page','products')
+      array('is_page','2370')
     ),
     /**
      * Page template checks (via is_page_template())

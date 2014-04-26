@@ -1,9 +1,5 @@
 <?php 
 
-if(is_page()){
-	echo "is page";
-}
-
 // Init a variable to store the values of the original WP Query
 $temp_query = $wp_query;
 
