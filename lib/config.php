@@ -58,6 +58,7 @@ function roots_display_sidebar() {
       'is_404',
       'is_front_page',
       'is_page',
+      'is_page("product"),
       array('is_singular','product')
     ),
     /**
