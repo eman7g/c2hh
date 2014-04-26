@@ -324,9 +324,23 @@ remove_action( 'woocommerce_single_product_summary',
 remove_action( 'woocommerce_single_product_summary', 
            'woocommerce_template_single_meta', 40 ); 
 
+function c2hh_remove_menus() {
+
+	remove_submenu_page( 'themes.php', 'theme-editor.php' );
+
+}
+add_action( 'admin_menu', 'c2hh_remove_menus', 999 );
+
+
+/*
+****************************************************************
+* Query Vars
+****************************************************************/
 
 function add_query_vars_filter( $vars ){
   $vars[] = "product_type";
   return $vars;
 }
 add_filter( 'query_vars', 'add_query_vars_filter' );
+
+

@@ -975,10 +975,6 @@ textarea, input { outline: none; }
 
 
 
-   ul{
-      list-style:none;
-   }
-
    .a2a_tabs:last-child{
       display:none !important;
    }
@@ -1028,6 +1024,15 @@ textarea, input { outline: none; }
       color:$gray-darker;
    }
 
+   ul{
+      padding:10px 10px 10px 18px;
+
+      li{
+         margin:0 0 15px 0;
+         font-size:13px;
+      }
+   }
+
    .stock{
       display:none;
    }
@@ -1036,6 +1041,7 @@ textarea, input { outline: none; }
       display:block;
       margin:10px 0 0 0;
       padding:0;
+      list-style:none;
 
       li{
          display:block;
