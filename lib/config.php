@@ -58,8 +58,8 @@ function roots_display_sidebar() {
       'is_404',
       'is_front_page',
       'is_page',
-      'is_page("product"),
-      array('is_singular','product')
+      array('is_singular','product'),
+      array('is_page','products')
     ),
     /**
      * Page template checks (via is_page_template())
