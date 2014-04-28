@@ -19,6 +19,43 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 <?php while (have_posts()) : the_post(); ?>
 <article <?php post_class(); ?>>
   <div class="row">
+    <div class="col-md-8 col-sm-12">
+
+      <?php $images = get_field('product_images'); $i = 0; ?>
+
+      <?php if( $images ): ?>
+        <div class="product-slider-wrap clearfix">
+          <ul class="bxslider product-slider">
+              <li><?php the_post_thumbnail('product_feature'); ?></li>
+            <?php foreach( $images as $image ): ?>
+              <li><img src="<?php echo $image['sizes']['product_feature']; ?>" alt="<?php echo $image['alt']; ?>" /></li>
+            <?php endforeach ?>
+          </ul>
+
+          <div id="product-pager">
+            <a data-slide-index="<?php echo $i;?>" href=""><?php the_post_thumbnail('product_gallery_thumb'); ?></a>
+            <?php $i++;?>
+            <?php foreach( $images as $image ): ?>
+              <a data-slide-index="<?php echo $i;?>" href=""> <img src="<?php echo $image['sizes']['product_gallery_thumb']; ?>" alt="<?php echo $image['alt']; ?>" /></a>
+            <?php $i++; endforeach ?>
+          </div>
+        </div>
+      <?php endif ?>
+
+      <div class="product-attributes visible-lg visible-md">
+        <h4>Product Attributes</h4>
+        <ul>
+          <?php $terms = get_the_terms( $post->ID, 'attribute' );?>
+          <?php
+            foreach ( $terms as $term ) : ?>
+              <li class="<?php echo $term->slug;?>"><?php echo $term->name;?></li>
+            <?php endforeach;
+          ?>
+        </ul>
+      </div>
+
+    </div>
+
 
     <div class="col-md-8 visible-lg visible-md">
       <div class="product-main">
@@ -83,6 +120,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
             </ul>
           </div>
+
         </div>
 
       </div>
@@ -159,8 +197,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                   <?php the_field('construction_materials_green_impact');?>
                 </div>
               </div>  
-            <?php endif ?>                      
-          </div>
+            </div>
+          <?php endif ?>                      
         </div>
 
       </div>
