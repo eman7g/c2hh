@@ -54,10 +54,19 @@ var C2HH = {
         increaseArea: '20%' // optional
       });
 
-      $('select.form-control').dropkick({
-        autoWidth:true
-      });
-      
+      var $formcontrol = $('select.form-control');
+      $formcontrol.dropkick({autoWidth:false});
+
+
+      if($.browser.mobile)
+      {
+         console.log('You are using a mobile device!');
+      }
+      else
+      {
+         console.log('You are not using a mobile device!');
+      }
+
     },
     finalize: function() { }
   },

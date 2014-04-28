@@ -40,7 +40,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
             <?php $i++; endforeach ?>
           </div>
         </div>
-
       <?php endif ?>
 
       <div class="product-attributes visible-lg visible-md">
@@ -290,15 +289,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
       <div class="product-details hidden-lg hidden-md">
         <h2>Product Details</h2>
 
-        <div class="panel-group" id="product-accordion">
+        <div class="panel-group" id="product-accordion-mobilie">
           <?php if (get_field('specifications')) : ?>
             <div class="panel panel-default">
-              <div class="panel-heading" data-toggle="collapse" data-parent="#product-accordion" href="#specifications">
+              <div class="panel-heading" data-toggle="collapse" data-parent="#product-accordion-mobilie" href="#specifications-mobile">
                 <h4 class="panel-title">
                     <a>Specifications:</a>
                 </h4>
               </div>
-              <div id="specifications" class="panel-collapse collapse in">
+              <div id="specifications-mobile" class="panel-collapse collapse in">
                 <div class="panel-body">
                   <?php the_field('specifications');?>
                 </div>
@@ -307,12 +306,12 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
           <?php endif ?>
           <?php if (get_field('facilities_features')) : ?>
             <div class="panel panel-default">
-              <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#product-accordion" href="#facilities">
+              <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#product-accordion-mobilie" href="#facilities-mobile">
                 <h4 class="panel-title">
                     <a>Facilities &amp; Features:</a>
                 </h4>
               </div>
-              <div id="facilities" class="panel-collapse collapse">
+              <div id="facilities-mobile" class="panel-collapse collapse">
                 <div class="panel-body">
                   <?php the_field('facilities_features');?>
                 </div>
@@ -321,12 +320,12 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
           <?php endif ?>
           <?php if (get_field('plumbing_electrical_mechanical')) : ?>
             <div class="panel panel-default">
-              <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#product-accordion" href="#plumbing">
+              <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#product-accordion-mobilie" href="#plumbing-mobile">
                 <h4 class="panel-title">
                     <a>Plumbing, Electrical &amp; Mechanical:</a>
                 </h4>
               </div>
-              <div id="plumbing" class="panel-collapse collapse">
+              <div id="plumbing-mobile" class="panel-collapse collapse">
                 <div class="panel-body">
                   <?php the_field('plumbing_electrical_mechanical');?>
                 </div>
@@ -335,12 +334,12 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
           <?php endif ?>
           <?php if (get_field('assembly_shipping')) : ?>
             <div class="panel panel-default">
-              <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#product-accordion" href="#assembly">
+              <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#product-accordion-mobilie" href="#assembly-mobile">
                 <h4 class="panel-title">
                     <a>Assembly &amp; Shipping:</a>
                 </h4>
               </div>
-              <div id="assembly" class="panel-collapse collapse">
+              <div id="assembly-mobile" class="panel-collapse collapse">
                 <div class="panel-body">
                   <?php the_field('assembly_shipping');?>
                 </div>
@@ -349,12 +348,12 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
           <?php endif ?>
           <?php if (get_field('construction_materials_green_impact')) : ?>
             <div class="panel panel-default">
-              <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#product-accordion" href="#construction">
+              <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#product-accordion-mobilie" href="#construction-mobile">
                 <h4 class="panel-title">
                     <a>Construction Materials &amp; Green Impact:</a>
                 </h4>
               </div>
-              <div id="construction" class="panel-collapse collapse">
+              <div id="construction-mobile" class="panel-collapse collapse">
                 <div class="panel-body">
                   <?php the_field('construction_materials_green_impact');?>
                 </div>

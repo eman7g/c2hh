@@ -2190,6 +2190,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
   .dk_toggle {
    height:25px;
    border:1px solid #999;
+   width:100%;
 
     &:hover {
       
@@ -2250,7 +2251,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
   .dk_options_inner {
       list-style:none;
       margin:0;
-      padding:8px 0 10px 0;
+      padding:8px 0 8px 0;
 
       li{
          display:block;
@@ -2348,73 +2349,35 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 /* ==========================================================================
    Media Queries
    ========================================================================== */
-//Mobile 320 - 480
-@media (min-width: $screen-xs) and (max-width: 479px) {
+@media (min-width: 320px) and (max-width: 480) {
    .products{
-      .product-filters {
-         fieldset {
-            text-align:center;
-
-            legend{
-               padding-top:10px;
-               margin-bottom:10px;
-            }
-
-            .form-group{
-               @include clearfix;
-               padding:0;
-               margin-bottom:0;
-            }
-
+      .product-filters{
+         fieldset{
             .radio-inline{
-               width:auto;
-               float:none;
-               display:block;
-               padding:0;
-               margin:0 0 20px 0;
-
-               +.radio-inline{
-                  margin:0 0 20px 0;
-               }
-
-               &:last-child{
-                  margin:0;
-               }
-            }
-
-            .form-control{
                width:100%;
-               margin-bottom:20px;
-               float:none;
-
-               +.form-control{
-                  margin-left:0;
-               }
-
-               &:nth-of-type(2n){
-                  margin-left:0%;
-               }
-
-               .dk_toggle{
-                  width:100% !important;
-               }
-
-            }
-
-            .btn{
-               margin-left:0;
-               margin-top:10px;
             }
          }
       }
    }
+
 }
 
-//Mobile Size 480 - 767
-@media (min-width: 480px) and (max-width: $screen-xs-max) {
+//Product Small viewport up to 767
+@media (min-width: 320px) and (max-width: $screen-xs-max) {
    .products{
       .product-filters {
          fieldset {
+            padding-bottom:0;
+
+            &:last-child{
+               padding-bottom:20px;
+            }
+
+            legend{
+               margin-bottom:10px;
+               float:left;
+               width:100%;
+            }
 
             .form-group{
                @include clearfix;
@@ -2427,6 +2390,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
                display:block;
                padding:0;
                margin:0 0 20px 0;
+               font-size:12px;
 
                +.radio-inline{
                   margin:0 0 20px 0;

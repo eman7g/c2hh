@@ -28,6 +28,7 @@
   width:160px;
   @include box-shadow(0 0 0);
   text-shadow:none;
+  height:40px;
 
   &:focus {
     @include tab-focus;
