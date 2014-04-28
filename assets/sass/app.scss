@@ -127,7 +127,15 @@ hr{
    }
 }
 
-textarea, input { outline: none; }
+textarea, input, a { outline: none; }
+
+input::-moz-focus-inner { 
+  border: 0; 
+}
+
+a, a:active, a:focus{
+   outline:0;
+}
 
 
 /* ==========================================================================
@@ -235,7 +243,7 @@ textarea, input { outline: none; }
 
       .form-control{
          @include border-radius(0);
-         @include box-shadow(0 0 0);
+         @include box-shadow(none);
          font-size:12px;
          line-height:18px;
          color:$gray;
@@ -1181,9 +1189,11 @@ textarea, input { outline: none; }
      background:#fafafa;
      color:$gray-dark;
      width:auto;
-     @include box-shadow(0 0 0);
+     @include box-shadow(none);
      text-shadow:none;
      height:auto;
+     outline:0;
+     min-height:42px;
 
 
      &.alt{
@@ -1231,8 +1241,11 @@ textarea, input { outline: none; }
 
 
    .woocommerce-message{
+      border:1px solid $gray-light;
       border-top:3px solid #1aa9a6;
-      margin-top:0 !important;
+      margin-top:20px !important;
+      @include border-radius(0);
+      @include box-shadow(none);
 
       &:before{
          background-color:#1aa9a6;
@@ -1241,6 +1254,10 @@ textarea, input { outline: none; }
          height:auto;
       }
    } 
+
+   .woocommerce-info{
+      margin-bottom:40px !important;
+   }
 
    .woocommerce-error{
       &:before{
@@ -1270,7 +1287,7 @@ textarea, input { outline: none; }
      background:#333;
      color:#fff;
      width:160px;  
-     @include box-shadow(0 0 0);
+     @include box-shadow(none);
      text-shadow:none;
 
       &:hover,
@@ -1284,7 +1301,7 @@ textarea, input { outline: none; }
       &.active {
        outline: 0;
        background-image: none;
-       @include box-shadow(0 0 0 );
+       @include box-shadow(none);
        border:0;
       } 
 
@@ -1332,6 +1349,10 @@ textarea, input { outline: none; }
             font-size:14px;
             padding:10px 12px;
 
+            &.product-name{
+               font-weight:bold;
+            }
+
 
             a{
                color:$gray-darker;
@@ -1361,7 +1382,7 @@ textarea, input { outline: none; }
                      border:1px solid $gray-light;
                      padding:5px;
                      text-align:left;
-                     @include box-shadow(0 0 0);
+                     @include box-shadow(none);
                      font-weight:normal;
                      display:inline-block;
                      @include border-radius(0);
@@ -1393,7 +1414,7 @@ textarea, input { outline: none; }
                margin:0 20px 0 0;
                padding:13px 10px;
                border:1px solid $gray-lighter;
-               @include box-shadow(0 0 0);
+               @include box-shadow(none);
                color:$gray-darker;
                @include border-radius(2px);
             }
@@ -1426,7 +1447,8 @@ textarea, input { outline: none; }
             th{
                padding:10px 12px 10px 14px;
                width:50%;
-
+               font-size:13px;
+               border-top:1px solid #ccc;
             }
 
             td{
@@ -1434,7 +1456,7 @@ textarea, input { outline: none; }
                padding:10px 0;
                font-size:14px;
                color:$gray-darker;
-
+               border-top:1px solid #ccc;
             }
          }
       }
@@ -1493,7 +1515,7 @@ textarea, input { outline: none; }
                margin:0 0 0 0;
                padding:11px 10px;
                border:1px solid $gray-lighter;
-               @include box-shadow(0 0 0);
+               @include box-shadow(none);
                color:$gray-darker;
                @include border-radius(2px);
             }
@@ -1502,6 +1524,101 @@ textarea, input { outline: none; }
 
       }
    }
+
+
+   form.checkout{
+
+      h3{
+         color:$gray-darker;
+         font-size:20px;
+         font-weight:300;
+         padding-bottom:20px;
+         text-transform:uppercase;
+
+         label{
+            display:inline-block;
+            min-height:0;
+            margin:0 10px 0 0;
+            padding:0;
+            font-weight:300;
+         }
+         input{
+            margin:0;
+         }
+      }
+
+      .form-row{
+         padding:0;
+         margin:0 0 25px 0;
+
+         label{
+            line-height:1em;
+            color:$gray-dark;
+            font-weight:300;
+         }
+
+         input.input-text, textarea.input-text{
+            margin:0 0 0 0;
+            padding:8px 10px;
+            border:1px solid $gray-lighter;
+            @include box-shadow(none);
+            color:$gray-darker;
+            @include border-radius(2px);            
+         }
+
+         textarea{
+            min-height:150px;
+         }
+      }
+      
+      table.shop_table{
+         margin:0 0 40px 0;
+         width:100%;
+         border-top:0;
+
+         th{
+            padding:10px 12px 10px 14px;
+            width:50%;
+            font-size:13px;
+            border-top:1px solid #ccc;
+         }
+
+         td{
+            width:50%;
+            padding:10px ;
+            font-size:14px;
+            color:$gray-darker;
+            border-top:1px solid #ccc;
+
+         }
+
+         .cart_item{
+            td{
+               &.cart_item{
+                  font-weight:bold;
+               }
+            }
+         }
+
+         tfoot{
+            th{
+               border-top:1px solid #ccc;
+            }
+            td{
+               border-top:1px solid #ccc;
+               padding:10px ;
+               font-weight:normal;
+            }
+         }
+      }  
+
+   }
+
+
+
+   .col2-set{
+      margin-bottom:35px;
+   } 
 
 }
 
@@ -2170,7 +2287,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
  *
  */
 
-.form-control {
+.form-control, .shipping_calculator {
    border:0;
    z-index:100;
 
@@ -2713,7 +2830,53 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
       }
    }
 
+   .woocommerce{
+      table.shop_table {
+         td.actions{
+            padding:20px 10px;
 
+            .coupon{
+               padding-bottom:20px;
+
+               input.input-text{
+                  width:45%;
+                  margin-right:10%;
+               }
+            }
+
+            input.button{
+               width:45%;
+               padding:5px 0;
+               font-size:12px;
+               min-height:42px;
+
+               &.update_cart{
+                  margin-right:10%;
+               }
+
+               &.checkout-button{
+                  margin:0;
+                  font-size:11px;
+               }
+            }            
+         }
+      }
+      .cart-collaterals {
+         .cart_totals,.shipping_calculator{
+            width:100%;
+
+         }
+      }
+
+      .col2-set {
+         padding-bottom:20px;
+
+         .col-1, .col-2{
+            margin-bottom:40px;
+         }
+      }
+
+   }
 
 }
 
