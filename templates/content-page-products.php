@@ -164,9 +164,13 @@ if (isset($wp_query->query_vars['product_type'])) $product_type = esc_attr($wp_q
 				if ($i == $total_products){echo "</div>";}
 
 			endwhile;
+		}else{
+			echo "<h2>No Products Found</h2>";
 		}
 	?>	
       
     </div>
 
 </div>
+
+

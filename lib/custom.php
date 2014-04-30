@@ -271,7 +271,7 @@ function myajax_product_filter() {
 			}
 		}
 	} else {
-		echo "no products found";
+		echo "<h2>No Products Found</h2>";
 
 		// Restore the $wp_query back to its original state
 		$wp_query = $temp_query;		

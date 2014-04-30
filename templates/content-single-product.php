@@ -22,6 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
     <div class="col-md-8 col-sm-12">
 
       <?php $images = get_field('product_images'); $i = 0; ?>
+      <?php $feature_image = get_the_post_thumbnail($post_id,'product_feature'); ?>
 
       <?php if( $images ): ?>
         <div class="product-slider-wrap clearfix">
@@ -40,19 +41,28 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
             <?php $i++; endforeach ?>
           </div>
         </div>
+      <?php elseif (has_post_thumbnail()) : ?>
+        <div class="product-slider-wrap clearfix">
+          <ul class="bxslider product-slider">
+            <li><?php the_post_thumbnail('product_feature'); ?></li>
+          </ul>
+        </div>
       <?php endif ?>
 
-      <div class="product-attributes visible-lg visible-md">
-        <h4>Product Attributes</h4>
-        <ul>
-          <?php $terms = get_the_terms( $post->ID, 'attribute' );?>
-          <?php
-            foreach ( $terms as $term ) : ?>
-              <li class="<?php echo $term->slug;?>"><?php echo $term->name;?></li>
-            <?php endforeach;
-          ?>
-        </ul>
-      </div>
+      <?php $terms = get_the_terms( $post->ID, 'attribute' );?>
+
+      <?php if (!empty($terms)) : ?>
+        <div class="product-attributes visible-lg visible-md">
+          <h4>Product Attributes</h4>
+          <ul>
+            <?php
+              foreach ( $terms as $term ) : ?>
+                <li class="<?php echo $term->slug;?>"><?php echo $term->name;?></li>
+              <?php endforeach;
+            ?>
+          </ul>
+        </div>
+      <?php endif ?>
 
     </div>
 
