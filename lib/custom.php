@@ -293,7 +293,7 @@ add_action('admin_head', 'my_custom_styles');
 function my_custom_styles() {
   echo '<style>
     .acf-gallery .thumbnail img{
-	  max-width:99px;
+	  max-width:150px;
 	  height:auto;
 	}
 	.acf-gallery .thumbnails {
