@@ -23,7 +23,7 @@ var C2HH = {
         mode: 'fade',
         infiniteLoop: false,
         adaptiveHeight: true,
-        controls: false,
+        controls: true,
         preloadImages:'visible'
       });
 

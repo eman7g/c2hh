@@ -11,7 +11,6 @@
 				<?php while(has_sub_field('slides')): ?>
 
 					<?php $images = get_sub_field('images'); $i = 0; ?>
-					<?php $product_type = get_sub_field('product_type_link');?>
 
 	  				<?php if( $images ): ?>
 
@@ -86,11 +85,14 @@
 
 					<?php while(has_sub_field('tabs')): ?>
 
+						<?php $product_type = get_sub_field('product_type');?>
+
+
 						<div class="tab-pane accordion-pane fade in <?php if ($j == 1){echo "active";} ?>" id="tab<?php echo $j;?>">
 							<h3 class="name"><?php the_sub_field('title');?></h3>							
 							<?php the_sub_field('content');?>
 
-							<a href="#" class="btn view-more">View all <?php the_sub_field('title');?></a>
+							<a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Products' ) ) ); ?>?product_type=<?php echo $product_type->slug;?>" class="view-more">View all <?php the_sub_field('title');?></a>
 						</div>
 
 					<?php $j++; endwhile ?>

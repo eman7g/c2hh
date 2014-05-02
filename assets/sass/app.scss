@@ -693,6 +693,37 @@ a, a:active, a:focus{
                }
             }
          }
+
+         .bx-controls-direction a {
+            position: absolute;
+            top: 50%;
+            margin-top: -50px;
+            outline: 0;
+            width: 40px;
+            height: 40px;
+            text-indent: -9999px;
+            z-index: 9999;
+
+            &.disabled{
+               display:none;
+            }
+
+            &.bx-next{
+               right:0;
+               background: url(../img/slider-arrows.png) no-repeat right top;
+               &:hover{
+                  background-position: right bottom;
+               }
+            }
+            &.bx-prev{
+               left:0;
+               background: url(../img/slider-arrows.png) no-repeat left top;            
+               &:hover{
+                  background-position: left bottom;
+               }
+            }
+         }
+
       }
 
       .accordion-content{
@@ -720,12 +751,14 @@ a, a:active, a:focus{
                margin-bottom:22px;
             }
 
-            a.btn.view-more{
+            a.view-more{
                float:left;
-               clear:both;
-               width:auto;
-               padding:5px 20px;
-               margin:10px 0 0 0;
+               font-size:14px;
+               color:$gray-darker;
+               margin:0 35px 0 0;
+               padding-right:15px;
+               background: url('../img/icons/link_arrow.png') no-repeat right center;
+               line-height:auto;
             }
          }
       }
@@ -1192,6 +1225,10 @@ a, a:active, a:focus{
       p{
          margin:0 0 15px 0;
       }
+
+      #product-accordion{
+         margin-left:30px;
+      }
    }
 
 }
@@ -1357,6 +1394,14 @@ a, a:active, a:focus{
 
       &:before{
          color:#000;
+      }
+   }
+   a.wc-backward{
+      padding:5px 10px;
+      width:auto;
+
+      &:before{
+         color:#fff;
       }
    }
    a.added_to_cart{
@@ -1593,6 +1638,9 @@ a, a:active, a:focus{
             margin:0 10px 0 0;
             padding:0;
             font-weight:300;
+
+
+
          }
          input{
             margin:0;
@@ -1604,9 +1652,18 @@ a, a:active, a:focus{
          margin:0 0 25px 0;
 
          label{
-            line-height:1em;
-            color:$gray-dark;
             font-weight:300;
+            font-size:14px;
+            color:$gray-dark;
+            display:inline-block;
+            line-height:1.3em;
+            clear:both;
+            margin:0 0 5px 0;
+
+            abbr.required{
+               color:#333;
+            }
+
          }
 
          input.input-text, textarea.input-text{
@@ -1616,7 +1673,8 @@ a, a:active, a:focus{
             @include box-shadow(none);
             color:$gray-darker;
             @include border-radius(2px);     
-            -webkit-appearance:none;       
+            -webkit-appearance:none;  
+            background-color:#fafafa;
          }
 
          textarea{
@@ -1778,6 +1836,22 @@ a, a:active, a:focus{
                font-weight:bold;
                display:inline-block;
                margin-right:5px;
+            }
+
+            img, figure{
+               max-width:100%;
+               height:auto;
+            }
+
+            figure{
+               margin-bottom:20px;
+            }
+
+            figcaption{
+               font-size:12px;
+               line-height:16px;
+               font-weight:300;
+               margin:10px 0 0 0;
             }
          }
       }
@@ -1950,10 +2024,11 @@ a, a:active, a:focus{
                padding:6px 8px;
                font-size:12px;
                color:$gray-darker;
-               border:1px solid $gray-light;
+               border:1px solid #ddd;
                @include border-radius(2px);
-               background-color:#fafafa;
+               background-color:#fff;
                font-weight:300;
+               height:34px;
             }
             textarea{
                font-weight:300;
@@ -2606,6 +2681,9 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
                      width:100%;
                      height:auto;
                   }
+               }
+               .slide-left{
+                  display:none;
                }
             }
          }
