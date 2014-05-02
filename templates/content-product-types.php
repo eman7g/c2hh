@@ -17,11 +17,11 @@
 	  					<li>
 	  					
 							<div class="slide-left">
-								<a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Products' ) ) ); ?>?product_type=<?php echo $product_type->slug;?>"><img src="<?php echo $images[0]['url']; ?>" alt="<?php echo $images[0]['alt']; ?>" /></a>             		
+								<img src="<?php echo $images[0]['url']; ?>" alt="<?php echo $images[0]['alt']; ?>" />           		
           					</div>
 
 							<div class="slide-right">
-								<img src="<?php echo $images[1]['url']; ?>" alt="<?php echo $images[1]['alt']; ?>" />             		
+								<a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Products' ) ) ); ?>?product_type=<?php echo $product_type->slug;?>"><img src="<?php echo $images[1]['url']; ?>" alt="<?php echo $images[1]['alt']; ?>" /> </a            		
           					</div>
 	          			</li>
 
