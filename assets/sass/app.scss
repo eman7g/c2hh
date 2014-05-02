@@ -711,14 +711,14 @@ a, a:active, a:focus{
 
             &.bx-next{
                right:0;
-               background: url(../img/slider-arrows.png) no-repeat right top;
+               background: url(../img/icons/slider-arrows.png) no-repeat right top;
                &:hover{
                   background-position: right bottom;
                }
             }
             &.bx-prev{
                left:0;
-               background: url(../img/slider-arrows.png) no-repeat left top;            
+               background: url(../img/icons/slider-arrows.png) no-repeat left top;            
                &:hover{
                   background-position: left bottom;
                }
@@ -1734,6 +1734,20 @@ a, a:active, a:focus{
 
    }
 
+   form.checkout_coupon{
+      input.input-text{
+         margin:0 0 0 0;
+         padding:9px 10px;
+         border:1px solid $gray-lighter;
+         @include box-shadow(none);
+         color:$gray-darker;
+         @include border-radius(2px);     
+         -webkit-appearance:none;  
+         background-color:#fafafa;
+         font-weight:300;
+         font-size:12px;         
+      }
+   }
 
 
    .col2-set{
@@ -1840,11 +1854,16 @@ a, a:active, a:focus{
          p{
             margin-bottom:20px;
 
-            &.tags strong{
-               text-transform:uppercase;
-               font-weight:bold;
-               display:inline-block;
-               margin-right:5px;
+            &.tags {
+               font-size:12px;
+               color:$gray;
+
+               strong{
+                  text-transform:uppercase;
+                  font-weight:bold;
+                  display:inline-block;
+                  margin-right:5px;
+               }
             }
 
             img, figure{
@@ -1924,12 +1943,33 @@ a, a:active, a:focus{
          p{
             margin-bottom:20px;
 
-            &.tags strong{
+            &.tags {
+               font-size:12px;
+               color:$gray;
+
+               strong{
                text-transform:uppercase;
                font-weight:bold;
                display:inline-block;
                margin-right:5px;
             }
+         }
+
+         img, figure{
+            max-width:100%;
+            height:auto;
+         }
+
+         figure{
+            margin-bottom:20px;
+         }
+
+         figcaption{
+            font-size:12px;
+            line-height:16px;
+            font-weight:300;
+            margin:10px 0 0 0;
+            color:$gray;
          }
       }
 
