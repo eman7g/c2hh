@@ -1666,15 +1666,23 @@ a, a:active, a:focus{
 
          }
 
+         strong{
+            display:block;
+            color:$gray-dark;
+            font-weight:300;
+         }
+
          input.input-text, textarea.input-text{
             margin:0 0 0 0;
-            padding:8px 10px;
+            padding:9px 10px;
             border:1px solid $gray-lighter;
             @include box-shadow(none);
             color:$gray-darker;
             @include border-radius(2px);     
             -webkit-appearance:none;  
             background-color:#fafafa;
+            font-weight:300;
+            font-size:12px;
          }
 
          textarea{
@@ -2026,7 +2034,7 @@ a, a:active, a:focus{
                color:$gray-darker;
                border:1px solid #ddd;
                @include border-radius(2px);
-               background-color:#fff;
+               background-color:#fafafa;
                font-weight:300;
                height:34px;
             }
