@@ -10,7 +10,7 @@
 
 				<?php while(has_sub_field('slides')): ?>
 
-					<?php $images = get_sub_field('images'); $i = 0; ?>
+					<?php $images = get_sub_field('images'); $i = 0; $product_type = get_sub_field('product_type_link'); ?>
 
 	  				<?php if( $images ): ?>
 
