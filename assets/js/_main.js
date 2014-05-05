@@ -125,6 +125,20 @@ var C2HH = {
       });
       
     }
+  },
+  //Cart page
+  cart: {
+
+    init: function(){
+
+      
+      $('.shipping-calculator-button').on('click', function (e) {
+        console.log('click');
+        // Frontend Chosen selects
+        $( 'select.country_to_state, select[name="calc_shipping_state"]' ).chosen( { width: "100%" } );
+      });
+    }
+
   }
 };
 

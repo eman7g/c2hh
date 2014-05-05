@@ -35,7 +35,13 @@
         <?php get_search_form(); ?>
       </div>
     </div>
-       
+
+    <div class="cart-link">
+      <?php global $woocommerce; ?>
+
+      <a class="cart-contents" href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="<?php _e('View your shopping cart', 'woothemes'); ?>"><span>( <?php echo sprintf(_n('%d', '%d', $woocommerce->cart->cart_contents_count, 'woothemes'), $woocommerce->cart->cart_contents_count);?> )</span> View Cart</a>
+    </div>
+
   </div>
 
 </header>

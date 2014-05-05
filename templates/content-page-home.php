@@ -20,31 +20,32 @@
 	        <div class="block-column-large block-column">
 	          <div class="block large image">
 	            <?php 
-	              $attachment_ids = get_field('grid_small_images');
-	              $attachment_id = get_field('grid_large_image');
-	              echo wp_get_attachment_image( $attachment_id, 'grid_large' );
+	              $product_blocks = get_field('grid_product_blocks');
+	              $page_blocks = get_field('grid_page_blocks');
+	              $grid_feature  = get_field('grid_large_image');
+	              echo wp_get_attachment_image( $grid_feature, 'grid_large' );
 	            ?>
 	          </div>
 	        </div>
 
 	        <div class="block-column">
-	          <a class="block small image" href="#">
+	          <a class="block small image" href="<?php echo $product_blocks[0]['link'];?>">
 	            <?php 
-	              echo wp_get_attachment_image( $attachment_ids[1]['image'], 'grid_small' );
+	              echo wp_get_attachment_image( $product_blocks[0]['image'], 'grid_small' );
 	            ?>   
 	          </a>
-	          <a class="block small green" href="#">
-	            <h4>Our Story</h4>
+	          <a class="block small green" href="<?php echo $page_blocks[0]['page_link'];?>">
+	            <h4><?php echo $page_blocks[0]['title'];?></h4>
 	          </a>
 	        </div>
 
 	        <div class="block-column">
-	          <a class="block small blue" href="#">
-	              <h4>Compare Shelters</h4>
+	          <a class="block small blue" href="<?php echo $page_blocks[1]['page_link'];?>">
+	              <h4><?php echo $page_blocks[1]['title'];?></h4>
 	          </a>
-	          <a class="block small image" href="#">
+	          <a class="block small image" href="<?php echo $product_blocks[1]['link'];?>">
 	            <?php 
-	              echo wp_get_attachment_image( $attachment_ids[2]['image'], 'grid_small' );
+	              echo wp_get_attachment_image( $product_blocks[1]['image'], 'grid_small' );
 	            ?>   
 	          </a>
 	        </div>

@@ -343,4 +343,18 @@ function add_query_vars_filter( $vars ){
 }
 add_filter( 'query_vars', 'add_query_vars_filter' );
 
+function c2hh_enqueue_script() {
+	
+
+	if ( is_cart() ){
+		if ( get_option( 'woocommerce_enable_chosen' ) == 'yes' ) {
+			wp_enqueue_script( 'wc-chosen', get_bloginfo( 'url' ). '/wp-content/plugins/woocommerce/assets/js/chosen/chosen.jquery.min.js', false );
+			wp_enqueue_style( 'woocommerce_chosen_styles', get_bloginfo( 'url' ). '/wp-content/plugins/woocommerce/assets/css/chosen.css', false );
+		}
+	}
+}
+
+add_action( 'wp_enqueue_scripts', 'c2hh_enqueue_script' );
+
+
 
