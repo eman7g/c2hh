@@ -64,7 +64,25 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
         </div>
       <?php endif ?>
 
-    </div>
+    </div>  
+
+<?php $getPostCustom=get_post_custom(); // Get all the data ?>
+
+<?php
+    foreach($getPostCustom as $name=>$value) {
+
+        echo "<strong>".$name."</strong>"."  =>  ";
+
+        foreach($value as $nameAr=>$valueAr) {
+                echo "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                echo $nameAr."  =>  ";
+                echo var_dump($valueAr);
+        }
+
+        echo "<br /><br />";
+
+    }
+?>
 
 
     <div class="col-md-8 visible-lg visible-md">
@@ -72,11 +90,14 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
         <header>
           <h1 class="entry-title"><?php the_title(); ?></h1>
           <h2 class="price">
+            
             <?php 
               woocommerce_get_template( 'loop/price.php' );
             ?>
           </h2>
         </header>    
+
+
 
         <?php
           $terms = get_the_terms( $post->ID, 'product-type' );

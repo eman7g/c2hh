@@ -180,6 +180,8 @@ function myajax_product_filter() {
 	// response output
 	parse_str($filter_query, $filter_array);
 
+	//print_r($filter_array);
+
 	// Init a variable to store the values of the original WP Query
 	$temp_query = $wp_query;
 
@@ -228,6 +230,27 @@ function myajax_product_filter() {
 				'compare' 		=> '='
 			);
     }
+    if ($filter_array['prices'] !== 'all'){
+    	if ($filter_array['prices'] == '10k-below'){
+	    	$args['meta_query'][] = array(
+				'key'       	=> '_price',
+				'value'			=> '10000',
+				'compare' 		=> '<'
+			);    
+		}elseif($filter_array['prices'] == '50k-below'){
+	    	$args['meta_query'][] = array(
+				'key'       	=> '_price',
+				'value'			=> '50000',
+				'compare' 		=> '<'
+			);    			
+		}elseif($filter_array['prices'] == '50k-above'){
+	    	$args['meta_query'][] = array(
+				'key'       	=> '_price',
+				'value'			=> '50000',
+				'compare' 		=> '>='
+			);    			
+		}   
+	} 
 
 	// The Query
 	$wp_query = new WP_Query( $args );
