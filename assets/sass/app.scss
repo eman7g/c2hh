@@ -772,6 +772,11 @@ header .container{
                margin-bottom:22px;
             }
 
+            ul{
+               font-size:14px;
+               font-weight:300;
+            }
+
             a.view-more{
                float:left;
                font-size:14px;
@@ -2575,6 +2580,18 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
  * Give yourself some credit here
  *
  */
+
+ /* Supreme - Disable Dropkick */
+.gd-disable{
+   opacity:0.4;
+   cursor: no-drop !important;
+}
+
+.gd-disable a{
+   cursor: no-drop !important;
+   pointer-events: none;
+}
+/* End */
 
 .form-control, .shipping_calculator {
    border:0;

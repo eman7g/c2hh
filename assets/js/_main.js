@@ -47,15 +47,38 @@ var C2HH = {
           $(this).find('.panel-title a').not($(e.target)).removeClass('active');
       });
 
+      var $formcontrol = $('select.form-control');
+      $formcontrol.dropkick({autoWidth:false, syncReverse:true});
 
-      $('input.radio').iCheck({
+      $('input.radio').on('ifChecked', function(event){
+        console.log(this.id + '');
+        if (this.id == 'commercial-units' || this.id == 'other-products'){
+          $("#dk_container_sleeps").addClass('gd-disable');
+          $('#dk_container_sleeps select').val("n/a").change();
+          //$formcontrol.dropkick('reset');
+        }else{
+          $("#dk_container_sleeps").removeClass('gd-disable');
+          $('#dk_container_sleeps select').val("all").change();
+        }
+      }).iCheck({
         checkboxClass: 'icheckbox_minimal',
         radioClass: 'iradio_minimal',
         increaseArea: '20%' // optional
       });
 
-      var $formcontrol = $('select.form-control');
-      $formcontrol.dropkick({autoWidth:false});
+      var productType = GetURLParameter('product_type');
+      if (productType.length){
+        
+        if (productType == 'commercial-units' || productType == 'other-products'){
+          $("#dk_container_sleeps").addClass('gd-disable');
+          $('#dk_container_sleeps select').val("n/a").change();
+          //$formcontrol.dropkick('reset');
+        }else{
+          $("#dk_container_sleeps").removeClass('gd-disable');
+          $('#dk_container_sleeps select').val("all").change();
+        }
+
+      }
 
 
       if($.browser.mobile)
@@ -204,3 +227,17 @@ $(window).load(function() {
 $(window).resize(function(){
   equalheight('.block-column');
 });
+
+function GetURLParameter(sParam)
+{
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) 
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) 
+        {
+            return sParameterName[1];
+        }
+    }
+}​

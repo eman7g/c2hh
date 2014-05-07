@@ -78,7 +78,8 @@ if (isset($wp_query->query_vars['product_type'])) $product_type = esc_attr($wp_q
 
 				<div class="form-group">
 					<select name="sleeps" class="form-control">
-					  <option value="all">Sleeps All</option>
+					  <option value="n/a">N/A</option>
+					  <option value="all" selected>Sleeps All</option>
 					  <option value="1-2">Sleeps 1-2</option>
 					  <option value="1-4">Sleeps up to 4</option>
 					  <option value="1-6">Sleeps up to 6</option>
