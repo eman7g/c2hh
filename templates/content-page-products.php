@@ -33,7 +33,7 @@ if (isset($wp_query->query_vars['product_type'])) $product_type = esc_attr($wp_q
 			'pagination'            => false,
 			'posts_per_page'        => -1,
 			'order'                 => 'ASC',
-			'orderby'               => 'name'
+			'orderby'               => 'name',
 			//'paged'             	=> $paged,	
 		);			
 	}
@@ -153,7 +153,7 @@ if (isset($wp_query->query_vars['product_type'])) $product_type = esc_attr($wp_q
 								<li class="assembly">
 									<span class="title">Assembly:</span>
 									<span><?php the_field('assembly');?></span>
-								</li>															
+								</li>														
 							</ul>
 						</article>
 					</a>

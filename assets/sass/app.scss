@@ -1016,6 +1016,9 @@ header .container{
                   line-height:18px;
                   @extend .clearfix;
 
+                  &.sleeps{
+                  }
+
                   span{
                      font-size:12px;
                      line-height:18px;

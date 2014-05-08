@@ -145,6 +145,21 @@ function filter_ptags_on_images($content){
 add_filter('the_content', 'filter_ptags_on_images');
 
 
+function get_post_meta_all($post_id){
+    global $wpdb;
+    $data   =   array();
+    $wpdb->query("
+        SELECT `meta_key`, `meta_value`
+        FROM $wpdb->postmeta
+        WHERE `post_id` = $post_id
+    ");
+    foreach($wpdb->last_result as $k => $v){
+        $data[$v->meta_key] =   $v->meta_value;
+    };
+    return $data;
+}
+
+
 /*
 ****************************************************************
 * URL Rewrites
@@ -216,7 +231,7 @@ function myajax_product_filter() {
 	if ($filter_array['sleeps'] !== 'all' && $filter_array['assembly'] !== 'all'){
     	$args['meta_query']['relation'] = 'AND';
     }
-	if ($filter_array['sleeps'] !== 'all'){
+	if ($filter_array['sleeps'] !== 'all' || $filter_array['sleeps'] !== 'n/a'){
     	$args['meta_query'][] = array(
 				'key'       	=> 'sleeps',
 				'value'			=> $filter_array['sleeps'],
@@ -232,18 +247,34 @@ function myajax_product_filter() {
     }
     if ($filter_array['prices'] !== 'all'){
     	if ($filter_array['prices'] == '10k-below'){
-	    	$args['meta_query'][] = array(
-				'key'       	=> '_price',
-				'value'			=> '10000.00',
-				'compare' 		=> '<',
-				'type' => 'NUMERIC'
-			);    
+	    	$args['meta_query'] = array(
+	    		'relation' => 'AND',
+	    		array(
+					'key'       	=> '_price',
+					'value'			=> '10000.00',
+					'compare' 		=> '<',
+					'type' => 'NUMERIC'
+				),
+				array(
+		           'key' => '_price',
+		           'value' => NULL,
+		           'compare' => '!=',
+			    )
+			);   
 		}elseif($filter_array['prices'] == '50k-below'){
-	    	$args['meta_query'][] = array(
-				'key'       	=> '_price',
-				'value'			=> '50000.00',
-				'compare' 		=> '<',
-				'type' => 'NUMERIC'
+	    	$args['meta_query'] = array(
+	    		'relation' => 'AND',
+	    		array(
+					'key'       	=> '_price',
+					'value'			=> '50000.00',
+					'compare' 		=> '<',
+					'type' => 'NUMERIC'
+				),
+				array(
+		           'key' => '_price',
+		           'value' => NULL,
+		           'compare' => '!=',
+			    )
 			);    			
 		}elseif($filter_array['prices'] == '50k-above'){
 	    	$args['meta_query'][] = array(
@@ -381,6 +412,5 @@ function c2hh_enqueue_script() {
 }
 
 add_action( 'wp_enqueue_scripts', 'c2hh_enqueue_script' );
-
 
 
