@@ -229,9 +229,11 @@ function myajax_product_filter() {
     	$args['construction-type'] = $filter_array['construction'];
 	}
 	if ($filter_array['sleeps'] !== 'all' && $filter_array['assembly'] !== 'all'){
+
     	$args['meta_query']['relation'] = 'AND';
     }
-	if ($filter_array['sleeps'] !== 'all' || $filter_array['sleeps'] !== 'n/a'){
+	if ($filter_array['sleeps'] !== 'all' && $filter_array['sleeps'] !== 'n/a'){
+
     	$args['meta_query'][] = array(
 				'key'       	=> 'sleeps',
 				'value'			=> $filter_array['sleeps'],
@@ -246,6 +248,7 @@ function myajax_product_filter() {
 			);
     }
     if ($filter_array['prices'] !== 'all'){
+
     	if ($filter_array['prices'] == '10k-below'){
 	    	$args['meta_query'] = array(
 	    		'relation' => 'AND',
@@ -333,6 +336,8 @@ function myajax_product_filter() {
 		// Restore the $wp_query back to its original state
 		$wp_query = $temp_query;		
 	}
+
+	//print_r($wp_query);
 
  
 	// IMPORTANT: don't forget to "exit"
