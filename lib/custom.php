@@ -234,20 +234,23 @@ function myajax_product_filter() {
     	if ($filter_array['prices'] == '10k-below'){
 	    	$args['meta_query'][] = array(
 				'key'       	=> '_price',
-				'value'			=> '10000',
-				'compare' 		=> '<'
+				'value'			=> '10000.00',
+				'compare' 		=> '<',
+				'type' => 'NUMERIC'
 			);    
 		}elseif($filter_array['prices'] == '50k-below'){
 	    	$args['meta_query'][] = array(
 				'key'       	=> '_price',
-				'value'			=> '50000',
-				'compare' 		=> '<'
+				'value'			=> '50000.00',
+				'compare' 		=> '<',
+				'type' => 'NUMERIC'
 			);    			
 		}elseif($filter_array['prices'] == '50k-above'){
 	    	$args['meta_query'][] = array(
 				'key'       	=> '_price',
-				'value'			=> '50000',
-				'compare' 		=> '>='
+				'value'			=> '50000.00',
+				'compare' 		=> '>=',
+				'type' => 'NUMERIC'
 			);    			
 		}   
 	} 
@@ -281,12 +284,7 @@ function myajax_product_filter() {
 							<li class="assembly">
 								<span class="title">Assembly:</span>
 								<span><?php the_field('assembly');?></span>
-							</li>		
-							<li class="assembly">
-								<span class="title">Price:</span>
-								<?php $meta = get_post_meta( get_the_ID(), '_price' ); ?>
-									<span><?php print_r($meta);?></span>
-									</li>														
+							</li>															
 						</ul>
 					</article>
 				</a>
