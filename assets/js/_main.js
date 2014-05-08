@@ -67,7 +67,7 @@ var C2HH = {
       });
 
       var productType = GetURLParameter('product_type');
-      if (productType.length){
+      if (typeof productType === 'undefined'){
         
         if (productType == 'commercial-units' || productType == 'other-products'){
           $("#dk_container_sleeps").addClass('gd-disable');

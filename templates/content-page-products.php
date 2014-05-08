@@ -153,7 +153,13 @@ if (isset($wp_query->query_vars['product_type'])) $product_type = esc_attr($wp_q
 								<li class="assembly">
 									<span class="title">Assembly:</span>
 									<span><?php the_field('assembly');?></span>
-								</li>																
+								</li>	
+								<li class="price">
+									<span class="price">Price:</span>
+									<?php $meta = get_post_meta( get_the_ID(), '_price' ); ?>
+									<?php print_r($meta);?>
+
+								</li>															
 							</ul>
 						</article>
 					</a>

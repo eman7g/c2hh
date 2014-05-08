@@ -281,7 +281,12 @@ function myajax_product_filter() {
 							<li class="assembly">
 								<span class="title">Assembly:</span>
 								<span><?php the_field('assembly');?></span>
-							</li>																
+							</li>		
+							<li class="assembly">
+								<span class="title">Price:</span>
+								<?php $meta = get_post_meta( get_the_ID(), '_price' ); ?>
+									<span><?php print_r($meta);?></span>
+									</li>														
 						</ul>
 					</article>
 				</a>
