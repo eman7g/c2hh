@@ -102,6 +102,12 @@ h6 {
   }
 }
 
+h5{
+  font-weight:500;
+  font-size:14px;
+  color:$gray-dark;
+}
+
 h1, .h1 { font-size: $font-size-h1; color:$gray-darkest;}
 h2, .h2 { font-size: $font-size-h2; color:$gray-darker;}
 h3, .h3 { font-size: $font-size-h3; color:$gray-darker;padding-bottom: ($line-height-computed * 1.1); }
