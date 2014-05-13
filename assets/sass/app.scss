@@ -3082,10 +3082,14 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
       padding-left:15px;
    }
 
+
+
    .single-product{
 
-      .woocommerce-info, .woocommerce-message, .woocommerce-error{
-         line-height:inherit;
+      &.woocommerce{
+         .woocommerce-info, .woocommerce-message, .woocommerce-error{
+            line-height:inherit;
+         }
       }
 
       .product-main{
