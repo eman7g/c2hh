@@ -2816,14 +2816,11 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
                display:block;
                padding:0;
                margin:0 0 20px 0;
-               font-size:10px;
-               min-width:0;
+               font-size:11px;
+               width:100%;
 
                +.radio-inline{
                   margin:0 0 20px 0;
-               }
-               span{
-                  display:inline-block;
                }
             }
 
