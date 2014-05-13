@@ -2847,6 +2847,8 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
          }
       }
    }
+
+
 }
 
 //Slider Mobile
@@ -3081,6 +3083,11 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
    }
 
    .single-product{
+
+      .woocommerce-info, .woocommerce-message, .woocommerce-error{
+         line-height:inherit;
+      }
+
       .product-main{
          margin-left:0;
 
