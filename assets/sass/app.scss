@@ -3224,10 +3224,16 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
             }            
          }
       }
+
+      table.cart{
+         .product-price{
+            display:none;
+         }
+      }
+
       .cart-collaterals {
          .cart_totals,.shipping_calculator{
             width:100%;
-
          }
       }
 
@@ -3256,7 +3262,6 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
             width:auto;
             float:none;
          }
-
       }
    }
 
