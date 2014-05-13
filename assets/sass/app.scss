@@ -1937,20 +1937,18 @@ header .container{
       }
 
       .entry-feature-img{
-         margin:0 0 30px 0;
+         margin:0 0 20px 0;
          img{
             max-width:100%;
             height:auto;
          }
 
          small{
-            font-size:14px;
-            line-height:24px;
-            color:$gray-dark;
-            font-style:italic;
-            display:block;
-            margin-top:10px;
+            font-size:12px;
+            line-height:16px;
             font-weight:300;
+            margin:10px 0 0 0;
+            color:$gray;
          }
       }
    }
@@ -1992,20 +1990,18 @@ header .container{
       }
 
       .entry-feature-img{
-         margin:0 0 30px 0;
+         margin:0 0 20px 0;
          img{
             max-width:100%;
             height:auto;
          }
 
          small{
-            font-size:14px;
-            line-height:24px;
-            color:$gray-dark;
-            font-style:italic;
-            display:block;
-            margin-top:15px;
+            font-size:12px;
+            line-height:16px;
             font-weight:300;
+            margin:10px 0 0 0;
+            color:$gray;
          }
       }
 
