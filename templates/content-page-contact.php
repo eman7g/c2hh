@@ -41,6 +41,11 @@
 					?>
 				</ul>
 
+				<div class="facebook-link">
+					<hr>
+					<a href="https://www.facebook.com/closetohomehousing" target="_blank">Follow C2hh on Facebook and join the conversation!</a>
+				</div>
+
   			</div>      			
   			<div class="col-sm-8">
   				 <?php the_content(); ?>
