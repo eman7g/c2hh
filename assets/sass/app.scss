@@ -2578,6 +2578,11 @@ header .container{
                         }
 
                      }
+
+                     &.active a{
+                        color:#fff;
+                        background:none;
+                     }
                   }
                }
             }

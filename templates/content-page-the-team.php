@@ -54,7 +54,7 @@
 									<li class="twitter"><a href="http://<?php the_sub_field('twitter');?>">Twitter</a></li>
 								<?php endif ?>
 								<?php if (get_sub_field('email')) : ?>
-									<li class="email"><a href="http://<?php the_sub_field('email');?>">Email</a></li>
+									<li class="email"><a href="mailto:<?php the_sub_field('email');?>">Email</a></li>
 								<?php endif ?>
 							</ul>
 						</div>
