@@ -2312,11 +2312,15 @@ header .container{
          padding:0 0 18px 0;
       }
       a{
+         background: url('../img/icons/facebook_icon.png') no-repeat left center;
          font-size:14px;
          color:#666;
          line-height:24px;
          margin-bottom:15px;
-         padding-left:40px;
+         padding-left:30px;
+         font-weight:300;
+         height:21px;
+         display:block;
 
          @media (min-width: $screen-sm ) {
             font-size:12px;
@@ -2324,6 +2328,7 @@ header .container{
 
          @media (min-width: $screen-md ) {
             font-size:14px;
+            padding-left:30px;
          }
       }
    }   
