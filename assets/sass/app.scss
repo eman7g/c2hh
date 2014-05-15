@@ -2500,7 +2500,51 @@ header .container{
                   background:url('../img/icons/social.png') no-repeat left -28px;
                }               
             }
-         }         
+         }   
+
+         &.menu{
+            > li.dropdown{
+               > a{
+                  font-weight:700;
+                  text-transform:uppercase;
+                  font-size:12px;
+                  line-height:18px;
+                  color:$gray-light;
+                  margin-bottom:10px; 
+                  pointer-events: none;
+                  cursor: default;
+                  display:block;
+
+                  b{
+                     display:none;
+                  }             
+               }
+
+               ul.dropdown-menu{
+                  position:relative;
+                  top: auto;
+                  left: auto;
+                  float:none;
+                  min-width:0;
+                  background:none;
+                  border:0;
+                  @include border-radius(0);
+
+                  li{
+                     a{
+                        display:inline-block;
+                        padding:0;
+
+                        &:hover{
+                           background:none;
+                           text-decoration:underline;
+                        }
+
+                     }
+                  }
+               }
+            }
+         }      
       }
    }
 

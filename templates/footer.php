@@ -18,39 +18,11 @@
 			</div>
 
 			<div class="col-sm-4 col-sm-offset-2 col-footer">
-				<h3>Shelters</h3>
-				<ul>
-					<?php 
-
-						$args = array( 'post_type' => 'product', 'posts_per_page' => -1 );
-
-					    $loop = new WP_Query( $args );
-
-
-					    while ( $loop->have_posts() ) : $loop->the_post(); 
-					    	global $product; ?>
-
-					 		<li>
-					 			<a href="<?php the_permalink();?>"><?php the_title();?></a>
-					 		</li>
-					    <?php
-					    endwhile; 
-
-
-					    wp_reset_query(); 
-
-					?>
-				</ul>	
+				<?php wp_nav_menu( array('menu' => 'Footer Menu 1' )); ?>
 			</div>
 
 			<div class="col-sm-4 col-footer">
-				<h3>Services</h3>
-				<ul>
-					<?php $services_id = get_ID_by_slug('services');?>
-					<?php $children = wp_list_pages('title_li=&child_of='.$services_id.'&echo=0'); ?>
-					<?php echo $children;?>		
-				</ul>					
-								
+				<?php wp_nav_menu( array('menu' => 'Footer Menu 2' )); ?>				
 			</div>
 
 			<div class="col-sm-4 col-footer">
