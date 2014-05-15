@@ -81,14 +81,22 @@ var C2HH = {
       }
 
 
-      if($.browser.mobile)
-      {
-         console.log('You are using a mobile device!');
-      }
-      else
-      {
-         console.log('You are not using a mobile device!');
-      }
+      // Remove padding, set opening and closing animations, close if clicked and modify overlay
+      $(".fancybox").fancybox({
+        padding: 0,
+        closeClick : false,
+
+        helpers : {
+          title : {
+            type : 'inside'
+          },
+          overlay : {
+            css : {
+              'background' : 'rgba(0,0,0,0.9)'
+            }
+          }
+        }
+      });
 
     },
     finalize: function() { }
