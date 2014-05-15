@@ -1,6 +1,15 @@
 <article <?php post_class(); ?>>
 	<div class="post-thumb">
-		<?php the_post_thumbnail('thumbnail'); ?>
+		<?php 
+			if ( '' != get_the_post_thumbnail() ) {
+				the_post_thumbnail('thumbnail');
+			}else{ ?>
+
+				<img width="100" height="100" src="<?php bloginfo('stylesheet_directory');?>/assets/img/search_image_placeholder.png" class="attachment-thumbnail wp-post-image" alt="image placeholder">
+
+			<?php
+			}
+		?>
 	</div>
 
 	<div class="article-content">
