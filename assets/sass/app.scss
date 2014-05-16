@@ -2962,8 +2962,12 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
    max-height: 100%;
 }
 
-#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
+#fancybox-loading {
    background-image: url('../img/fancybox/fancybox_sprite.png');
+}
+
+.fancybox-close{
+   background: url(../img/icons/close_x.png) no-repeat center center;
 }
 
 .fancybox-prev span, .fancybox-next span{
@@ -2990,12 +2994,17 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 
 .fancybox-close {
    position: absolute;
-   top: -18px;
-   right: -18px;
-   width: 36px;
-   height: 36px;
+   top: 0;
+   right: 0;
+   width: 40px;
+   height: 40px;
    cursor: pointer;
    z-index: 8040;
+   background-color:rgba(0,0,0,.2);
+
+   &:hover{
+      background-color:rgba(0,0,0,.9);
+   }
 }
 
 .fancybox-nav {
@@ -3161,7 +3170,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
       only screen and (min--moz-device-pixel-ratio: 1.5),
       only screen and (min-device-pixel-ratio: 1.5){
 
-   #fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
+   #fancybox-loading{
       background-image: url('../img/fancybox/fancybox_sprite@2x.png');
       background-size: 44px 152px; /*The size of the normal image, half the size of the hi-res image*/
    }
@@ -3338,6 +3347,10 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
       }
    }
 
+   .search .page-header{
+      margin-bottom:30px;
+   }
+
 
    /* Homepage */
    .home-grid-mobile img{
@@ -3450,7 +3463,14 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
             .tab-pane{
                margin-top:30px;
             }
-         }  
+         } 
+
+         .entry{
+            .entry-column-right,.entry-column-left{
+               padding-left:10px;
+               padding-right:10px;
+            }
+         } 
       }
    }
 
@@ -3504,6 +3524,12 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
          padding-bottom:20px;
       }
 
+      .product-details{
+         h2{
+            margin-left:0;
+         }
+      }
+
       form.cart{
          margin:0;
          text-align:left;
@@ -3515,8 +3541,10 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
          }
       }
 
-      .social-links{
+      .content .social-links{
          margin:20px 0 40px 0;
+         padding:0;
+
          li{
             display:block;
             clear:both;
