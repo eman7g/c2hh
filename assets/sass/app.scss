@@ -1237,17 +1237,16 @@ header .container{
             height:20px;
             margin-bottom:10px;
             line-height:20px;
-            padding-left:30px;
             text-transform:uppercase;
 
-            &.plumbing{
-               background: url('../img/icons/plumbing_icon.png') no-repeat left center;
-            }
-            &.electrical{
-               background: url('../img/icons/electrical_icon.png') no-repeat left center;
-            }         
-            &.sustainable-design{
-               background: url('../img/icons/sustainable_icon.png') no-repeat left center;
+            span{
+               display:inline-block;
+               width:20px;
+               height:20px;
+               margin-right:10px;
+               img{
+                  display:block;
+               }
             }
          }
       }

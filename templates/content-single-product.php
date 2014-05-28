@@ -60,7 +60,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
           <ul>
             <?php
               foreach ( $terms as $term ) : ?>
-                <li class="<?php echo $term->slug;?>"><?php echo $term->name;?></li>
+                <li class="<?php echo $term->slug;?>"><span class="icon"><img src="<?php the_field('icon', 'attribute_'.$term->term_id); ?>" /></span><?php echo $term->name;?></li>
               <?php endforeach;
             ?>
           </ul>
@@ -118,7 +118,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
             
           <div class="col-sm-10">
             <ul class="social-links">
-              <li><a class="links contact" href="#">Contact A Representative</a></li>
+              <li><a class="links contact" href="mailto:<?php the_field('representative_email');?>">Contact A Representative</a></li>
               <li>
                   <!-- AddToAny BEGIN -->
                   <div class="a2a_kit a2a_default_style">
@@ -255,7 +255,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
             </div>
                 
             <ul class="social-links">
-              <li><a class="links contact" href="#">Contact A Representative</a></li>
+              <li><a class="links contact" href="mailto:<?php the_field('representative_email');?>">Contact A Representative</a></li>
               <li>
                   <!-- AddToAny BEGIN -->
                   <div class="a2a_kit a2a_default_style">
@@ -295,8 +295,14 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
           <ul>
             <?php $terms = get_the_terms( $post->ID, 'attribute' );?>
             <?php
+              // vars
+              $queried_object = get_queried_object(); 
+              $taxonomy = $queried_object->taxonomy;
+              $term_id = $queried_object->term_id;  
+            ?>
+            <?php
               foreach ( $terms as $term ) : ?>
-                <li class="<?php echo $term->slug;?>"><?php echo $term->name;?></li>
+                <li class="<?php echo $term->slug;?>"><span class="icon"><img src="<?php the_field('icon', 'attribute_'.$term->term_id); ?>" /></span><?php echo $term->name;?></li>
               <?php endforeach;
             ?>
           </ul>
