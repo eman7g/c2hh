@@ -485,6 +485,7 @@ header .container{
 .team-content{
    .team-pane{
       margin-top:30px;
+      margin-bottom:30px;
 
       h3{
          display:block;
@@ -1557,6 +1558,10 @@ header .container{
 
             &.checkout-button{
                margin-left:18px;
+               display:inline-block !important;
+               &.visible-xs{
+                  display:none !important;
+               }
             }
          }
 
@@ -3462,6 +3467,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 
             .tab-pane{
                margin-top:30px;
+               margin-bottom:0;
             }
          } 
 
@@ -3647,7 +3653,12 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 
                &.checkout-button{
                   margin:0;
-                  font-size:11px;
+                  &.hidden-xs{
+                     display:none !important;
+                  }
+                  &.visible-xs{
+                     display:inline-block !important;
+                  }
                }
             }            
          }
