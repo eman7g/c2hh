@@ -23,7 +23,7 @@ function theme_setup() {
 	update_option( 'large_crop', 0 );
 	
 	// Custom image sizes
-	add_image_size( 'grid_small', 240, 161, TRUE );
+	add_image_size( 'grid_small', 240, 162, TRUE );
 	add_image_size( 'grid_large', 480, 324, TRUE );
 	add_image_size( 'team_thumb', 240, 350, TRUE );
 	add_image_size( 'product_feature', 460, 0, TRUE );
