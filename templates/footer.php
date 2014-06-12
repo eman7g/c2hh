@@ -40,8 +40,8 @@
 			<div class="col-sm-4 col-footer">
 				<h3>Follow Us</h3>
 				<ul class="social">
-					<li class="twitter"><a href="#">Twitter</a></li>
-					<li class="facebook"><a href="#">Facebook</a></li>
+					<li class="twitter"><a href="<?php echo get_theme_mod( 'twitter_setting' ); ?>">Twitter</a></li>
+					<li class="facebook"><a href="<?php echo get_theme_mod( 'facebook_setting' ); ?>">Facebook</a></li>
 				</ul>
 			</div>
 
