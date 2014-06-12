@@ -33,7 +33,7 @@
 					<li>Seattle, WA  98104</li>
 				</ul>
 				<ul>
-					<li>info@c2hh.com</li>
+					<li><a href="mailto:<?php echo get_theme_mod( 'contact_email' ); ?>"><?php echo get_theme_mod( 'contact_email' ); ?></a></li>
 					<li>p. 206-123-4567</li>
 				</ul>
 			</div>

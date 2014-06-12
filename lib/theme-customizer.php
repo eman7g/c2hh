@@ -36,7 +36,7 @@ class theme_customizer
 
         // Textbox control
         $wp_manager->add_setting( 'facebook_setting', array(
-            'default'        => 'http://',
+            'default'        => 'mailto:',
         ) );
 
         $wp_manager->add_control( 'facebook_setting', array(
@@ -55,8 +55,18 @@ class theme_customizer
             'section' => 'c2hh_footer_section',
             'type'    => 'text',
             'priority' => 2
-        ) );        
+        ) );   
 
+        $wp_manager->add_setting( 'contact_email', array(
+            'default'        => '',
+        ) );
+
+        $wp_manager->add_control( 'contact_email', array(
+            'label'   => 'Contact Email',
+            'section' => 'c2hh_footer_section',
+            'type'    => 'text',
+            'priority' => 3
+        ) );   
         // Checkbox control
         /*$wp_manager->add_setting( 'checkbox_setting', array(
             'default'        => '1',
