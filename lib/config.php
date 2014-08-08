@@ -24,7 +24,7 @@ function roots_main_class() {
     $class = 'col-sm-12 col-sm-blog-12';
   } else {
     // Classes on full width pages
-    $class = 'col-sm-12';
+    $class = 'col-sm-16';
   }
 
   return $class;

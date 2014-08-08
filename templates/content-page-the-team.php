@@ -75,7 +75,7 @@
 
 		<div class="row">
 
-			<div class="col-sm-12 visible-sm visible-xs">
+			<div class="col-sm-16 visible-sm visible-xs">
 	  		<!-- Nav tabs -->
 			<?php if(get_field('advisory_board')): ?>
 

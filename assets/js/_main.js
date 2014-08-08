@@ -13,7 +13,7 @@ var C2HH = {
         infiniteLoop: false,
         adaptiveHeight: true,
         controls: false,
-        preloadImages:'visible'
+        preloadImages:'visible',
       });
 
 
@@ -52,7 +52,7 @@ var C2HH = {
 
       $('input.radio').on('ifChecked', function(event){
         console.log(this.id + '');
-        if (this.id == 'commercial-units' || this.id == 'other-products'){
+        if (this.id === 'commercial-units' || this.id === 'other-products'){
           $("#dk_container_sleeps").addClass('gd-disable');
           $('#dk_container_sleeps select').val("n/a").change();
           //$formcontrol.dropkick('reset');
@@ -66,10 +66,10 @@ var C2HH = {
         increaseArea: '20%' // optional
       });
 
-      var productType = GetURLParameter('product_type');
+      var productType = getURLParameter('product_type');
       if (typeof productType === 'undefined'){
         
-        if (productType == 'commercial-units' || productType == 'other-products'){
+        if (productType === 'commercial-units' || productType === 'other-products'){
           $("#dk_container_sleeps").addClass('gd-disable');
           $('#dk_container_sleeps select').val("n/a").change();
           //$formcontrol.dropkick('reset');
@@ -236,14 +236,14 @@ $(window).resize(function(){
   equalheight('.block-column');
 });
 
-function GetURLParameter(sParam)
+function getURLParameter(sParam)
 {
     var sPageURL = window.location.search.substring(1);
     var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++) 
+    for (var i = 0; i < sURLVariables.length; i++)
     {
         var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == sParam) 
+        if (sParameterName[0] === sParam)
         {
             return sParameterName[1];
         }

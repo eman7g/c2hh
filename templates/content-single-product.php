@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 <?php while (have_posts()) : the_post(); ?>
 <article <?php post_class(); ?>>
   <div class="row">
-    <div class="col-md-8 col-sm-12">
+    <div class="col-md-8 col-sm-16">
 
       <?php $images = get_field('product_images'); $i = 0; ?>
       <?php 
@@ -222,7 +222,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
   </div>
 
   <div class="row hidden-lg hidden-md">
-    <div class="col-sm-12">
+    <div class="col-sm-16">
       
       <div class="product-main">
 

@@ -932,7 +932,7 @@ header .container{
             }
 
             +.radio-inline{
-               margin:0 0 0 20px;
+               margin:0 0 0 18px;
             }
 
             input[type="radio"]{
@@ -969,7 +969,7 @@ header .container{
          @include make-row;
 
          .product{
-            @extend .col-md-4;
+            @include make-md-column(4);
             margin-top:40px;
 
             .product-link{
@@ -3406,7 +3406,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
          .product-row {
             margin:0;
             .product{
-               @extend .col-sm-12;
+               @include make-sm-column(12);
                padding:0;
 
                margin-top:20px;
