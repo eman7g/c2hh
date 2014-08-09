@@ -51,10 +51,10 @@
 							<h5>Connect</h5>
 							<ul class="connect">
 								<?php if (get_sub_field('twitter')) : ?>
-									<li class="twitter"><a href="http://<?php the_sub_field('twitter');?>">Twitter</a></li>
+									<li class="twitter"><a target="_blank" href="http://<?php the_sub_field('twitter');?>">Twitter</a></li>
 								<?php endif ?>
 								<?php if (get_sub_field('email')) : ?>
-									<li class="email"><a href="mailto:<?php the_sub_field('email');?>">Email</a></li>
+									<li class="email"><a target="_blank" href="mailto:<?php the_sub_field('email');?>">Email</a></li>
 								<?php endif ?>
 							</ul>
 						</div>
@@ -100,7 +100,7 @@
 			<?php endif; ?>					
 			</div>
 
-			<div class="col-md-10">
+			<div class="col-md-10 col-sm-16">
 				<!-- Tab panes -->
 				<?php if (get_field('advisory_board')) : ?>
 

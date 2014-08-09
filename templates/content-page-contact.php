@@ -26,10 +26,10 @@
 						        	</div>
 						        	<div class="connect">
 						        		<?php if (get_sub_field('twitter')) : ?>
-						        			<a class="twitter" href="<?php the_sub_field('twitter');?>"><?php the_sub_field('twitter');?></a>
+						        			<a href="_blank" class="twitter" href="<?php the_sub_field('twitter');?>"><?php the_sub_field('twitter');?></a>
 						        		<?php endif ?>
 						        		<?php if (get_sub_field('email')) : ?>
-						        			<a class="email" href="mailto:<?php the_sub_field('email');?>"><?php the_sub_field('email');?></a>
+						        			<a href="_blank" class="email" href="mailto:<?php the_sub_field('email');?>"><?php the_sub_field('email');?></a>
 						        		<?php endif ?>
 						        	</div>
 

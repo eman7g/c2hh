@@ -681,6 +681,7 @@ header .container{
                img{
                   width:100%;
                   height:auto;
+                  background-color:#fff;
                }
             }
          }
@@ -2417,6 +2418,12 @@ header .container{
    }
 }
 
+.gform_confirmation_message{
+   font-size:18px;
+   font-weight:300;
+   margin:20px 0;
+}
+
 /* ==========================================================================
    Search
    ========================================================================== */
@@ -2465,6 +2472,10 @@ header .container{
          float:left;
          width:18%;
          margin-right:5%;
+         img{
+            max-width:100%;
+            height:auto;
+         }
       }
 
       .article-content{
@@ -3879,6 +3890,17 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
          a{
             display:inline-block;
             float:none;
+         }
+      }
+   }
+
+   .search{
+      article{
+         .post-thumb{
+            width:20%;
+         }
+         .article-content{
+            width:75%
          }
       }
    }
