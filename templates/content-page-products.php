@@ -134,6 +134,7 @@ if (isset($wp_query->query_vars['product_type'])) $product_type = esc_attr($wp_q
 			while (have_posts()) : the_post(); ?>
 
 				<?php if ($i == 0 || $i % 4 == 0) {echo "<div class='product-row'>";} ?>
+				<?php if ($i == 0 || $i % 2 == 0){echo "<div class='product-row-row'>";}?>
 
 				<div class="product">
 					<a class="product-link" href="<?php the_permalink();?>">
@@ -161,6 +162,7 @@ if (isset($wp_query->query_vars['product_type'])) $product_type = esc_attr($wp_q
 
 				<?php
 				$i++;
+				if ($i % 2 == 0){echo "</div>";}
 				if ($i % 4 == 0){echo "</div>";}
 				if ($i == $total_products){echo "</div>";}
 

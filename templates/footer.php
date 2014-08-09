@@ -49,7 +49,7 @@
 		<div class="row">
 			<hr>
 		</div>
-		<p class="copy">&copy; Close to Home Housing, <?php echo date('Y');?></p>
+		<p class="copy"><?php echo get_theme_mod( 'footer_copyright' ); ?></p>
 	</div>
 </footer>
 

@@ -28,7 +28,7 @@ function theme_setup() {
 	add_image_size( 'team_thumb', 240, 350, TRUE );
 	add_image_size( 'product_feature', 720, 0, TRUE );
 	add_image_size( 'product_thumb', 225, 150, TRUE );
-	add_image_size( 'product_thumb_large', 390, 260, TRUE );
+	add_image_size( 'product_thumb_large', 360, 240, TRUE );
 	add_image_size( 'product_gallery_thumb', 75, 75, TRUE );
 
 	// Support post-thumbnails

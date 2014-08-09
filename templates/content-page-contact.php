@@ -43,7 +43,7 @@
 
 				<div class="facebook-link">
 					<hr>
-					<a href="https://www.facebook.com/closetohomehousing" target="_blank">Follow C2hh on Facebook and join the conversation!</a>
+					<a href="https://www.facebook.com/closetohomehousing" target="_blank">Follow c2hh on Facebook and join the conversation!</a>
 				</div>
 
   			</div>      			

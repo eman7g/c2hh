@@ -66,7 +66,16 @@ class theme_customizer
             'section' => 'c2hh_footer_section',
             'type'    => 'text',
             'priority' => 3
-        ) );   
+        ) ); 
+        $wp_manager->add_setting( 'footer_copyright', array(
+            'default'        => '© Close to Home Housing',
+        ) ); 
+        $wp_manager->add_control( 'footer_copyright', array(
+            'label'   => 'Footer Copyright',
+            'section' => 'c2hh_footer_section',
+            'type'    => 'text',
+            'priority' => 4
+        ) );
         // Checkbox control
         /*$wp_manager->add_setting( 'checkbox_setting', array(
             'default'        => '1',
