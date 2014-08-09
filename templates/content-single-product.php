@@ -289,27 +289,26 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
           <?php the_content('description');?>
         </div>
 
+        <?php $attribute_terms = get_the_terms( $post->ID, 'attribute' );?>
+        <?php if (!empty($attribute_terms)) : ?>
+          <div class="product-attributes ">
 
-        <div class="product-attributes ">
-          <?php if (!empty($terms)) : ?>
-
-            <h4>Product Attributes</h4>
-            <ul>
-              <?php $terms = get_the_terms( $post->ID, 'attribute' );?>
-              <?php
-                // vars
-                $queried_object = get_queried_object(); 
-                $taxonomy = $queried_object->taxonomy;
-                $term_id = $queried_object->term_id;  
-              ?>
-              <?php
-                foreach ( $terms as $term ) : ?>
-                  <li class="<?php echo $term->slug;?>"><span class="icon"><img src="<?php the_field('icon', 'attribute_'.$term->term_id); ?>" /></span><?php echo $term->name;?></li>
-                <?php endforeach;
-              ?>
-            </ul>
-          <?php endif ?>
-        </div>
+              <h4>Product Attributes</h4>
+              <ul>
+                <?php
+                  // vars
+                  $queried_object = get_queried_object(); 
+                  $taxonomy = $queried_object->taxonomy;
+                  $term_id = $queried_object->term_id;  
+                ?>
+                <?php
+                  foreach ( $attribute_terms as $term ) : ?>
+                    <li class="<?php echo $term->slug;?>"><span class="icon"><img src="<?php the_field('icon', 'attribute_'.$term->term_id); ?>" /></span><?php echo $term->name;?></li>
+                  <?php endforeach;
+                ?>
+              </ul>
+          </div>
+        <?php endif ?>
 
       </div>
 

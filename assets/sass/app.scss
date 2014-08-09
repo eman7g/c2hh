@@ -639,7 +639,7 @@ header .container{
              height:12px;
              display:block;
              background-color:$gray-darker;
-             @include make-md-column(3);
+             @include make-md-column(4);
              @include make-md-column-offset(6);
              width:100px;
              margin:22px auto 0;
@@ -681,7 +681,6 @@ header .container{
                img{
                   width:100%;
                   height:auto;
-                  background-color:#fff;
                }
             }
          }
@@ -709,6 +708,10 @@ header .container{
                   width:8px;
                   background-color:#ccc;
                   text-indent:-999999px;
+
+                  img{
+                     background-color:#fff;
+                  }
 
                   &.active{
                      background-color:#000;
@@ -1596,6 +1599,8 @@ header .container{
 
             &:after{
                margin:11px auto 0;
+               @include make-md-column(6);
+               @include make-md-column-offset(5);
             }
          }
 
@@ -1650,6 +1655,8 @@ header .container{
 
             &:after{
                margin:11px auto 0;
+               @include make-md-column(6);
+               @include make-md-column-offset(5);               
             }
          }
 
@@ -1815,6 +1822,34 @@ header .container{
    .col2-set{
       margin-bottom:35px;
    } 
+
+   .order_details{
+      margin:0 0 15px 0;
+      padding:0;
+
+      li{
+         font-size:10px;
+         margin: 0 2em 1em 0;
+         font-size:12px;
+
+         strong{
+            font-size:13px;
+         }
+      }
+   }
+
+   table.shop_table{
+      margin:5px 0 40px 0;
+   }
+
+   .customer_details{
+      margin:0 0 40px 0;
+      font-weight:300;
+      font-size:14px;
+      dd{
+         margin:0 0 10px 0;
+      }
+   }
 
 }
 
