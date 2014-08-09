@@ -4,6 +4,10 @@
 * Theme Customization
 ****************************************************************/
 
+/** Woocommerce support **/
+add_theme_support('woocommerce');
+
+
 /**
  * Custom theme features
  */

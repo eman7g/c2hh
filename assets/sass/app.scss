@@ -3418,10 +3418,15 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
       padding:0 10px;
    }
 
-   .col-footer{
-      width:50%;
-      float:left;
-      padding:0 20px;
+   .content-info{
+
+      .col-footer{
+         padding:0 20px;
+      }
+      .row-row{
+         @include make-row();
+         margin:0;
+      }
    }
 
 
@@ -3750,6 +3755,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
       }
    }
 
+
 }
 
 //Tablet Size
@@ -3825,6 +3831,11 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
       .product-grid{
          .product-row{
             margin:0;
+
+            .product-row-row{
+               @include make-row();
+               margin:0;
+            }
 
             .product{
                float:left;
@@ -3936,6 +3947,19 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
          }
          .article-content{
             width:75%
+         }
+      }
+   }
+
+   .woocommerce{
+      .cart-collaterals{
+         .shipping_calculator{
+            float:left;
+            clear:left;
+            width:48%;
+         }
+         .cart_totals{
+            width:48%;
          }
       }
    }
