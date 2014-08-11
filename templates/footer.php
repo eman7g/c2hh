@@ -36,7 +36,7 @@
 					</ul>
 					<ul>
 						<li><a href="mailto:<?php echo get_theme_mod( 'contact_email' ); ?>"><?php echo get_theme_mod( 'contact_email' ); ?></a></li>
-						<li>p. 206-123-4567</li>
+						<li>p. 206-295-0727</li>
 					</ul>
 				</div>
 				<div class="col-sm-4 col-xs-8 col-footer">
