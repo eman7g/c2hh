@@ -2590,6 +2590,12 @@ header .container{
                }
                &.facebook{
                   background:url('../img/icons/social.png') no-repeat left -28px;
+               } 
+               &.pinterest{
+                  background:url('../img/icons/pinterest.png') no-repeat left center;
+               }     
+               &.instagram{
+                  background:url('../img/icons/instagram.png') no-repeat left center;
                }               
             }
          }   

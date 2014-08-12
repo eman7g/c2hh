@@ -36,14 +36,25 @@
 					</ul>
 					<ul>
 						<li><a href="mailto:<?php echo get_theme_mod( 'contact_email' ); ?>"><?php echo get_theme_mod( 'contact_email' ); ?></a></li>
-						<li>p. 206-295-0727</li>
+						<li>p. <?php echo get_theme_mod( 'contact_phone' ); ?></li>
 					</ul>
 				</div>
 				<div class="col-sm-4 col-xs-8 col-footer">
 					<h3>Follow Us</h3>
 					<ul class="social">
-						<li class="twitter"><a target="_blank" href="<?php echo get_theme_mod( 'twitter_setting' ); ?>">Twitter</a></li>
-						<li class="facebook"><a target="_blank" href="<?php echo get_theme_mod( 'facebook_setting' ); ?>">Facebook</a></li>
+						
+						<?php if( get_theme_mod( 'twitter_checkbox' ) == true) : ?>
+							<li class="twitter"><a target="_blank" href="<?php echo get_theme_mod( 'twitter_setting' ); ?>">Twitter</a></li>
+						<?php endif ?>
+						<?php if (get_theme_mod( 'facebook_checkbox' ) == true) : ?>
+							<li class="facebook"><a target="_blank" href="<?php echo get_theme_mod( 'facebook_setting' ); ?>">Facebook</a></li>
+						<?php endif ?>
+						<?php if (get_theme_mod( 'pinterest_checkbox' ) == true) : ?>
+							<li class="pinterest"><a target="_blank" href="<?php echo get_theme_mod( 'pinterest_setting' ); ?>">Pinterest</a></li>
+						<?php endif ?>
+						<?php if (get_theme_mod( 'instagram_checkbox' ) == true) : ?>
+							<li class="instagram"><a target="_blank" href="<?php echo get_theme_mod( 'instagram_setting' ); ?>">Instagram</a></li>
+						<?php endif ?>
 					</ul>
 				</div>
 			</div>

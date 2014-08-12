@@ -423,4 +423,23 @@ function c2hh_enqueue_script() {
 
 add_action( 'wp_enqueue_scripts', 'c2hh_enqueue_script' );
 
+add_action('woocommerce_email_header', 'add_css_to_email');
 
+function add_css_to_email() {
+echo '
+<style type="text/css">
+	h2{
+		font-size:30px !important;
+		font-weight:100 !important;
+		font-family:"museo-sans",sans-serif !important;
+		color:#333 !important;
+	}
+	h3{
+		font-size:24px !important;
+		font-weight:500 !important;
+		font-family:"museo-sans",sans-serif !important;
+		color:#333 !important;
+	}
+</style>
+';
+}

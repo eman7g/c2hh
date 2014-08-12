@@ -43,8 +43,20 @@ class theme_customizer
             'label'   => 'Facebook Link',
             'section' => 'c2hh_footer_section',
             'type'    => 'text',
-            'priority' => 1
+            'priority' => 3
         ) );
+
+        // Checkbox control
+        $wp_manager->add_setting( 'facebook_checkbox', array(
+            'default'       => false,
+        ) );
+
+        $wp_manager->add_control( 'facebook_checkbox', array(
+            'label'   => 'Enable Facebook Link',
+            'section' => 'c2hh_footer_section',
+            'type'    => 'checkbox',
+            'priority' => 4
+        ) );       
 
         $wp_manager->add_setting( 'twitter_setting', array(
             'default'        => 'http://',
@@ -54,8 +66,64 @@ class theme_customizer
             'label'   => 'Twitter Link',
             'section' => 'c2hh_footer_section',
             'type'    => 'text',
+            'priority' => 1
+        ) );  
+
+        $wp_manager->add_setting('twitter_checkbox', array(
+            'default'       => false,
+        ));
+
+        $wp_manager->add_control('twitter_checkbox', array(
+            'label'    => __('Twitter Link Enable'),
+            'section'  => 'c2hh_footer_section',
+            'type'     => 'checkbox',
             'priority' => 2
+        ));                 
+
+        $wp_manager->add_setting( 'pinterest_setting', array(
+            'default'        => 'http://',
+        ) );
+
+        $wp_manager->add_control( 'pinterest_setting', array(
+            'label'   => 'Pinterest Link',
+            'section' => 'c2hh_footer_section',
+            'type'    => 'text',
+            'priority' => 5
+        ) );  
+
+        $wp_manager->add_setting('pinterest_checkbox', array(
+            'default'       => false,
+        ));
+
+        $wp_manager->add_control('pinterest_checkbox', array(
+            'label'    => __('Pinterest Link Enable'),
+            'section'  => 'c2hh_footer_section',
+            'type'     => 'checkbox',
+            'priority' => 6
+        ));        
+
+        $wp_manager->add_setting( 'instagram_setting', array(
+            'default'        => 'http://',
+        ) );
+
+        $wp_manager->add_control( 'instagram_setting', array(
+            'label'   => 'Instagram Link',
+            'section' => 'c2hh_footer_section',
+            'type'    => 'text',
+            'priority' => 7
         ) );   
+
+        $wp_manager->add_setting('instagram_checkbox', array(
+            'default'       => false,
+        ));
+
+        $wp_manager->add_control('instagram_checkbox', array(
+            'label'    => __('Instagram Link Enable'),
+            'section'  => 'c2hh_footer_section',
+            'type'     => 'checkbox',
+            'priority' => 8
+        ));                
+
 
         $wp_manager->add_setting( 'contact_email', array(
             'default'        => '',
@@ -65,8 +133,20 @@ class theme_customizer
             'label'   => 'Contact Email',
             'section' => 'c2hh_footer_section',
             'type'    => 'text',
-            'priority' => 3
+            'priority' => 9
         ) ); 
+
+        $wp_manager->add_setting( 'contact_phone', array(
+            'default'        => '',
+        ) );
+
+        $wp_manager->add_control( 'contact_phone', array(
+            'label'   => 'Contact Phone',
+            'section' => 'c2hh_footer_section',
+            'type'    => 'text',
+            'priority' => 10
+        ) ); 
+
         $wp_manager->add_setting( 'footer_copyright', array(
             'default'        => '© Close to Home Housing',
         ) ); 
@@ -74,7 +154,7 @@ class theme_customizer
             'label'   => 'Footer Copyright',
             'section' => 'c2hh_footer_section',
             'type'    => 'text',
-            'priority' => 4
+            'priority' => 11
         ) );
         // Checkbox control
         /*$wp_manager->add_setting( 'checkbox_setting', array(
