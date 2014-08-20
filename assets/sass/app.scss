@@ -1205,6 +1205,19 @@ header .container{
 
             a{
                display:block !important;
+               position:relative;
+
+               span.magnify{
+                  background: url('../img/icons/search_icon.png') no-repeat center center;
+                  background-size:19px 19px;
+                  width:40px;
+                  height:40px;
+                  position:absolute;
+                  bottom:0;
+                  right:0;
+                  background-color:rgba(0,0,0,.3);
+
+               }
             }
          }
       }

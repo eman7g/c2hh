@@ -30,9 +30,9 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
       <?php if( $images ): ?>
         <div class="product-slider-wrap clearfix">
           <ul class="bxslider product-slider">
-              <li><a href="<?php echo $thumb_url[0];?>" class="fancybox" data-fancybox-group="product-gallery"><?php the_post_thumbnail('product_feature'); ?></a></li>
+              <li><a href="<?php echo $thumb_url[0];?>" class="fancybox" data-fancybox-group="product-gallery"><span class="magnify"></span><?php the_post_thumbnail('product_feature'); ?></a></li>
             <?php foreach( $images as $image ): ?>
-              <li><a href="<?php echo $image['url']; ?>" class="fancybox" data-fancybox-group="product-gallery"><img src="<?php echo $image['sizes']['product_feature']; ?>" alt="<?php echo $image['alt']; ?>" /></a></li>
+              <li><a href="<?php echo $image['url']; ?>" class="fancybox" data-fancybox-group="product-gallery"><span class="magnify"></span><img src="<?php echo $image['sizes']['product_feature']; ?>" alt="<?php echo $image['alt']; ?>" /></a></li>
             <?php endforeach ?>
           </ul>
 
