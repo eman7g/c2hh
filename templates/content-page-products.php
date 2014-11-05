@@ -42,7 +42,7 @@ if (isset($wp_query->query_vars['product_type'])) $product_type = esc_attr($wp_q
 	$wp_query = new WP_Query( $args );
 	$total_products = $wp_query->found_posts;
 	$total_pages = $wp_query->max_num_pages;
-	echo $total_products;
+	//echo $total_products;
 	//echo $total_pages;
 
 ?>
