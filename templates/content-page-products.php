@@ -56,9 +56,9 @@ if (isset($wp_query->query_vars['product_type'])) $product_type = esc_attr($wp_q
 		<form role="form" class="form-inline" type="post" action="" id="productFilterForm">
 			<fieldset>
 				<legend>Product Type</legend>
-				<div class="form-group">
-					<label class="radio-inline">
-					  <input type="radio" class="radio" id="allproducts" name="producttype" value="all" checked="checked"> All Product Types
+				<div class="form-group flex-wrap">
+					<label class="radio-inline flex-item">
+					  <input type="radio" class="radio" id="allproducts" name="producttype" value="all" checked="checked"> All
 					</label>
 					<?php
 						$terms = get_terms("product-type", "hide_empty=0");

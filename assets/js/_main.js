@@ -228,12 +228,12 @@ var equalheight = function(container){
 };
 
 $(window).load(function() {
-  equalheight('.block-column');
+  //equalheight('.block-column');
 });
 
 
 $(window).resize(function(){
-  equalheight('.block-column');
+  //equalheight('.block-column');
 });
 
 function getURLParameter(sParam)

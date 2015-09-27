@@ -137,6 +137,25 @@ a, a:active, a:focus, input.button, input.button:active, input.button:focus{
    outline:0;
 }
 
+.row-flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: 0;
+    min-width: 100%;
+}
+
+.col-flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
 
 /* ==========================================================================
    Header
@@ -312,7 +331,7 @@ header .container{
 
 
    .home-grid{
-      max-height: 322px;
+      //max-height: 322px;
       display:block;
       margin-bottom:40px;
       overflow:hidden;
@@ -323,19 +342,23 @@ header .container{
          width:100%;
       }
 
+      .col-flex {
+         padding: 0;
+      }
+
       .block-column{
-         float:left;
-         width:25%
+         //float:left;
+         //width:25%
       }
 
       .block-column-large{
-         float:left;
-         width:50%;
+         //float:left;
+         //width:50%;
       }
 
       .block{
-         float:left;
-         display:block;
+         //float:left;
+         //display:block;
          width:100%;
          position:relative;
 
@@ -347,12 +370,11 @@ header .container{
 
          &.small{
             width:100%;
-            height:50%;
+            display: block;
          }
 
          &.large{
             width:100%;
-            height:100%;
          }
 
          &.green{
@@ -922,6 +944,10 @@ header .container{
 
          .form-group{
             line-height:normal;
+         }
+
+         .flex-wrap {
+            @include display-flex;
          }
 
          .radio-inline{
