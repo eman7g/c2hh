@@ -50,23 +50,42 @@ var C2HH = {
       var $formcontrol = $('select.form-control');
       $formcontrol.dropkick({autoWidth:false, syncReverse:true});
 
-      $('input.radio').on('ifChecked', function(event){
+      /*$('input.radio').on('ifClicked', function(event){
         console.log(this.id + '');
-        if (this.id === 'commercial-units' || this.id === 'other-products'){
-          $("#dk_container_sleeps").addClass('gd-disable');
-          $('#dk_container_sleeps select').val("n/a").change();
-          //$formcontrol.dropkick('reset');
-        }else{
-          $("#dk_container_sleeps").removeClass('gd-disable');
-          $('#dk_container_sleeps select').val("all").change();
+        //if (this.id === 'allproducts'){
+        //  $('input.radio').iCheck('uncheck');
+        //}
+        if (this.id !== 'allproducts'){
+          console.log('no equal to allproducts');
+          $('input[type="radio"]').filter('[value="all"]').iCheck('uncheck');
+        } else if(this.id === 'allproducts'){
+          console.log('equal to allproducts');
+          $('input.radio').iCheck('uncheck');
         }
-      }).iCheck({
+      });*/
+
+      var checkAll = $('input.prodall');
+      var checkboxes = $('input.prodtype');
+
+      $('input.radio').iCheck({
         checkboxClass: 'icheckbox_minimal',
         radioClass: 'iradio_minimal',
         increaseArea: '20%' // optional
       });
 
+      checkAll.on('ifChecked ifUnchecked', function(event) {        
+          if (event.type == 'ifChecked') {
+              checkboxes.iCheck('uncheck');
+          }
+      });
+
+      checkboxes.on('ifChanged', function(event){
+          checkAll.prop('checked', false);
+          checkAll.iCheck('update');
+      });
+
       var productType = getURLParameter('product_type');
+      //console.log(productType);
       if (typeof productType === 'undefined'){
         
         if (productType === 'commercial-units' || productType === 'other-products'){
@@ -135,7 +154,7 @@ var C2HH = {
           },
           success:function(data) {
             // This outputs the result of the ajax request
-            console.log(data);
+            //console.log(data);
             var $data = $(data);
             if($data.length){
                 $("#temp_load").remove();
@@ -164,7 +183,7 @@ var C2HH = {
 
       
       $('.shipping-calculator-button').on('click', function (e) {
-        console.log('click');
+        //console.log('click');
         // Frontend Chosen selects
         $( 'select.country_to_state, select[name="calc_shipping_state"]' ).chosen( { width: "100%" } );
       });

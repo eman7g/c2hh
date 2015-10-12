@@ -226,13 +226,20 @@ function myajax_product_filter() {
 		)*/
 	);	
 
-	if ($filter_array['producttype'] !== 'all') {
-    	$args['product-type'] = $filter_array['producttype'];
+	if ($filter_array['producttype']) {
+  	//$args['product-type'] = $filter_array['producttype'];
+  	$args['tax_query'] = array(
+			array(
+				'taxonomy' => 'product-type',
+				'field'    => 'slug',
+				'terms'    => $filter_array['producttype']
+			)
+		);
 	}
 	if ($filter_array['construction'] !== 'all') {
     	$args['construction-type'] = $filter_array['construction'];
 	}
-	if ($filter_array['sleeps'] !== 'all' && $filter_array['assembly'] !== 'all'){
+	/*if ($filter_array['sleeps'] !== 'all' && $filter_array['assembly'] !== 'all'){
 
     	$args['meta_query']['relation'] = 'AND';
     }
@@ -243,55 +250,128 @@ function myajax_product_filter() {
 				'value'			=> $filter_array['sleeps'],
 				'compare' 		=> '='
 			);
-    }
+    }*/
 	if ($filter_array['assembly'] !== 'all'){
-    	$args['meta_query'][] = array(
-				'key'       	=> 'assembly',
-				'value'			=> $filter_array['assembly'],
-				'compare' 		=> '='
-			);
-    }
-    if ($filter_array['prices'] !== 'all'){
+  	$args['meta_query'][] = array(
+			'key'       	=> 'assembly',
+			'value'			=> $filter_array['assembly'],
+			'compare' 		=> '='
+		);
+  }
+  if ($filter_array['prices'] !== 'all'){
 
-    	if ($filter_array['prices'] == '10k-below'){
-	    	$args['meta_query'] = array(
-	    		'relation' => 'AND',
-	    		array(
+  	if ($filter_array['prices'] == '10k-below'){
+    	$args['meta_query'] = array(
+    		'relation' => 'AND',
+    		array(
 					'key'       	=> '_price',
 					'value'			=> '10000.00',
 					'compare' 		=> '<',
 					'type' => 'NUMERIC'
 				),
 				array(
-		           'key' => '_price',
-		           'value' => NULL,
-		           'compare' => '!=',
-			    )
+	       'key' => '_price',
+	       'value' => NULL,
+	       'compare' => '!=',
+			  )
 			);   
 		}elseif($filter_array['prices'] == '50k-below'){
-	    	$args['meta_query'] = array(
-	    		'relation' => 'AND',
-	    		array(
+	    $args['meta_query'] = array(
+	  		'relation' => 'AND',
+	  		array(
 					'key'       	=> '_price',
 					'value'			=> '50000.00',
 					'compare' 		=> '<',
 					'type' => 'NUMERIC'
 				),
 				array(
-		           'key' => '_price',
-		           'value' => NULL,
-		           'compare' => '!=',
-			    )
+		     	'key' => '_price',
+		     	'value' => NULL,
+		     	'compare' => '!=',
+				)
 			);    			
 		}elseif($filter_array['prices'] == '50k-above'){
-	    	$args['meta_query'][] = array(
+	    $args['meta_query'][] = array(
 				'key'       	=> '_price',
 				'value'			=> '50000.00',
 				'compare' 		=> '>=',
 				'type' => 'NUMERIC'
 			);    			
-		}   
-	} 
+		} 
+	}  
+  if ($filter_array['size'] !== 'all'){
+
+  	if ($filter_array['size'] == '1-200'){
+    	$args['meta_query'] = array(
+    		'relation' => 'AND',
+    		array(
+					'key'       	=> 'size',
+					'value'			=> '200',
+					'compare' 		=> '<',
+					'type' => 'NUMERIC'
+				),
+				array(
+	       'key' => 'size',
+	       'value' => NULL,
+	       'compare' => '!=',
+			  )
+			);   
+		}elseif($filter_array['size'] == '1-400'){
+	    $args['meta_query'] = array(
+	  		'relation' => 'AND',
+	  		array(
+					'key'       	=> 'size',
+					'value'			=> '400',
+					'compare' 		=> '<',
+					'type' => 'NUMERIC'
+				),
+				array(
+		     	'key' => 'size',
+		     	'value' => NULL,
+		     	'compare' => '!=',
+				)
+			);   
+		}elseif($filter_array['size'] == '1-600'){
+	    $args['meta_query'] = array(
+	  		'relation' => 'AND',
+	  		array(
+					'key'       	=> 'size',
+					'value'			=> '600',
+					'compare' 		=> '<',
+					'type' => 'NUMERIC'
+				),
+				array(
+		     	'key' => 'size',
+		     	'value' => NULL,
+		     	'compare' => '!=',
+				)
+			);   
+		}elseif($filter_array['size'] == '1-1000'){
+	    $args['meta_query'] = array(
+	  		'relation' => 'AND',
+	  		array(
+					'key'       	=> 'size',
+					'value'			=> '1000',
+					'compare' 		=> '<',
+					'type' => 'NUMERIC'
+				),
+				array(
+		     	'key' => 'size',
+		     	'value' => NULL,
+		     	'compare' => '!=',
+				)
+			);   						 			
+		}elseif($filter_array['size'] == '1000+'){
+	    $args['meta_query'][] = array(
+				'key'       	=> 'size',
+				'value'			=> '1000',
+				'compare' 		=> '>=',
+				'type' => 'NUMERIC'
+			);    			
+		} 
+	}  	
+
+	//print_r($args);
 
 	// The Query
 	$wp_query = new WP_Query( $args );
@@ -316,14 +396,21 @@ function myajax_product_filter() {
 								<span class="title">Size:</span>
 								<span><?php the_field('size');?></span>
 							</li>
-							<li class="sleeps">
-								<span class="title">Sleeps:</span>
-								<span><?php the_field('sleeps');?></span>
-							</li>
 							<li class="assembly">
 								<span class="title">Assembly:</span>
 								<span><?php the_field('assembly');?></span>
-							</li>															
+							</li>	
+							<li class="price">
+								<span class="title">Price:</span>
+								<span>
+									<?php
+										$product = new WC_Product( get_the_ID() );
+										$price = $product->price;
+										echo money_format('$%i', $price);
+									?>									
+								</span>
+							</li>									
+																					
 						</ul>
 					</article>
 				</a>
@@ -371,7 +458,7 @@ function my_custom_styles() {
 
 function remove_taxonomies_metaboxes() {
     remove_meta_box( 'tagsdiv-construction-type', 'product', 'side' );
-    remove_meta_box( 'tagsdiv-product-type', 'product', 'side' );
+    //remove_meta_box( 'tagsdiv-product-type', 'product', 'side' );
     remove_meta_box( 'product_catdiv', 'product', 'side' );
     remove_meta_box( 'tagsdiv-product_tag', 'product', 'side' );
     remove_meta_box('woocommerce-product-images','product', 'side');

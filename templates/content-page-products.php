@@ -56,9 +56,9 @@ if (isset($wp_query->query_vars['product_type'])) $product_type = esc_attr($wp_q
 		<form role="form" class="form-inline" type="post" action="" id="productFilterForm">
 			<fieldset>
 				<legend>Product Type</legend>
-				<div class="form-group flex-wrap">
-					<label class="radio-inline flex-item">
-					  <input type="radio" class="radio" id="allproducts" name="producttype" value="all" checked="checked"> All
+				<div class="form-group flex-container">
+					<label class="radio-inline">
+					  <input type="checkbox" class="radio prodall" id="allproducts" name="producttype[]" value="all" > All
 					</label>
 					<?php
 						$terms = get_terms("product-type", "hide_empty=0");
@@ -66,7 +66,7 @@ if (isset($wp_query->query_vars['product_type'])) $product_type = esc_attr($wp_q
 						if ( $count > 0 ){
 						 foreach ( $terms as $term ) : ?>
 							<label class="radio-inline">
-						   		<input type="radio" class="radio" name="producttype" id="<?php echo $term->slug; ?>" value="<?php echo $term->slug; ?>" <?php if ($term->slug == $product_type){echo 'checked="checked"';}?>><?php echo $term->name;?>
+						   		<input type="checkbox" class="radio prodtype" name="producttype[]" id="<?php echo $term->slug; ?>" value="<?php echo $term->slug; ?>" <?php if ($term->slug == $product_type){echo 'checked="checked"';}?>><?php echo $term->name;?>
 							</label>
 						 <?php endforeach;
 						}
@@ -77,14 +77,23 @@ if (isset($wp_query->query_vars['product_type'])) $product_type = esc_attr($wp_q
 				<legend>Filter</legend>
 
 				<div class="form-group">
-					<select name="sleeps" class="form-control">
+					<!--<select name="sleeps" class="form-control">
 					  <option value="n/a">N/A</option>
-					  <option value="all" selected>Sleeps All</option>
+					  <option value="all" selected>All</option>
 					  <option value="1-2">Sleeps 1-2</option>
 					  <option value="1-4">Sleeps up to 4</option>
 					  <option value="1-6">Sleeps up to 6</option>
 					  <option value="6+">Sleeps 6+</option>
-					</select>
+					</select>-->
+
+					<select name="size" class="form-control">
+					  <option value="all" selected>All Square Footage</option>
+					  <option value="1-200">200 or less</option>
+					  <option value="1-400">400 or less</option>
+					  <option value="1-600">600 or less</option>
+					  <option value="1-1000">1000 or less</option>
+					  <option value="1000+">1000 or more</option>
+					</select>				
 
 					<select name="assembly" class="form-control">
 					  <option value="all">All Assembly</option>
@@ -145,16 +154,22 @@ if (isset($wp_query->query_vars['product_type'])) $product_type = esc_attr($wp_q
 							<ul class="attributes">
 								<li class="size">
 									<span class="title">Size:</span>
-									<span><?php the_field('size');?></span>
-								</li>
-								<li class="sleeps">
-									<span class="title">Sleeps:</span>
-									<span><?php the_field('sleeps');?></span>
+									<span><?php the_field('size');?> sq ft</span>
 								</li>
 								<li class="assembly">
 									<span class="title">Assembly:</span>
 									<span><?php the_field('assembly');?></span>
-								</li>														
+								</li>		
+								<li class="price">
+									<span class="title">Price:</span>
+									<span>
+										<?php
+											$product = new WC_Product( get_the_ID() );
+											$price = $product->price;
+											echo money_format('$%i', $price);
+										?>									
+									</span>
+								</li>												
 							</ul>
 						</article>
 					</a>
