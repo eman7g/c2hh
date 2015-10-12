@@ -2,18 +2,15 @@
 /**
  * Cart Page
  *
- * @author 		WooThemes
- * @package 	WooCommerce/Templates
- * @version     2.1.0
+ * @author  WooThemes
+ * @package WooCommerce/Templates
+ * @version 2.3.8
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-
-global $woocommerce;
-
-wc_print_notices();
-
-do_action( 'woocommerce_before_cart' ); ?>
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+?>
 
 <form action="<?php echo esc_url( WC()->cart->get_cart_url() ); ?>" method="post">
 
