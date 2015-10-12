@@ -458,7 +458,7 @@ function my_custom_styles() {
 
 function remove_taxonomies_metaboxes() {
     remove_meta_box( 'tagsdiv-construction-type', 'product', 'side' );
-    //remove_meta_box( 'tagsdiv-product-type', 'product', 'side' );
+    remove_meta_box( 'tagsdiv-product-type', 'product', 'side' );
     remove_meta_box( 'product_catdiv', 'product', 'side' );
     remove_meta_box( 'tagsdiv-product_tag', 'product', 'side' );
     remove_meta_box('woocommerce-product-images','product', 'side');

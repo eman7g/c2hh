@@ -50,20 +50,6 @@ var C2HH = {
       var $formcontrol = $('select.form-control');
       $formcontrol.dropkick({autoWidth:false, syncReverse:true});
 
-      /*$('input.radio').on('ifClicked', function(event){
-        console.log(this.id + '');
-        //if (this.id === 'allproducts'){
-        //  $('input.radio').iCheck('uncheck');
-        //}
-        if (this.id !== 'allproducts'){
-          console.log('no equal to allproducts');
-          $('input[type="radio"]').filter('[value="all"]').iCheck('uncheck');
-        } else if(this.id === 'allproducts'){
-          console.log('equal to allproducts');
-          $('input.radio').iCheck('uncheck');
-        }
-      });*/
-
       var checkAll = $('input.prodall');
       var checkboxes = $('input.prodtype');
 
@@ -73,8 +59,8 @@ var C2HH = {
         increaseArea: '20%' // optional
       });
 
-      checkAll.on('ifChecked ifUnchecked', function(event) {        
-          if (event.type == 'ifChecked') {
+      checkAll.on('ifChecked ifUnchecked', function(event) {
+          if (event.type === 'ifChecked') {
               checkboxes.iCheck('uncheck');
           }
       });
