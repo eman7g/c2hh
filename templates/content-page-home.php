@@ -104,7 +104,7 @@
 	      <div class="row row-flex">
   				<?php 
   					$i == 0;
-						foreach(array_slice($grid_blocks,4) as $block) : $i++; ?>
+						foreach(array_slice($grid_blocks,5) as $block) : $i++; ?>
 				      <?php if ($i < 6) continue; ?>
 				      <?php if ($block['block_type'] == "Image Block") : ?>
 					      <div class="col-sm-4 col-flex">

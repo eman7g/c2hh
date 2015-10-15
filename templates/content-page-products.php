@@ -166,7 +166,7 @@ if (isset($wp_query->query_vars['product_type'])) $product_type = esc_attr($wp_q
 										<?php
 											$product = new WC_Product( get_the_ID() );
 											$price = $product->price;
-											echo money_format('$%i', $price);
+											echo "$".number_format($price, 2);
 										?>									
 									</span>
 								</li>												
