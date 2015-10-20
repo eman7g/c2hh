@@ -11,7 +11,7 @@
  * 3. /theme/assets/js/main.min.js (in footer)
  */
 function roots_scripts() {
-  wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/app.css', false, '01d0c579b773d61b068adbc0fe9b182e');
+  wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/app.css', false, '040022561084ee780c07911d156de955');
 
 
   $params = array(

@@ -226,7 +226,7 @@ function myajax_product_filter() {
 		)*/
 	);	
 
-	if ($filter_array['producttype']) {
+	if ($filter_array['producttype'] && !in_array("all", $filter_array['producttype'])) {
   	//$args['product-type'] = $filter_array['producttype'];
   	$args['tax_query'] = array(
 			array(
@@ -376,6 +376,7 @@ function myajax_product_filter() {
 	// The Query
 	$wp_query = new WP_Query( $args );
 	$total_products = $wp_query->found_posts;
+	//echo $total_products;
     
 	// The Loop
 	if ( $wp_query->have_posts() ) {
@@ -406,8 +407,13 @@ function myajax_product_filter() {
 									<?php
 										$product = new WC_Product( get_the_ID() );
 										$price = $product->price;
-										echo money_format('$%i', $price);
-									?>									
+										if ($product->price === '') {
+											$price = apply_filters( 'woocommerce_empty_price_html', '', $product );
+											echo $price;
+										}else {
+											echo "$".number_format($price, 0);
+										}
+									?>											
 								</span>
 							</li>									
 																					
@@ -484,7 +490,6 @@ function c2hh_remove_menus() {
 
 }
 add_action( 'admin_menu', 'c2hh_remove_menus', 999 );
-
 
 /*
 ****************************************************************

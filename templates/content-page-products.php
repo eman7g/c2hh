@@ -58,7 +58,7 @@ if (isset($wp_query->query_vars['product_type'])) $product_type = esc_attr($wp_q
 				<legend>Product Type</legend>
 				<div class="form-group flex-container">
 					<label class="radio-inline">
-					  <input type="checkbox" class="radio prodall" id="allproducts" name="producttype[]" value="all" > All
+					  <input type="checkbox" class="radio prodall" id="allproducts" name="producttype[]" value="all" checked> All
 					</label>
 					<?php
 						$terms = get_terms("product-type", "hide_empty=0");
@@ -166,7 +166,12 @@ if (isset($wp_query->query_vars['product_type'])) $product_type = esc_attr($wp_q
 										<?php
 											$product = new WC_Product( get_the_ID() );
 											$price = $product->price;
-											echo "$".number_format($price, 2);
+											if ($product->get_price() === '') {
+												$price = apply_filters( 'woocommerce_empty_price_html', '', $product );
+												echo $price;
+											}else {
+												echo "$".number_format($price, 0);
+											}
 										?>									
 									</span>
 								</li>												
