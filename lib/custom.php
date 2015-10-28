@@ -407,15 +407,15 @@ function myajax_product_filter() {
 									<?php
 										$product = new WC_Product( get_the_ID() );
 										$price = $product->price;
-										if ($product->price === '') {
+										if ($product->get_price() === '') {
 											$price = apply_filters( 'woocommerce_empty_price_html', '', $product );
 											echo $price;
 										}else {
 											echo "$".number_format($price, 0);
 										}
-									?>											
+									?>									
 								</span>
-							</li>									
+							</li>								
 																					
 						</ul>
 					</article>
