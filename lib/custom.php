@@ -210,7 +210,7 @@ function myajax_product_filter() {
 		'post_status'           => 'publish',
 		'posts_per_page'        => '-1',
 		'order'                 => 'ASC',
-		'orderby'               => 'name',
+		'orderby'               => 'menu_order',
 		/*'meta_query'            => array(
 			'relation' => 'AND',
 			array(
