@@ -202,7 +202,7 @@ function myajax_product_filter() {
 	//print_r($filter_array);
 
 	// Init a variable to store the values of the original WP Query
-	$temp_query = $wp_query;
+	//$temp_query = $wp_query;
 
 	// query args
 	$args = array (
@@ -407,9 +407,9 @@ function myajax_product_filter() {
 									<?php
 										$product = new WC_Product( get_the_ID() );
 										$price = $product->price;
+										$empty_price_label = get_option('wcj_call_for_price_text_on_home');
 										if ($product->get_price() === '') {
-											$price = apply_filters( 'woocommerce_empty_price_html', '', $product );
-											echo $price;
+											echo $empty_price_label;
 										}else {
 											echo "$".number_format($price, 0);
 										}

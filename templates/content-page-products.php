@@ -166,9 +166,9 @@ if (isset($wp_query->query_vars['product_type'])) $product_type = esc_attr($wp_q
 										<?php
 											$product = new WC_Product( get_the_ID() );
 											$price = $product->price;
+											$empty_price_label = get_option('wcj_call_for_price_text_on_home');
 											if ($product->get_price() === '') {
-												$price = apply_filters( 'woocommerce_empty_price_html', '', $product );
-												echo $price;
+												echo $empty_price_label;
 											}else {
 												echo "$".number_format($price, 0);
 											}
