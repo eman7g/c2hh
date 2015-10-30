@@ -166,7 +166,7 @@ if (isset($wp_query->query_vars['product_type'])) $product_type = esc_attr($wp_q
 										<?php
 											$product = new WC_Product( get_the_ID() );
 											$price = $product->price;
-											$empty_price_label = "Call for pricing"
+											$empty_price_label = "Call for pricing";
 											if ($product->get_price() === '') {
 												echo $empty_price_label;
 											}else {
