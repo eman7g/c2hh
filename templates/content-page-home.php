@@ -51,7 +51,7 @@
 						        </div>
 						      <?php else : ?>
 						      	<div class="col-sm-8 col-flex">
-											<a class="block small <?php if($block['block_color'] == "Green"){echo 'green';}else {echo 'blue';}?>" href="<?php $block['block_link'];?>">
+											<a class="block small <?php if($block['block_color'] == "Green"){echo 'green';}else {echo 'blue';}?>" href="<?php echo $block['block_link'];?>">
 		            				<h4><?php echo $block['block_text'];?></h4>
 		          				</a>
 		          			</div>
@@ -69,7 +69,7 @@
 			      <?php if ($i < 6) continue; ?>
 			      <?php if ($block['block_type'] == "Image Block") : ?>
 				      <div class="col-sm-4 col-flex">
-			          <a class="block small image" href="<?php $block['block_link'];?>">
+			          <a class="block small image" href="<?php echo $block['block_link'];?>">
 			            <?php 
 			              echo wp_get_attachment_image( $block['block_image'], 'grid_small' );
 			            ?>   
@@ -77,7 +77,7 @@
 			        </div>
 			      <?php else : ?>
 			      	<div class="col-sm-4 col-flex">
-								<a class="block small <?php if($block['block_color'] == "Green"){echo 'green';}else {echo 'blue';}?>" href="<?php $block['block_link'];?>">
+								<a class="block small <?php if($block['block_color'] == "Green"){echo 'green';}else {echo 'blue';}?>" href="<?php echo $block['block_link'];?>">
           				<h4><?php echo $block['block_text'];?></h4>
         				</a>
         			</div>
