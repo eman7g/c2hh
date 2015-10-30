@@ -1052,6 +1052,14 @@ header .container{
                      width:45%;
                      margin-left:6%;
 
+                     p{
+                        font-size:12px;
+                        line-height:18px;
+                        color:$gray-darker;
+                        margin: 0;
+                        font-weight: 500;
+                     }
+
                      &.title{
                         font-size:10px;
                         color:$gray;
@@ -1110,6 +1118,10 @@ header .container{
             font-weight:500;
             font-size:34px;
             padding:0 0 8px 0;
+         }
+
+         p{
+            margin: 0;
          }
       }
    }

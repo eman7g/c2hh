@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
       <?php $images = get_field('product_images'); $i = 0; ?>
       <?php 
-      $feature_image = get_the_post_thumbnail($post_id,'product_feature'); 
+      $feature_image = get_the_post_thumbnail($post->ID,'product_feature'); 
       $thumb_url = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),'full', true);
       ?>
 
@@ -72,13 +72,10 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
     <div class="col-md-8 visible-lg visible-md">
       <div class="product-main">
         <header>
-          <h1 class="entry-title"><?php the_title(); ?></h1>
-          <h2 class="price">
-            
-            <?php 
-              woocommerce_get_template( 'loop/price.php' );
-            ?>
-          </h2>
+          <h1 class="entry-title"><?php the_title(); ?></h1>            
+          <?php 
+            woocommerce_get_template( 'single-product/price.php' );
+          ?>
         </header>    
 
 

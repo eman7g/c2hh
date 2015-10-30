@@ -15,7 +15,7 @@ function roots_scripts() {
 
 
   $params = array(
-    'ajaxurl' => admin_url('admin-ajax.php', $protocol),
+    'ajaxurl' => admin_url('admin-ajax.php'),
     'ajax_nonce' => wp_create_nonce('any_value_here'),
   );
 
