@@ -284,9 +284,9 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
             $commaList = '';
             foreach ( $terms as $term ) {
               //echo $term->name;
-              $typeList[] = $term->name;
+              $mobileTypeList[] = $term->name;
             }
-            $commaList = implode(', ', $typeList);
+            $commaList = implode(', ', $mobileTypeList);
             echo $commaList;
           ?>
         </h4>
