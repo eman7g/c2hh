@@ -15,7 +15,7 @@
 		</div>
 
     <div class="home-grid hidden-xs">
-    	<div class="row row-flex">
+    	<div class="row-flex">
     		<div class="col-sm-8 col-flex">
           <div class="block large image">
             <?php 
@@ -60,7 +60,7 @@
 	        </div>
 	      </div>
 	    </div>
-      <div class="row row-flex">
+      <div class="row-flex">
 				<?php 
 					$i == 0;
 					foreach(array_slice($grid_blocks,5) as $block) : $i++; ?>
