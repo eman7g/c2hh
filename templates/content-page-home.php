@@ -15,24 +15,22 @@
 		</div>
 
     <div class="home-grid">
-    	<div class="row row-flex">
+    	<div class="row-flex">
     		<div class="col-sm-8 col-flex">
-					<div class="block-column-large block-column">
-	          <div class="block large image">
-	            <?php 
-	              $grid_blocks = get_field('grid_blocks');
-	              //print_r($product_blocks);
-	              //$page_blocks = get_field('grid_page_blocks');
-	              //$grid_feature  = get_field('grid_large_image');
-	              if ($grid_blocks[0]['block_type'] == "Feature Block") {
-	              	echo wp_get_attachment_image( $grid_blocks[0]['block_image'], 'grid_large' );
-	              }
-	            ?>
-	          </div>
-	        </div>
+          <div class="block large image">
+            <?php 
+              $grid_blocks = get_field('grid_blocks');
+              //print_r($product_blocks);
+              //$page_blocks = get_field('grid_page_blocks');
+              //$grid_feature  = get_field('grid_large_image');
+              if ($grid_blocks[0]['block_type'] == "Feature Block") {
+              	echo wp_get_attachment_image( $grid_blocks[0]['block_image'], 'grid_large' );
+              }
+            ?>
+          </div>
     		</div>
     		<div class="col-sm-8 col-flex">
-    			<div class="row row-flex">
+    			<div class="row-flex">
 						<?php 
 							// check if the repeater field has rows of data
 							if( $grid_blocks ){
