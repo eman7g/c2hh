@@ -280,9 +280,14 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
         <h4 class="product-type">
           <?php
+            $prefix = '';
+            $commaList = '';
             foreach ( $terms as $term ) {
-              echo $term->name;
+              //echo $term->name;
+              $mobileTypeList[] = $term->name;
             }
+            $commaList = implode(', ', $mobileTypeList);
+            echo $commaList;
           ?>
         </h4>
 

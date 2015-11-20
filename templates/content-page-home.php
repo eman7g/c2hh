@@ -14,8 +14,8 @@
 
 		</div>
 
-    <div class="home-grid">
-    	<div class="row-flex">
+    <div class="home-grid hidden-xs">
+    	<div class="row row-flex">
     		<div class="col-sm-8 col-flex">
           <div class="block large image">
             <?php 
