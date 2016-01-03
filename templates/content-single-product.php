@@ -119,7 +119,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
             
           <div class="col-sm-10">
             <ul class="social-links">
-              <li><a class="links contact" href="mailto:<?php the_field('representative_email');?>">Contact A Representative</a></li>
+              <li><a class="links contact" href="mailto:<?php the_field('representative_email');?>">Questions? Email</a></li>
+              <li><a class="links call" title="1-844-438-2244" href="tel:1-844-438-2244">Questions? Call <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span></a></li>
               <li>
                   <!-- AddToAny BEGIN -->
                   <div class="a2a_kit a2a_default_style">
@@ -256,7 +257,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
             </div>
                 
             <ul class="social-links">
-              <li><a class="links contact" href="mailto:<?php the_field('representative_email');?>">Contact A Representative</a></li>
+              <li><a class="links contact" href="mailto:<?php the_field('representative_email');?>">Questions? Email</a></li>
+              <li><a class="links call" title="1-844-438-2244" href="tel:1-844-438-2244">Questions? Call <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span></a></li>
               <li>
                   <!-- AddToAny BEGIN -->
                   <div class="a2a_kit a2a_default_style">

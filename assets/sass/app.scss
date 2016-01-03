@@ -33,7 +33,7 @@
 
 // Components: common
 @import "bootstrap/component-animations";
-//@import "bootstrap/glyphicons";
+@import "bootstrap/glyphicons";
 @import "bootstrap/dropdowns";
 ////@import "bootstrap/button-groups";
 ////@import "bootstrap/input-groups";
@@ -222,7 +222,8 @@ header .container{
                padding:12px 0;
                li{
                   a{
-                     text-align:center;
+                     text-align:left;
+                     padding: 0 10px;
                      color:$gray;
 
                      &:hover{
@@ -1217,6 +1218,16 @@ header .container{
 
                span{
                   display:none;
+               }
+            }
+
+            &.call {
+               position: relative;
+
+               .glyphicon {
+                  position: absolute;
+                  right: 0;
+                  font-size: 16px;
                }
             }
 

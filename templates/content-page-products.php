@@ -49,7 +49,7 @@ if (isset($wp_query->query_vars['product_type'])) $product_type = esc_attr($wp_q
 <div class="row">
 	<div class="page-header">
 		<h1 class="page-title">Shop Products</h1>
-		<a class="product-types-links" href="<?php echo esc_url( get_permalink( get_page_by_title( 'Product Types' ) ) ); ?>">Product Types Defined</a>
+		<a class="product-types-links" href="<?php echo esc_url( get_permalink( get_page_by_title( 'Product Types' ) ) ); ?>">Emergency Product Types Defined</a>
 	</div>
 
 	<div class="product-filters">
