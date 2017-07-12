@@ -535,3 +535,75 @@ echo '
 </style>
 ';
 }
+
+/*
+****************************************************************
+* Mailchimp subscribe cookie
+****************************************************************/
+
+/**
+ * Set a cookie whenever someone subscribes
+ */
+add_action( 'mc4wp_form_subscribed', function() {
+  if ( !isset($_COOKIE['mc4wp_subscribed'])) {
+    setcookie( 'mc4wp_subscribed', 1, time() + 3600 * 24 * 90, '/' );
+  }
+});
+
+add_action( 'mc4wp_form_error_already_subscribed', function() {
+  if ( !isset($_COOKIE['mc4wp_already_subscribed'])) {
+    setcookie( 'mc4wp_already_subscribed', 1, time() + 3600 * 24 * 90, '/' );
+  }
+});
+
+/**
+ * Prints CSS that hides the MailChimp for WordPress form if the "subscribed" cookie is set.
+ */
+add_action( 'wp_head', function() {
+  if( isset( $_COOKIE['mc4wp_subscribed'] ) || isset( $_COOKIE['mc4wp_already_subscribed'] ) )  {
+    ?>
+    <script>
+      // console.log('mc4wp_subscribed set');
+      // Boxzilla.dismiss();
+    </script>
+    <style type="text/css">
+      .boxzilla-container {
+        display: none !important;
+      }
+      #boxzilla-overlay {
+        display: none !important;
+      }
+    </style>
+    <?php
+  }
+}, 70 );
+
+/*
+****************************************************************
+* FB Pixel script
+****************************************************************/
+
+// add_action('wp_head', 'wp_add_fbpixel');
+
+function wp_add_fbpixel() { ?>
+  <!-- Facebook Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window,document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+   fbq('init', '191050931389438'); 
+  fbq('track', 'PageView');
+  </script>
+  <noscript>
+   <img height="1" width="1" 
+  src="https://www.facebook.com/tr?id=191050931389438&ev=PageView
+  &noscript=1"/>
+  </noscript>
+  <!-- End Facebook Pixel Code -->
+
+<?php } ?>

@@ -52,6 +52,32 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
         </div>
       <?php endif ?>
 
+      <?php if( have_rows('videos') ): ?>
+        <div class="product-videos">
+          <?php while( have_rows('videos') ): the_row(); 
+            // vars
+            $video_type = get_sub_field('video_type');
+            $video_link = get_sub_field('video_link');
+            $video_upload = get_sub_field('video_upload');
+            $video_thumb = get_sub_field('video_thumbnail');
+            ?>
+            <div class="product-video">
+              <div class="product-video-inner">
+                <?php if ($video_type == "Video Link") : ?>
+                  <?php echo $video_link; ?>
+                  <div class="video-container">
+                    <?php echo wp_oembed_get( $video_link ); ?>
+                  </div>
+                <?php elseif ($video_type == "Video Upload") : ?>
+                  <?php echo do_shortcode('[videojs_video url="'.$video_upload.'" poster="'.$video_thumb.'"]'); ?>
+                <?php endif ?>
+              </div>
+            </div>
+          <?php endwhile; ?>
+        </div>
+      <?php endif ?>
+
+
       <?php $terms = get_the_terms( $post->ID, 'attribute' );?>
 
       <?php if (!empty($terms)) : ?>
@@ -102,7 +128,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
         </div>
 
         <div class="row">
-          <div class="col-sm-6">
+          <div class="col-sm-6 hide">
             <?php 
               //woocommerce_get_template( 'loop/add-to-cart.php' );
             ?>
@@ -119,8 +145,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
             
           <div class="col-sm-10">
             <ul class="social-links">
-              <li><a class="links contact" href="mailto:<?php the_field('representative_email');?>">Questions? Email</a></li>
-              <li><a class="links call" title="1-844-438-2244" href="tel:1-844-438-2244">Questions? Call <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span></a></li>
+              <li><a class="links contact" target="_blank" href="mailto:<?php the_field('representative_email');?>?subject=Questions about <?php the_title(); ?>">Questions? Email</a></li>
+              <li><a class="links call" title="1-844-438-2244" href="tel:1-844-438-2244"><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> Questions? Call</a></li>
               <li>
                   <!-- AddToAny BEGIN -->
                   <div class="a2a_kit a2a_default_style">

@@ -903,7 +903,8 @@ header .container{
 /* ==========================================================================
    Products
    ========================================================================== */
-.products{
+.products,
+.tiny-homes, {
 
    .sidebar{
       display:none;
@@ -1139,6 +1140,10 @@ header .container{
          float:none;
          padding:0;
          text-transform:uppercase;
+
+         p {
+            margin-top: 5px;
+         }
       }
 
       h4{
@@ -1171,6 +1176,10 @@ header .container{
          ul{
             padding:12px 10px 0 20px;
          }
+
+         &.social-links {
+            padding-left: 0;
+         }
       }
 
    }
@@ -1201,19 +1210,19 @@ header .container{
             line-height:20px;
             font-size:14px;
             color:$gray-darker;
-            padding-right:30px;
-            text-align:right;
+            padding-left:30px;
+            text-align:left;
             text-decoration:none;
 
             &.contact{
-               background: url('../img/icons/email_icon.png') no-repeat right center;
+               background: url('../img/icons/email_icon.png') no-repeat left center;
             }
             &.share{
-               background: url('../img/icons/share.png') no-repeat right center;
+               background: url('../img/icons/share.png') no-repeat left center;
             }
 
             &.a2a_dd{
-               background: url('../img/icons/share.png') no-repeat right center;
+               background: url('../img/icons/share.png') no-repeat left center;
                float:none;
 
                span{
@@ -1226,7 +1235,7 @@ header .container{
 
                .glyphicon {
                   position: absolute;
-                  right: 0;
+                  left: 0;
                   font-size: 16px;
                }
             }
@@ -1338,6 +1347,10 @@ header .container{
       #product-accordion{
          margin-left:30px;
       }
+   }
+
+   .product-video {
+      margin: 0 0 40px;
    }
 
 }
@@ -2441,7 +2454,7 @@ header .container{
             padding-left:30px;
          }
       }
-   }   
+   }
 }
 
 .gform_wrapper{
@@ -2726,6 +2739,83 @@ header .container{
       line-height:23px;
       text-align:center;
    }
+
+   .mc4wp-response {
+      padding: 0 0 0 0;
+      color: #999;
+      font-size: 12px;
+   }
+
+   .mc4wp-form-fields {
+
+      .gform_wrapper {
+         width: 400px;
+         padding: 20px 0 0 0;
+
+         .top_label .gfield_label {
+            font-weight:700;
+            text-transform:uppercase;
+            font-size:12px;
+            line-height:18px;
+            color:#fff;
+            margin-bottom:10px;
+         }
+
+         .gform_footer {
+            display: none;
+         }
+      }
+   }
+
+   .mc4wp-response {
+      padding: 0;
+
+      p{
+         font-size: 12px;
+         color: #999;
+      }
+   }
+}
+
+.mc4wp-form-fields  {
+
+   .gform_wrapper {
+      max-width: 100%;
+      padding: 20px 10px 0 0;
+      margin: 0;
+   }
+   ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+   }
+
+   label {
+      display: block;
+      line-height: 1.3;
+      margin-bottom: 10px;
+   }
+
+   .ginput_container {
+      margin-top: 8px;
+   }
+
+   input {
+      font-size: inherit;
+      font-family: inherit;
+      padding: 5px 4px;
+      width: 98%;
+      color: #333;
+      border: 1px solid #ccc;
+      background: #fafafa;
+      border-radius: 3px;
+      -webkit-border-radius: 3px;
+      font-weight: 300;
+   }
+}
+
+.mc4wp-response {
+   padding: 20px 20px 0;
 }
 
 /* ==========================================================================
@@ -3307,7 +3397,8 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
    Media Queries
    ========================================================================== */
 @media (min-width: 320px) and (max-width: 480) {
-   .products{
+   .products,
+   .tiny-homes{
       .product-filters{
          fieldset{
             .radio-inline{
@@ -3321,7 +3412,8 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 
 //Product Small viewport up to 767
 @media (min-width: 320px) and (max-width: $screen-xs-max) {
-   .products{
+   .products,
+   .tiny-homes{
       .product-filters {
          fieldset {
             padding-bottom:0;
@@ -3502,7 +3594,8 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 
 
    /* Product Page */
-   .products{
+   .products,
+   .tiny-homes{
       .page-header{
          @include clearfix;
          padding:30px 15px;
@@ -3656,6 +3749,10 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
          h2{
             margin-left:0;
          }
+      }
+
+      .product-video{
+         margin: 0 0 20px;
       }
 
       form.cart{
@@ -3829,6 +3926,25 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 
 }
 
+.video-container {
+   position: relative;
+   padding-bottom: 56.25%;
+   height: 0;
+   overflow: hidden;
+   max-width: 100%;
+   height: auto;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+}
+
 //Tablet Size
 @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
    
@@ -3880,7 +3996,8 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
    }
 
    /* Products page */
-   .products {
+   .products,
+   .tiny-homes {
       .product-filters {
          fieldset {
             .radio-inline{

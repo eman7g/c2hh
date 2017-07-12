@@ -113,7 +113,7 @@ var C2HH = {
     }
   },
   // products page
-  products: {
+  tiny_homes: {
 
     init: function() {
 
@@ -234,6 +234,10 @@ var equalheight = function(container){
 
 $(window).load(function() {
   //equalheight('.block-column');
+
+  /*mc4wp.forms.on('success', function() {
+    Boxzilla.dismiss();
+  });*/
 });
 
 

@@ -61,6 +61,9 @@
 
 		</div>
 		<div class="row">
+			<?php echo do_shortcode('[mc4wp_form]'); ?>
+		</div>
+		<div class="row">
 			<hr>
 		</div>
 		<p class="copy"><?php echo get_theme_mod( 'footer_copyright' ); ?></p>

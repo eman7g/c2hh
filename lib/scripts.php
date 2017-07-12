@@ -11,7 +11,7 @@
  * 3. /theme/assets/js/main.min.js (in footer)
  */
 function roots_scripts() {
-  wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/app.css', false, '040022561084ee780c07911d156de955');
+  wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/app.css', false, 'ed1b6a2599a28299289b7b4b0ad8431d');
 
 
   $params = array(
@@ -33,7 +33,7 @@ function roots_scripts() {
   }
 
   wp_register_script('modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr-2.6.2.min.js', false, null, false);
-  wp_register_script('roots_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', false, 'f9a0c7265d989659592ea535bd9feba3', true);
+  wp_register_script('roots_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', false, 'acec14a3af8e71c0b28c19da5e4feef9', true);
 
   wp_enqueue_script('modernizr');
   wp_enqueue_script('jquery');
